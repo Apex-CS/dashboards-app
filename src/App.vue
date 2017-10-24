@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/intersys.svg" width="50%" height="50%">    
     <router-view/>
   </div>
 </template>
