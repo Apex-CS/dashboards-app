@@ -57,7 +57,8 @@
         readOnly: true
       },
       {
-        type: 'numeric'
+        type: 'numeric',
+        format: '0.00'
       },
       {
         type: 'numeric',
