@@ -1,5 +1,5 @@
-# Interys-sales-man
-A Vue.js Application to help Intersys Salesman's to make more accurate estimates of a project
+# Intersys-sales-man
+A Vue.js Application to help Intersys Salesmans to make more accurate estimates of a project
 
 ## How to start
 `git clone https://github.com/IntersysConsulting/Intersys-sales-man.git`  

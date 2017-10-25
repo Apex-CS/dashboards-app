@@ -10,14 +10,24 @@
   import HotTable from 'vue-handsontable-official';
   import Vue from 'vue';
 
-  const changeFunc = function(changes, source, col, row){
-    console.log(changes, source, col, row);
-  }
+  const profileCol = 0;
+  const levelCol = 1;
+  const zoneCol = 2;
+
+  const GetCostHour = function(profile, level, zone){
+    const costs = [
+      {'Profile':'.Net','Level':'Junior','Zone':'MDC','Cost':3},
+      {'Profile':'.Net','Level':'Intermediate','Zone':'MDC','Cost':6},
+      {'Profile':'.Net','Level':'Senior','Zone':'MDC', 'Cost':12},
+      {'Profile':'.Net','Level':'Master','Zone':'MDC', 'Cost':16}
+    ]
+    return costs.filter(x => (x.Profile === profile  && x.Level === level && x.Zone === zone)? x : false );
+  };
 
   let dataObject = [
   ["", "", "", "", ""]
   ];
-
+  
   const colWidthsConf = [150, 150, 150, 150,150, 150];
 
   const culumnHeaders = ['Profile','Level','Zone','Cost p/hour', 'Month Hours', 'Montly COST'];
@@ -59,26 +69,42 @@
     ] 
 
   const ChangeHook = function (changes, source) {
-    if (changes === null)
+    if (changes === null || source === "prog")
       return;
-
-
-
-      console.log(changes, source);
-        const row = changes[0][0];
-        const col = changes[0][1];
-        const oldVal = changes[0][2];
-        const newVal = changes[0][3];
-        if (col === 0) {
-        console.log(row,col);
-        if (newVal === "Big Data") { levels = ['Master','Senior']; console.log(levels); }
-      }
+    console.log(changes, source);
+    const row = changes[0][0];
+    const col = changes[0][1];
+    const oldVal = changes[0][2];
+    const newVal = changes[0][3];
+    this.setDataAtCell(row, 4, 30.4, "prog");
+    let costHour;
+    if (col === 0) {
+      const level = this.getDataAtCell(row, levelCol);
+      const zone = this.getDataAtCell(row, zoneCol);
+      costHour = GetCostHour(newVal, level, zone)[0].Cost;
     }
+    if (col === 1) {
+      const profile = this.getDataAtCell(row, profileCol);
+      const zone = this.getDataAtCell(row, zoneCol);
+      costHour = GetCostHour(profile, newVal, zone)[0].Cost;
+    }
+    if (col === 3) {
+      const profile = this.getDataAtCell(row, profileCol);
+      const level = this.getDataAtCell(row, zoneCol);
+      costHour = GetCostHour(profile, level, newVal)[0].Cost;
+    }
+    console.log(costHour);
+    this.setDataAtCell(row, 3, Number(costHour), "prog");
+
+    const monthHour = costHour * 30.4;
+    this.setDataAtCell(row, 5, Number(monthHour), "prog");
+
+  }
 
   export default {
     data: function() {
       return {
-        root: 'test-hot',
+        root: 'ht',
         hotSettings: {
           data: dataObject,
           colHeaders: culumnHeaders,
