@@ -72,33 +72,42 @@
   const ChangeHook = function (changes, source) {
     if (changes === null || source === "prog")
       return;
-    console.log(changes, source);
     const row = changes[0][0];
     const col = changes[0][1];
     const oldVal = changes[0][2];
     const newVal = changes[0][3];
     this.setDataAtCell(row, 4, 30.4, "prog");
     let costHour;
+    try {
     if (col === 0) {
       const level = this.getDataAtCell(row, levelCol);
       const zone = this.getDataAtCell(row, zoneCol);
       costHour = GetCostHour(newVal, level, zone)[0].Cost;
     }
     if (col === 1) {
+
       const profile = this.getDataAtCell(row, profileCol);
       const zone = this.getDataAtCell(row, zoneCol);
       costHour = GetCostHour(profile, newVal, zone)[0].Cost;
     }
-    if (col === 3) {
+    if (col === 2) {
       const profile = this.getDataAtCell(row, profileCol);
-      const level = this.getDataAtCell(row, zoneCol);
+      const level = this.getDataAtCell(row, levelCol);
       costHour = GetCostHour(profile, level, newVal)[0].Cost;
     }
-    console.log(costHour);
-    this.setDataAtCell(row, 3, Number(costHour), "prog");
 
-    const monthHour = costHour * 30.4;
-    this.setDataAtCell(row, 5, Number(monthHour), "prog");
+    } catch (error) {
+      console.log("Combination doesn't exists");
+    }
+    finally {
+      costHour = costHour !== undefined ? costHour : 0;
+      console.log(costHour);
+      this.setDataAtCell(row, 3, Number(costHour), "prog");
+
+      const monthHour = costHour * 30.4;
+      this.setDataAtCell(row, 5, Number(monthHour), "prog");
+    }
+
 
   }
 
