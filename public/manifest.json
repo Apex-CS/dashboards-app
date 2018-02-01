@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Intersys Demo App",
+  "name": "This is a demo application property of Intersys Consulting",
   "icons": [
     {
       "src": "favicon.ico",
