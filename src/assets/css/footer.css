@@ -1,21 +1,16 @@
 .footer {
-    position: fixed;
+    position: relative;
+    height: 69px;
     left: 0;
-    bottom: 0;
+    bottom: 0%;
     width: 100%;
     background-color: #38435a;
-    text-align: center;
-    padding-right: 15px;
+    padding: 8px;
+    padding-right: 20px;
+    margin-top: 12%;
  }
 
- .menu {
-     float: left;
- }
- .copyright {
-     float: right;
-     color: #eee;
-     padding: 15px 30px;
- }
+.menu { float: left; }
 
 ul {
     list-style-type: none;
@@ -24,21 +19,22 @@ ul {
     overflow: hidden;
 }
 
-li {
-    float: left;
-}
+li { float: right; }
 
 li a {
     display: block;
     color: white;
-    text-align: center;
     padding: 16px;
-    text-decoration: none;
-    border-left: 1px solid transparent;
 }
 
-li a:hover {
-    border-radius: 4px;
-    background-color: #424f6a;
-    /*border-left: 1px solid #e9454b;*/
-}
+li a:hover { background-color: #424f6a; }
+ 
+ .copyright {
+     padding: 12px;
+     background-color: #e1f0fc;
+     margin-top: 3px;
+     text-align: center;
+     color: #38435a;
+     font-weight: bold;
+     font-size: 14px;
+ }
