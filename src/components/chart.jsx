@@ -12,14 +12,16 @@ import {
   VerticalBarSeries,
   MarkSeries,
   AreaSeries,
-  GradientDefs
+  GradientDefs,
+  Hint
 } from "react-vis";
+import {Colors} from '../assets/theme';
 
-const i_green = '#72C168';
-const i_blue = '#146CB5';
+const {i_blue, i_green} = Colors;
 
 class Chart extends Component {
-  state = { typeOfChart: "line" };
+  ASPECT_RATIO = 1.2;
+  state = { typeOfChart: "line", hintValue: {}, visSize: 500 };
   data1 = [
     { x: 0.5, y: 8.2 },
     { x: 1, y: 5 },
@@ -45,7 +47,7 @@ class Chart extends Component {
     { x: 9, y: 7 }
   ];
   CHARTS = ['line', 'bar', 'area','gradient', 'dot'];
-
+  
   chartOptions = _.map(this.CHARTS, chart => (
     <NavItem
       key={chart}
@@ -58,11 +60,17 @@ class Chart extends Component {
     </NavItem>
   ));
 
+  constructor(props){
+    super(props);
+    this._onMouseLeave = this._onMouseLeave.bind(this);
+    this._onNearestX = this._onNearestX.bind(this);
+  }
   renderChart() {
     if (this.state.typeOfChart === "line") {
       return [
         <LineSeries color={i_blue} animation data={this.data1} style={{strokeWidth: 5}} />,
-        <LineSeries color={i_green} animation data={this.data2} style={{strokeWidth: 5}} />
+        <LineSeries color={i_green} animation data={this.data2} style={{strokeWidth: 5}} />,
+        
       ];
     }
     if (this.state.typeOfChart === "bar") {
@@ -90,7 +98,17 @@ class Chart extends Component {
     ];
   }
 
+  _onNearestX(value, {index}) {
+    console.log(index);
+    this.setState({hintValue: this.data1.map(d => d[index])[0]});
+  }
+
+  _onMouseLeave() {
+    console.log('leave');
+    this.setState({hintValue: {}});
+  }
   render() {
+    const {visSize} = this.state;
     return (
       <div>
         <Dropdown trigger={<Button>Select the type of chart!</Button>}>
@@ -98,7 +116,7 @@ class Chart extends Component {
         </Dropdown>
        
        
-        <XYPlot height={500} width={500}>
+        <XYPlot height={visSize * this.ASPECT_RATIO} width={visSize} onMouseLeave={this._onMouseLeave}>
           <GradientDefs>
             <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
               <stop offset="0%" stopColor={i_green} stopOpacity={0.5}/>
@@ -113,6 +131,14 @@ class Chart extends Component {
           <YAxis />
           {this.renderChart()}
         </XYPlot>
+        {`Visualization size: ${visSize}`}
+        <input
+          onChange={e => this.setState({ visSize: e.target.value })}
+          type="range"
+          min={100}
+          max={1000}
+          value={visSize}
+        />
       </div>
     );
   }
