@@ -1,0 +1,15 @@
+.side-nav {
+    top:auto;
+    margin-top: 10px;
+}
+.sideMenu {
+    height: 100%
+}
+
+.buttonSideMenu {
+    position: fixed;
+    top: 46%;
+    height: 80px;
+    padding: 20px;
+    margin-left: -50px;
+}

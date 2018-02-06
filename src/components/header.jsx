@@ -5,11 +5,11 @@ import '../assets/css/header.css';
 
 class Header extends Component {
   render() {
-    return( 
-        
-    <Navbar brand='logo' right>
-        <NavItem href='get-started.html'>Getting started</NavItem>
-        <NavItem href='components.html'>Components</NavItem>
+    return(    
+    <Navbar className='top-menu'>
+        <NavItem href='#'><img className='navigation-logo' src={logo}/></NavItem>
+        <NavItem href='#'>Graphics</NavItem>
+        <NavItem href='#'>?</NavItem>
     </Navbar>
     );
   }
