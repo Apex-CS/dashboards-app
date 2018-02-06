@@ -21,30 +21,34 @@ const {i_blue, i_green} = Colors;
 
 class Chart extends Component {
   ASPECT_RATIO = 1.2;
-  state = { typeOfChart: "line", hintValue: {}, visSize: 500 };
+  state = { typeOfChart: "bar", hintValue: {}, visSize: 500 };
   data1 = [
-    { x: 0.5, y: 8.2 },
-    { x: 1, y: 5 },
-    { x: 2, y: 4 },
+    { x: 0, y: 28 },
+    { x: 1, y: 31 },
+    { x: 2, y: 4.2 },
     { x: 3, y: 9 },
-    { x: 4, y: 1 },
-    { x: 5, y: 7 },
-    { x: 6, y: 6 },
-    { x: 7, y: 3 },
-    { x: 8, y: 2 },
-    { x: 9, y: 0 }
+    { x: 4, y: 8 },
+    { x: 5, y: 1 },
+    { x: 6, y: 7 },
+    { x: 7, y: 6 },
+    { x: 8, y: 3 },
+    { x: 9, y: 2 },
+    { x: 10, y: 1 },
+    { x: 11, y: 15 },
   ];
   data2 = [
-    { x: 0, y: 3 },
-    { x: 1, y: 6 },
-    { x: 2, y: 8 },
-    { x: 3, y: 3 },
-    { x: 4, y: 9 },
-    { x: 5, y: 0 },
-    { x: 6, y: 4 },
-    { x: 7, y: 7 },
-    { x: 8, y: 1 },
-    { x: 9, y: 7 }
+    { x: 0, y: 2 },
+    { x: 1, y: 8 },
+    { x: 2, y: 12 },
+    { x: 3, y: 22 },
+    { x: 4, y: 21 },
+    { x: 5, y: 10 },
+    { x: 6, y: 7 },
+    { x: 7, y: 6 },
+    { x: 8, y: 30 },
+    { x: 9, y: 21 },
+    { x: 10, y: 1 },
+    { x: 11, y: 10 },
   ];
   CHARTS = ['line', 'bar', 'area','gradient', 'dot'];
   
@@ -107,13 +111,16 @@ class Chart extends Component {
     console.log('leave');
     this.setState({hintValue: {}});
   }
+
+  
   render() {
     const {visSize} = this.state;
+    const MESES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return (
       <div>
         <Dropdown trigger={<Button>Select the type of chart!</Button>}>
           {this.chartOptions}
-        </Dropdown>
+        </Dropdown><br />
        
        
         <XYPlot height={visSize * this.ASPECT_RATIO} width={visSize} onMouseLeave={this._onMouseLeave}>
@@ -127,10 +134,12 @@ class Chart extends Component {
           </GradientDefs>
           <VerticalGridLines />
           <HorizontalGridLines />
-          <XAxis />
-          <YAxis />
+          <XAxis tickFormat={x => MESES[x]} tickLabelAngle={-45} />
+          
+          <YAxis tickFormat={p => '$' + p} />
           {this.renderChart()}
         </XYPlot>
+
         {`Visualization size: ${visSize}`}
         <input
           onChange={e => this.setState({ visSize: e.target.value })}
