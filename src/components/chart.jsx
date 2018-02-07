@@ -21,7 +21,7 @@ const i_blue = '#146CB5';
 class Chart extends Component {
   state = { typeOfChart: "line" };
   data1 = [
-    { x: 0.5, y: 8.2 },
+    { x: 0.5, y: 1 },
     { x: 1, y: 5 },
     { x: 2, y: 4 },
     { x: 3, y: 9 },
