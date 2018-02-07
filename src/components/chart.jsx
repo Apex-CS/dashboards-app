@@ -34,6 +34,7 @@ class Chart extends Component {
     hoveredPoint: false
   };
   data1 = [
+
     { x: 0, y: 28 },
     { x: 1, y: 31 },
     { x: 2, y: 4.2 },
