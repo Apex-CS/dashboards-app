@@ -1,7 +1,13 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import '../assets/css/chart.css';
-import { Button, Dropdown, NavItem, Collection, CollectionItem } from "react-materialize";
+import "../assets/css/chart.css";
+import {
+  Button,
+  Dropdown,
+  NavItem,
+  Collection,
+  CollectionItem
+} from "react-materialize";
 import {
   XYPlot,
   XAxis,
@@ -15,13 +21,18 @@ import {
   GradientDefs,
   Hint
 } from "react-vis";
-import {Colors} from '../assets/theme';
+import { Colors } from "../assets/theme";
 
-const {i_blue, i_green} = Colors;
+const { i_blue, i_green } = Colors;
 
 class Chart extends Component {
   ASPECT_RATIO = 1.2;
-  state = { typeOfChart: "bar", hintValue: {}, visSize: 500 };
+  state = {
+    typeOfChart: "line",
+    hintValue: {},
+    visSize: 500,
+    hoveredPoint: false
+  };
   data1 = [
     { x: 0, y: 28 },
     { x: 1, y: 31 },
@@ -50,8 +61,8 @@ class Chart extends Component {
     { x: 10, y: 1 },
     { x: 11, y: 10 },
   ];
-  CHARTS = ['line', 'bar', 'area','gradient', 'dot'];
-  
+  CHARTS = ["line", "bar", "area", "gradient", "dot"];
+
   chartOptions = _.map(this.CHARTS, chart => (
     <NavItem
       key={chart}
@@ -64,72 +75,67 @@ class Chart extends Component {
     </NavItem>
   ));
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this._onMouseLeave = this._onMouseLeave.bind(this);
-    this._onNearestX = this._onNearestX.bind(this);
   }
   renderChart() {
     if (this.state.typeOfChart === "line") {
       return [
-        <LineSeries color={i_blue} animation data={this.data1} style={{strokeWidth: 5}} />,
-        <LineSeries color={i_green} animation data={this.data2} style={{strokeWidth: 5}} />,
-        
+        <LineSeries
+          key="one"
+          color={i_blue}
+          data={this.data1}
+          style={{ strokeWidth: 5 }}
+        />,
+        <LineSeries
+          key="two"
+          color={i_green}
+          data={this.data2}
+          style={{ strokeWidth: 5 }}
+        />
       ];
     }
     if (this.state.typeOfChart === "bar") {
       return [
-        <VerticalBarSeries color={i_blue} animation data={this.data1} />,
-        <VerticalBarSeries color={i_green} animation data={this.data2} />
+        <VerticalBarSeries key="one" color={i_blue}  data={this.data1} />,
+        <VerticalBarSeries key="two" color={i_green}  data={this.data2} />
       ];
     }
     if (this.state.typeOfChart === "area") {
       return [
-        <AreaSeries color={i_blue} animation data={this.data1} />,
-        <AreaSeries color={i_green} animation data={this.data2} />
+        <AreaSeries key="one" color={i_blue}  data={this.data1} />,
+        <AreaSeries key="two" color={i_green}  data={this.data2} />
       ];
     }
     if (this.state.typeOfChart === "gradient") {
       return [
-        <AreaSeries color={'url(#greenGradient)'} animation data={this.data1} />,
-        <AreaSeries color={'url(#blueGradient)'} animation data={this.data2} />
+        <AreaSeries key="one" color={"url(#greenGradient)"} data={this.data1} />,
+        <AreaSeries key="two" color={"url(#blueGradient)"}  data={this.data2} />
       ];
     }
 
     return [
-      <MarkSeries color={i_blue} animation data={this.data1} />,
-      <MarkSeries color={i_green} animation data={this.data2} />
+      <MarkSeries key="one" color={i_blue} data={this.data1} />,
+      <MarkSeries key="two" color={i_green}  data={this.data2} />,
     ];
   }
-
-  _onNearestX(value, {index}) {
-    console.log(index);
-    this.setState({hintValue: this.data1.map(d => d[index])[0]});
-  }
-
-  _onMouseLeave() {
-    console.log('leave');
-    this.setState({hintValue: {}});
-  }
-
   
   render() {
-    const {visSize} = this.state;
     const MESES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const { visSize, hoveredPoint } = this.state;
     return (
       <div>
         <Dropdown trigger={<Button>Select the type of chart!</Button>}>
           {this.chartOptions}
-        </Dropdown><br />
-       
-       
-        <XYPlot height={visSize * this.ASPECT_RATIO} width={visSize} onMouseLeave={this._onMouseLeave}>
+        </Dropdown>
+
+        <XYPlot height={visSize * this.ASPECT_RATIO} width={visSize}>
           <GradientDefs>
             <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_green} stopOpacity={0.5}/>
+              <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
             </linearGradient>
             <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_blue} stopOpacity={0.5}/>
+              <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
             </linearGradient>
           </GradientDefs>
           <VerticalGridLines />
