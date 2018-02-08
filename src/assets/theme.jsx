@@ -3,4 +3,6 @@ const Colors = {
   i_blue: '#146CB5'
 };
 
-export {Colors}
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+export {Colors, MONTHS}

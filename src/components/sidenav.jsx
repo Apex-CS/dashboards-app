@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import {
     Row, 
     Input, 
@@ -8,8 +9,12 @@ import {
     Dropdown,
     NavItem
 } from 'react-materialize'
+=======
+import { Row, Input, Button, Col, Icon } from 'react-materialize'
+>>>>>>> 8bf9e6c2fb9609aac0c15cd9a9e6e57376e0b801
 import logo from '../assets/images/intersys-small.svg';
 import '../assets/css/sidenav.css';
+import { MONTHS } from '../assets/theme'
 
 export default class SideMenu extends Component {
         
@@ -18,6 +23,7 @@ export default class SideMenu extends Component {
         this.chartSelectorHandler = this.chartSelectorHandler.bind(this);
     }
 
+<<<<<<< HEAD
     chartSelectorHandler(e,chartType) {
         e.preventDefault();
         this.props.onChartTypeChange(chartType);
@@ -45,6 +51,16 @@ export default class SideMenu extends Component {
         const years = [2015,2016,2017];
         const yearsOptionList = years.map(function(year) {
             return <option value={year} key={year}>{year}</option>
+=======
+    render() {
+        const monthOptionList = MONTHS.map(function(m) {
+            return <option value={MONTHS[m]}>{m}</option>
+        });
+
+        const years = [2015, 2016, 2017];
+        const yearsOptionList = years.map(function(y) {
+            return <option value={years[y]}>{y}</option>
+>>>>>>> 8bf9e6c2fb9609aac0c15cd9a9e6e57376e0b801
         });
 
         const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
