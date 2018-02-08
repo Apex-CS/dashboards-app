@@ -15,7 +15,7 @@ import {
   GradientDefs,
   Hint
 } from "react-vis";
-import {Colors} from '../assets/theme';
+import { Colors, MONTHS } from '../assets/theme';
 
 const {i_blue, i_green} = Colors;
 
@@ -23,7 +23,6 @@ class Chart extends Component {
   ASPECT_RATIO = 1.2;
   state = { typeOfChart: "bar", hintValue: {}, visSize: 500 };
   data1 = [
-
     { x: 0, y: 28 },
     { x: 1, y: 31 },
     { x: 2, y: 4.2 },
@@ -116,7 +115,6 @@ class Chart extends Component {
   
   render() {
     const {visSize} = this.state;
-    const MESES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     return (
       <div>
         <Dropdown trigger={<Button>Select the type of chart!</Button>}>
@@ -135,7 +133,7 @@ class Chart extends Component {
           </GradientDefs>
           <VerticalGridLines />
           <HorizontalGridLines />
-          <XAxis tickFormat={x => MESES[x]} tickLabelAngle={-45} />
+          <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
           
           <YAxis tickFormat={p => '$' + p} />
           {this.renderChart()}

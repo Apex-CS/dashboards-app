@@ -1,37 +1,17 @@
 import React, { Component } from 'react';
-import {
-    Row, 
-    Input, 
-    Button, 
-    Col,
-    Icon
-} from 'react-materialize'
+import { Row, Input, Button, Col, Icon } from 'react-materialize'
 import logo from '../assets/images/intersys-small.svg';
 import '../assets/css/sidenav.css';
+import { MONTHS } from '../assets/theme'
 
 class SideMenu extends Component {
 
     render() {
-
-        const months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ];
-        const monthOptionList = months.map(function(m) {
-            return <option value={months[m]}>{m}</option>
+        const monthOptionList = MONTHS.map(function(m) {
+            return <option value={MONTHS[m]}>{m}</option>
         });
 
-        const years = [2015,2016,2017];
+        const years = [2015, 2016, 2017];
         const yearsOptionList = years.map(function(y) {
             return <option value={years[y]}>{y}</option>
         });
