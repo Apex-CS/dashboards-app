@@ -4,7 +4,9 @@ import '../assets/css/chart.css';
 import {
   Button,
   Collection,
-  CollectionItem
+  CollectionItem,
+  Row,
+  Col
 } from 'react-materialize';
 import {
   XAxis,
@@ -26,7 +28,6 @@ const { i_blue, i_green } = Colors;
 
 class Chart extends Component {
   state = {
-    typeOfChart: 'line',
     lastDrawLocation: null
   };
   INCOME = {
@@ -146,35 +147,38 @@ class Chart extends Component {
   render() {
     const { lastDrawLocation } = this.state;
     return (
-      <div>
-        <FlexibleWidthXYPlot
-          height={500}
-          animation
-          xDomain={
-            lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]
-          }
-        >
-          <GradientDefs>
-            <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
-            </linearGradient>
-            <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
-            </linearGradient>
-          </GradientDefs>
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
-          <YAxis tickFormat={p => '$' + p} />
-          {this.renderChart()}
-          <Highlight
-            onBrushEnd={area => {
-              this.setState({
-                lastDrawLocation: area
-              });
-            }}
-          />
-        </FlexibleWidthXYPlot>
+      <Row className="chartBox">
+        <Col s={12} ><h1>{this.props.chartType} Chart</h1></Col>
+        <Col s={12}>
+          <FlexibleWidthXYPlot
+            height={500} animation 
+            xDomain={lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]}>
+            
+            {/*For Gradient Chart*/}
+            <GradientDefs>
+              <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
+              </linearGradient>
+              <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
+              </linearGradient>
+            </GradientDefs>
+            
+            <VerticalGridLines />
+            <HorizontalGridLines />
+            {this.renderChart()}
+            <Highlight
+              onBrushEnd={area => {
+                this.setState({
+                  lastDrawLocation: area
+                });
+              }}
+            />
+            <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
+            <YAxis tickFormat={p => '$' + p} />       
+          </FlexibleWidthXYPlot>
+        </Col>
+        
         <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
         <Button
           onClick={() => {
@@ -183,7 +187,7 @@ class Chart extends Component {
         >
           Reset Zoom
         </Button>
-      </div>
+      </Row>
     );
   }
 }
