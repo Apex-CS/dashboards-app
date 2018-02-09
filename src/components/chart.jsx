@@ -164,6 +164,18 @@ class Chart extends Component {
         <Dropdown trigger={<Button>Select the type of chart!</Button>}>
           {this.chartOptions}
         </Dropdown>
+        <div className="pull-right mr-1">
+          <Button
+            onClick={() => {
+              this.setState({ lastDrawLocation: null }); }}
+          >
+            Reset Zoom
+          </Button>
+        </div>
+        <div className="pull-right mt--10 text-center">
+          <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
+        </div>
+        
         <FlexibleWidthXYPlot
           height={500}
           animation
@@ -192,14 +204,7 @@ class Chart extends Component {
             }}
           />
         </FlexibleWidthXYPlot>
-        <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
-        <Button
-          onClick={() => {
-            this.setState({ lastDrawLocation: null });
-          }}
-        >
-          Reset Zoom
-        </Button>
+        
       </div>
     );
   }

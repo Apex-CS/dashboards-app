@@ -1,3 +1,27 @@
-Carousel {
-    margin: 30px;
+.chart {
+    color: white;
+    text-align: center;
+    font-size: 55px;
+    cursor: pointer;
+}
+
+.chart-green { background: linear-gradient(90deg, #72C168, #8dcd85); }
+
+.chart-blue { background: linear-gradient(#73b7ef, #98caf3); }
+
+.chart-green img {
+    border: 10px solid #72C168;
+    border-radius: 50%;
+}
+
+.chart-blue img {
+    border: 10px solid #73b7ef;
+    border-radius: 50%;
+}
+
+.chart h3 { float: left; }
+
+.chart p {
+    text-align: justify;
+    display: inline-block;
 }
