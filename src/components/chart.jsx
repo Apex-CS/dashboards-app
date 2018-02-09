@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import '../assets/css/chart.css';
 import {
   Button,
-  Dropdown,
-  NavItem,
   Collection,
-  CollectionItem
+  CollectionItem,
+  Row,
+  Col, Dropdown
 } from 'react-materialize';
 import {
   XAxis,
@@ -28,7 +28,6 @@ const { i_blue, i_green } = Colors;
 
 class Chart extends Component {
   state = {
-    typeOfChart: 'line',
     lastDrawLocation: null
   };
   INCOME = {
@@ -70,21 +69,8 @@ class Chart extends Component {
     ]
   };
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
-
-  chartOptions = _.map(this.CHARTS, chart => (
-    <NavItem
-      key={chart}
-      onClick={e => {
-        e.preventDefault();
-        this.setState({ typeOfChart: chart });
-      }}
-    >
-      {chart} chart
-    </NavItem>
-  ));
-
   renderChart() {
-    if (this.state.typeOfChart === 'line') {
+    if (this.props.chartType === 'line') {
       return [
         <LineSeries
           key="one"
@@ -100,7 +86,8 @@ class Chart extends Component {
         />
       ];
     }
-    if (this.state.typeOfChart === 'bar') {
+
+    if (this.props.chartType === 'bar') {
       return [
         <VerticalBarSeries
           key="one"
@@ -114,7 +101,7 @@ class Chart extends Component {
         />
       ];
     }
-    if (this.state.typeOfChart === 'area') {
+    if (this.props.chartType === 'area') {
       return [
         <AreaSeries
           key="one"
@@ -128,7 +115,7 @@ class Chart extends Component {
         />
       ];
     }
-    if (this.state.typeOfChart === 'gradient') {
+    if (this.props.chartType === 'gradient') {
       return [
         <AreaSeries
           key="one"

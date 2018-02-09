@@ -9,6 +9,22 @@ import 'font-awesome/css/font-awesome.css';
 import '../node_modules/react-vis/dist/style.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      typeOfChart: "line",
+      initMonth: "January",
+      initYear: "2017",
+      endMonth: "December",
+      endYear: "2017",
+    };
+    this.onChartTypeChange = this.onChartTypeChange.bind(this);
+  }
+
+  onChartTypeChange(newChartType){
+    this.setState({typeOfChart: newChartType});
+  }
+  
   render() {
     return (
       <div>
@@ -19,10 +35,10 @@ class App extends Component {
         </Row>
         <Row>
           <Col s={12} m={3}>
-            <SideMenu />
+            <SideMenu onChartTypeChange={this.onChartTypeChange}/>
           </Col>
           <Col s={12} m={9}>
-            <Chart />
+            <Chart chartType={this.state.typeOfChart} />
           </Col>
         </Row>
         <Row>
