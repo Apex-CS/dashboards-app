@@ -207,12 +207,10 @@ class Chart extends Component {
     const { lastDrawLocation } = this.state;
     return (
       <div>
-        <Dropdown trigger={<Button>Select the type of chart!</Button>}>
-          {this.chartOptions}
-        </Dropdown>
         <div className="pull-right mr-1">
           <Button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               this.setState({ lastDrawLocation: null });
             }}
           >
@@ -232,6 +230,9 @@ class Chart extends Component {
           }}
           onPinchIn={spot => {
             this.pinchInChart(spot.scale);
+          }}
+          onTap={tap => {
+            this.setState({ lastDrawLocation: null });
           }}
           options={{ recognizers: { pinch: { enable: true } } }}>
           <div>
