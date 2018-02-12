@@ -14,7 +14,8 @@ class Slider extends Component {
                     <h3>Line Chart</h3>
                     <p>A line chart or line graph is a type of chart which displays information as a series of data points 
                         called 'markers' connected by straight line segments.
-                        It is a basic type of chart common in many fields.</p>
+                        It is a basic type of chart common in many fields.
+                    </p>
                 </Col>
             </Row>
 
@@ -53,6 +54,18 @@ class Slider extends Component {
                         An area chart or area graph displays graphically quantitative data. 
                         It is based on the line chart. The area between axis and line are commonly emphasized with colors, 
                         textures and hatchings. Commonly one compares with an area chart two or more quantities.</p>
+                </Col>
+            </Row>
+
+            <Row className="chart chart-green">
+                <Col l={3}>
+                    <img src="https://peltiertech.com/images/2016-01/ScatterDotPlot.png" />
+                </Col>
+                <Col l={7}>
+                    <h3>Dot Chart</h3>
+                    <p>
+                        A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles. 
+                    </p>
                 </Col>
             </Row>
 
