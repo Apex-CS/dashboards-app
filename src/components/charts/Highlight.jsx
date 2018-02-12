@@ -17,6 +17,10 @@ class Highlight extends AbstractSeries {
     startLoc: 0
   };
 
+  componentDidMount(){
+    this.props.passProps(this.props);
+  }
+
   _getDrawArea(loc) {
     const {innerWidth} = this.props;
     const {drawArea, startLoc} = this.state;

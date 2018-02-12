@@ -19,16 +19,22 @@ import {
   AreaSeries,
   GradientDefs,
   FlexibleWidthXYPlot,
-  DiscreteColorLegend
+  DiscreteColorLegend,
+  ScaleUtils
 } from 'react-vis';
 import { Colors, MONTHS } from '../assets/theme';
 import Highlight from './charts/Highlight';
+import Hammer from 'react-hammerjs';
 
 const { i_blue, i_green } = Colors;
 
 class Chart extends Component {
   state = {
-    lastDrawLocation: null
+    lastDrawLocation: null,
+    inheritProps: {},
+    center: 0,
+    baseVal: 0
+
   };
   INCOME = {
     title: 'Income',
@@ -144,6 +150,31 @@ class Chart extends Component {
     ];
   }
 
+  assignProps(props) {
+    this.setState({ inheritProps: props });
+  }
+
+  pinchChart(scale) {
+    const { center, baseVal, inheritProps } = this.state;
+    const drawArea = {
+      top: 0,
+      bottom: 500,
+      right: center + ((baseVal / scale) / 2),
+      left: center - ((baseVal / scale) / 2),
+    }
+    const xScale = ScaleUtils.getAttributeScale(inheritProps, 'x');
+    const yScale = ScaleUtils.getAttributeScale(inheritProps, 'y');
+
+    const domainArea = {
+      top: yScale.invert(drawArea.top),
+      right: xScale.invert(drawArea.right),
+      bottom: yScale.invert(drawArea.bottom),
+      left: xScale.invert(drawArea.left)
+
+    }
+    this.setState({ lastDrawLocation: domainArea });
+  }
+
   render() {
     const { lastDrawLocation } = this.state;
     return (
@@ -154,7 +185,8 @@ class Chart extends Component {
         <div className="pull-right mr-1">
           <Button
             onClick={() => {
-              this.setState({ lastDrawLocation: null }); }}
+              this.setState({ lastDrawLocation: null });
+            }}
           >
             Reset Zoom
           </Button>
@@ -162,36 +194,49 @@ class Chart extends Component {
         <div className="pull-right mt--10 text-center">
           <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
         </div>
-        
-        <FlexibleWidthXYPlot
-          height={500}
-          animation
-          xDomain={
-            lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]
-          }
-        >
-          <GradientDefs>
-            <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
-            </linearGradient>
-            <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
-            </linearGradient>
-          </GradientDefs>
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
-          <YAxis tickFormat={p => '$' + p} />
-          {this.renderChart()}
-          <Highlight
-            onBrushEnd={area => {
-              this.setState({
-                lastDrawLocation: area
-              });
-            }}
-          />
-        </FlexibleWidthXYPlot>
-        
+        <Hammer
+          onPinchStart={initialSpot => {
+            this.setState({ center: initialSpot.center.x, baseVal: initialSpot.target.width.baseVal.value })
+          }}
+          onPinch={spot => {
+            this.pinchChart(spot.scale);
+          }}
+          options={{ recognizers: { pinch: { enable: true } } }}>
+          <div>
+            <FlexibleWidthXYPlot
+              height={500}
+              animation
+              xDomain={
+                lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]
+              }
+            >
+              <GradientDefs>
+                <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
+                </linearGradient>
+                <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
+                </linearGradient>
+              </GradientDefs>
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
+              <YAxis tickFormat={p => '$' + p} />
+              {this.renderChart()}
+              <Highlight
+                onBrushEnd={area => {
+                  this.setState({
+                    lastDrawLocation: area
+                  });
+                }}
+                passProps={props => {
+                  this.assignProps(props);
+                }}
+              />
+            </FlexibleWidthXYPlot>
+          </div>
+        </Hammer>
+
       </div>
     );
   }
