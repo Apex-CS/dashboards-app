@@ -1,0 +1,31 @@
+.footer {
+    position: relative;
+    height: 69px;
+    left: 0;
+    bottom: 0%;
+    width: 100%;
+    background-color: #494f55;
+    padding: 8px;
+    padding-right: 20px;
+    margin-top: 10%; }
+
+.menu { float: left; }
+
+ul { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    overflow: hidden; }
+
+li { float: right; }
+
+.menu li a { display: block; padding: 16px; }
+
+.menu li a:hover { color: #72C168 !important; }
+ 
+.copyright { 
+    padding: 12px; 
+    margin-top: 3px; 
+    text-align: center; 
+    color: #146CB5; 
+    font-size: 14px; }

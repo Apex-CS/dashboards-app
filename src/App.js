@@ -1,18 +1,56 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/header.jsx'
+import SideMenu from './components/sidenav.jsx'
+import Footer from './components/footer.jsx'
+import Chart from './components/chart.jsx'
+import {Row, Col} from 'react-materialize'
+
+import 'font-awesome/css/font-awesome.css';
+import '../node_modules/react-vis/dist/style.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      typeOfChart: "line",
+      initMonth: "January",
+      initYear: "2017",
+      endMonth: "December",
+      endYear: "2017",
+    };
+    this.onChartTypeChange = this.onChartTypeChange.bind(this);
+    this.onRangeSelection = this.onRangeSelection.bind(this);
+  }
+
+  onChartTypeChange(newChartType){
+    this.setState({typeOfChart: newChartType});
+  }
+  
+  onRangeSelection () {
+
+  }
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Row>
+          <Col s={12}>
+            <Header />
+          </Col>
+        </Row>
+        <Row>
+          <Col s={12} m={3}>
+            <SideMenu onChartTypeChange={this.onChartTypeChange} onRangeSelection={this.onRangeSelection}/>
+          </Col>
+          <Col s={12} m={9}>
+            <Chart chartType={this.state.typeOfChart} />
+          </Col>
+        </Row>
+        <Row>
+          <Col s={12}>
+            <Footer />
+          </Col>
+         </Row>
       </div>
     );
   }
