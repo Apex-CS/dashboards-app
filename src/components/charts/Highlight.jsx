@@ -79,7 +79,7 @@ class Highlight extends AbstractSeries {
       onBrushEnd(null);
       return;
     }
-
+    console.log(this.props);
     const domainArea = {
       top: yScale.invert(drawArea.top),
       right: xScale.invert(drawArea.right),

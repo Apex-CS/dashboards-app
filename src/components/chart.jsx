@@ -13,7 +13,7 @@ import {
   YAxis,
   HorizontalGridLines,
   VerticalGridLines,
-  LineSeries,
+  LineMarkSeries,
   VerticalBarSeries,
   MarkSeries,
   AreaSeries,
@@ -34,8 +34,9 @@ class Chart extends Component {
     inheritProps: {},
     center: 0,
     baseVal: 0
-
   };
+  xDomain = [];
+
   INCOME = {
     title: 'Income',
     color: i_blue,
@@ -78,17 +79,17 @@ class Chart extends Component {
   renderChart() {
     if (this.props.chartType === 'line') {
       return [
-        <LineSeries
+        <LineMarkSeries
           key="one"
           color={this.INCOME.color}
           data={this.INCOME.data}
-          style={{ strokeWidth: 5 }}
+          style={{ strokeWidth: 3 }}
         />,
-        <LineSeries
+        <LineMarkSeries
           key="two"
           color={this.OUTCOME.color}
           data={this.OUTCOME.data}
-          style={{ strokeWidth: 5 }}
+          style={{ strokeWidth: 3 }}
         />
       ];
     }
@@ -154,13 +155,13 @@ class Chart extends Component {
     this.setState({ inheritProps: props });
   }
 
-  pinchChart(scale) {
+  pinchOutChart(scale) {
     const { center, baseVal, inheritProps } = this.state;
     const drawArea = {
       top: 0,
       bottom: 500,
-      right: center + ((baseVal / scale) / 2),
-      left: center - ((baseVal / scale) / 2),
+      right: Math.min(center + ((baseVal / scale) / 2), baseVal),
+      left: Math.max(center - ((baseVal / scale) / 2), 0),
     }
     const xScale = ScaleUtils.getAttributeScale(inheritProps, 'x');
     const yScale = ScaleUtils.getAttributeScale(inheritProps, 'y');
@@ -170,21 +171,46 @@ class Chart extends Component {
       right: xScale.invert(drawArea.right),
       bottom: yScale.invert(drawArea.bottom),
       left: xScale.invert(drawArea.left)
-
     }
     this.setState({ lastDrawLocation: domainArea });
   }
 
+  pinchInChart(scale) {
+    const { center, baseVal, inheritProps } = this.state;
+    const drawArea = {
+      top: 0,
+      bottom: 500,
+      right: Math.max(center + ((baseVal / scale) / 2), baseVal),
+      left: Math.min(center - ((baseVal / scale) / 2), 0),
+    }
+    const xScale = ScaleUtils.getAttributeScale(inheritProps, 'x');
+    const yScale = ScaleUtils.getAttributeScale(inheritProps, 'y');
+
+    const domainArea = {
+      top: yScale.invert(drawArea.top),
+      right: xScale.invert(drawArea.right),
+      bottom: yScale.invert(drawArea.bottom),
+      left: xScale.invert(drawArea.left)
+    }
+    this.setState({ lastDrawLocation: domainArea });
+  }
+
+  setCorrectX(){
+    const {baseVal, inheritProps, lastDrawLocation} = this.state;
+    inheritProps.xRange[1] = baseVal;
+    if (lastDrawLocation) {
+      inheritProps.xDomain[0] = lastDrawLocation.left;
+      inheritProps.xDomain[1] = lastDrawLocation.right;
+    }
+  }
   render() {
     const { lastDrawLocation } = this.state;
     return (
       <div>
-        <Dropdown trigger={<Button>Select the type of chart!</Button>}>
-          {this.chartOptions}
-        </Dropdown>
         <div className="pull-right mr-1">
           <Button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               this.setState({ lastDrawLocation: null });
             }}
           >
@@ -197,9 +223,16 @@ class Chart extends Component {
         <Hammer
           onPinchStart={initialSpot => {
             this.setState({ center: initialSpot.center.x, baseVal: initialSpot.target.width.baseVal.value })
+            this.setCorrectX();
           }}
-          onPinch={spot => {
-            this.pinchChart(spot.scale);
+          onPinchOut={spot => {
+            this.pinchOutChart(spot.scale);
+          }}
+          onPinchIn={spot => {
+            this.pinchInChart(spot.scale);
+          }}
+          onTap={tap => {
+            this.setState({ lastDrawLocation: null });
           }}
           options={{ recognizers: { pinch: { enable: true } } }}>
           <div>
