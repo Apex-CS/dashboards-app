@@ -19,10 +19,15 @@ class App extends Component {
       endYear: "2017",
     };
     this.onChartTypeChange = this.onChartTypeChange.bind(this);
+    this.onRangeSelection = this.onRangeSelection.bind(this);
   }
 
   onChartTypeChange(newChartType){
     this.setState({typeOfChart: newChartType});
+  }
+  
+  onRangeSelection () {
+
   }
   
   render() {
@@ -35,7 +40,7 @@ class App extends Component {
         </Row>
         <Row>
           <Col s={12} m={3}>
-            <SideMenu onChartTypeChange={this.onChartTypeChange}/>
+            <SideMenu onChartTypeChange={this.onChartTypeChange} onRangeSelection={this.onRangeSelection}/>
           </Col>
           <Col s={12} m={9}>
             <Chart chartType={this.state.typeOfChart} />

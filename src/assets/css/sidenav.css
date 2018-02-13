@@ -60,7 +60,7 @@
 }
 
 .select-wrapper ul{
-    max-height: 300px
+    max-height: 150px
 }
 
 .buttonsRange {
@@ -94,4 +94,28 @@
 
 .chartType li a:hover {
     background-color: #EEEEEE;
+}
+
+.collapsible,
+.collapsible *
+{
+    text-align: center;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+
+.collapsible li {
+    float: none;
+}
+
+.collapsible li.active button{
+    background-color: #146CB5;
+    width: 100%
+}
+
+.collapsible li button i{
+    font-size: 1.3rem;
+    margin-top: -4px;
 }

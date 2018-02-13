@@ -6,7 +6,8 @@ import {
   Collection,
   CollectionItem,
   Row,
-  Col, Dropdown
+  Col, 
+  Dropdown
 } from 'react-materialize';
 import {
   XAxis,
@@ -206,20 +207,21 @@ class Chart extends Component {
   render() {
     const { lastDrawLocation } = this.state;
     return (
-      <div>
+      <div className="chartBox">
+        <Col s={12} ><h1>{this.props.chartType} Chart</h1></Col>
         <div className="pull-right mr-1">
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              this.setState({ lastDrawLocation: null });
-            }}
-          >
-            Reset Zoom
-          </Button>
-        </div>
-        <div className="pull-right mt--10 text-center">
-          <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
-        </div>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            this.setState({ lastDrawLocation: null });
+          }}
+        >
+          Reset Zoom
+        </Button>
+      </div>
+      <div className="pull-right mt--10 text-center">
+        <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
+      </div>
         <Hammer
           onPinchStart={initialSpot => {
             this.setState({ center: initialSpot.center.x, baseVal: initialSpot.target.width.baseVal.value })
@@ -269,7 +271,6 @@ class Chart extends Component {
             </FlexibleWidthXYPlot>
           </div>
         </Hammer>
-
       </div>
     );
   }
