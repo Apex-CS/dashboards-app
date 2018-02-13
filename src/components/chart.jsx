@@ -84,13 +84,13 @@ class Chart extends Component {
           key="one"
           color={this.INCOME.color}
           data={this.INCOME.data}
-          style={{ strokeWidth: 3 }}
+          style={{ strokeWidth: 1 }}
         />,
         <LineMarkSeries
           key="two"
           color={this.OUTCOME.color}
           data={this.OUTCOME.data}
-          style={{ strokeWidth: 3 }}
+          style={{ strokeWidth: 1 }}
         />
       ];
     }
