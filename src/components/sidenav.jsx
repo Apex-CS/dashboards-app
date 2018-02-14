@@ -14,6 +14,23 @@ import logo from '../assets/images/intersys-small.svg';
 import '../assets/css/sidenav.css';
 import { MONTHS } from '../assets/theme'
 
+const currentMonth = new Date().getMonth();
+const currentYear = new Date().getFullYear();
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
+const years = [2015,2016,2017];
 export default class SideMenu extends Component {
         
     constructor(props) {
@@ -29,58 +46,46 @@ export default class SideMenu extends Component {
     
     rangeButtonsHandler(e,valuesRange) {
         e.preventDefault();
-        console.log(this.props.rangeofValues)
+        let init_month = currentMonth - valuesRange;
+        let end_month = currentMonth -1;
+        let init_year = currentYear;
+        let end_year = currentYear;
+        
+        if(init_month < 0){
+            init_year --;
+            init_month = 12 + init_month;                
+        }
+        this.props.onValueChange(months[init_month],"initMonth");
+        this.props.onValueChange(init_year,"initYear");     
 
-        if(valuesRange === "m3"){
-            console.log(valuesRange);
-            this.initMonth("February")
-        } 
-        else if(valuesRange === "m6"){
-            console.log(valuesRange);
+        if(end_month < 0){
+            end_year --;
+            end_month = 12 + init_month;
         }
-        else if(valuesRange === "y1"){
-            console.log(valuesRange);
-        }
+        this.props.onValueChange(months[end_month],"endMonth");
+        this.props.onValueChange(end_year,"endYear");     
+
     }
 
     initMonth(initialMonth) {
         this.props.onValueChange(initialMonth,"initMonth");
-        console.log(this.props.rangeofValues.initMonth);
     }
 
     initYear(initialYear) {
-        this.props.onValueChange(initialYear,"initYear");
-        console.log(this.props.rangeofValues.initYear);
+        this.props.onValueChange(months,"initYear");
     }
     finalMonth(finalMonth) {
         this.props.onValueChange(finalMonth,"endMonth");
-        console.log(this.props.rangeofValues.endMonth);
     }
     finalYear(finalYear) {
         this.props.onValueChange(finalYear,"endYear");
-        console.log(this.props.rangeofValues.endYear);
     }
 
     render() {
-        const months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ];
         const monthOptionList = months.map(month => {
             return <option value={month} key={month}>{month}</option>
         });
         
-        const years = [2015,2016,2017];
         const yearsOptionList = years.map(year => {
             return <option value={year} key={year}>{year}</option>
         });
@@ -116,9 +121,9 @@ export default class SideMenu extends Component {
                         <Input s={6} className="selector" type='select' label="Month" onChange={ e => this.finalMonth(e.target.value)}>{monthOptionList}</Input>
                         <Input s={6} type='select' label="Year" onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
                         
-                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,"m3")}>3m<Icon left>tune</Icon></Button>
-                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,"m6")}>6m<Icon left>tune</Icon></Button>
-                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,"y1")}>1y<Icon left>tune</Icon></Button>
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,12)}>1y<Icon left>tune</Icon></Button>
                     </Row>
                     <Row className="chartType">
                         <Col s={12}>

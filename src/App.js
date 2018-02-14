@@ -17,9 +17,9 @@ class App extends Component {
       typeOfChart: "line",
       rangeOfValues: {
         initMonth: "January",
-        initYear: "2017",
+        initYear: 2017,
         endMonth: "December",
-        endYear: "2017"
+        endYear: 2017
       }
     };
     this.onChartTypeChange = this.onChartTypeChange.bind(this);
