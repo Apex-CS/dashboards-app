@@ -14,6 +14,23 @@ import logo from '../assets/images/intersys-small.svg';
 import '../assets/css/sidenav.css';
 import { MONTHS } from '../assets/theme'
 
+const currentMonth = new Date().getMonth();
+const currentYear = new Date().getFullYear();
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
+const years = [2015,2016,2017];
 export default class SideMenu extends Component {
         
     constructor(props) {
@@ -26,33 +43,50 @@ export default class SideMenu extends Component {
         e.preventDefault();
         this.props.onChartTypeChange(chartType);
     }
+    
     rangeButtonsHandler(e,valuesRange) {
         e.preventDefault();
-        console.log(valuesRange, "c");
-        this.props.onRangeSelection(valuesRange);
+        let init_month = currentMonth - valuesRange;
+        let end_month = currentMonth -1;
+        let init_year = currentYear;
+        let end_year = currentYear;
+        
+        if(init_month < 0){
+            init_year --;
+            init_month = 12 + init_month;                
+        }
+        this.props.onValueChange(months[init_month],"initMonth");
+        this.props.onValueChange(init_year,"initYear");     
+
+        if(end_month < 0){
+            end_year --;
+            end_month = 12 + init_month;
+        }
+        this.props.onValueChange(months[end_month],"endMonth");
+        this.props.onValueChange(end_year,"endYear");     
+
+    }
+
+    initMonth(initialMonth) {
+        this.props.onValueChange(initialMonth,"initMonth");
+    }
+
+    initYear(initialYear) {
+        this.props.onValueChange(months,"initYear");
+    }
+    finalMonth(finalMonth) {
+        this.props.onValueChange(finalMonth,"endMonth");
+    }
+    finalYear(finalYear) {
+        this.props.onValueChange(finalYear,"endYear");
     }
 
     render() {
-        const months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ];
-        const monthOptionList = months.map(function(month) {
+        const monthOptionList = months.map(month => {
             return <option value={month} key={month}>{month}</option>
         });
-
-        const years = [2015,2016,2017];
-        const yearsOptionList = years.map(function(year) {
+        
+        const yearsOptionList = years.map(year => {
             return <option value={year} key={year}>{year}</option>
         });
 
@@ -74,25 +108,22 @@ export default class SideMenu extends Component {
                         </Col>
                     </Row>
                     <Row className="buttonsRange">
-                        <Button s={6} waves='light' value="3m" onClick={e => console.log(e,"m3")}>3m<Icon left>tune</Icon></Button>
-                        <Button s={6} waves='light' value="6m">6m<Icon left>tune</Icon></Button>
-                        <Button s={6} waves='light' value="1y">1y<Icon left>tune</Icon></Button>
                         
-                        <Collapsible s={12}>
-                            <CollapsibleItem header={<Button s={12} m={6} waves='light'>Other Values<Icon left>tune</Icon></Button>}>
-                                <Col s={12}>
-                                    <h6 s={12} l={6} className="rangeValues">Initial</h6>
-                                </Col>
-                                <Input s={6}  className="selector" type='select' label="Month">{monthOptionList}</Input>
-                                <Input s={6} type='select' label="Year">{yearsOptionList}</Input>
+                        <Col s={12}>
+                            <h6 s={12} l={6} className="rangeValues">Initial</h6>
+                        </Col>
+                        <Input s={6}  className="selector" type='select' label="Month" onChange={ e => this.initMonth(e.target.value)}>{monthOptionList}</Input>
+                        <Input s={6} type='select' label="Year" onChange={ e => this.initYear(e.target.value)}>{yearsOptionList}</Input>
 
-                                <Col s={12}>
-                                    <h6 s={12} l={6} className="rangeValues">Final</h6>
-                                </Col>
-                                <Input s={6} className="selector" type='select' label="Month">{monthOptionList}</Input>
-                                <Input s={6} type='select' label="Year">{yearsOptionList}</Input>
-                            </CollapsibleItem>
-                        </Collapsible>
+                        <Col s={12}>
+                            <h6 s={12} l={6} className="rangeValues">Final</h6>
+                        </Col>
+                        <Input s={6} className="selector" type='select' label="Month" onChange={ e => this.finalMonth(e.target.value)}>{monthOptionList}</Input>
+                        <Input s={6} type='select' label="Year" onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
+                        
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
+                        <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,12)}>1y<Icon left>tune</Icon></Button>
                     </Row>
                     <Row className="chartType">
                         <Col s={12}>
