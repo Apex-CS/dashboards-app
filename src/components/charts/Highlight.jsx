@@ -3,8 +3,6 @@ import {ScaleUtils, AbstractSeries } from 'react-vis';
 
 class Highlight extends AbstractSeries {
 
-  static displayName = 'HighlightOverlay';
-
   static defaultProps = {
     allow: 'x',
     color: 'rgb(77, 182, 172)',
@@ -79,7 +77,6 @@ class Highlight extends AbstractSeries {
       onBrushEnd(null);
       return;
     }
-    console.log(this.props);
     const domainArea = {
       top: yScale.invert(drawArea.top),
       right: xScale.invert(drawArea.right),

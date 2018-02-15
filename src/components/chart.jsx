@@ -6,7 +6,7 @@ import {
   Collection,
   CollectionItem,
   Row,
-  Col, 
+  Col,
   Dropdown
 } from 'react-materialize';
 import {
@@ -21,7 +21,8 @@ import {
   GradientDefs,
   FlexibleWidthXYPlot,
   DiscreteColorLegend,
-  ScaleUtils
+  ScaleUtils,
+  Crosshair
 } from 'react-vis';
 import { Colors, MONTHS } from '../assets/theme';
 import Highlight from './charts/Highlight';
@@ -34,7 +35,9 @@ class Chart extends Component {
     lastDrawLocation: null,
     inheritProps: {},
     center: 0,
-    baseVal: 0
+    baseVal: 0,
+    crosshairValues: [],
+    hintValue: null
   };
   xDomain = [];
 
@@ -77,16 +80,42 @@ class Chart extends Component {
     ]
   };
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
+
+  constructor(props) {
+    super(props);
+    this._onNearestX = this._onNearestX.bind(this);
+    this._onMouseLeave = this._onMouseLeave.bind(this);
+    this._hintValue = this._hintValue.bind(this);
+  }
+
+  _onNearestX(values, { index }) {
+    const DATA = [this.INCOME.data, this.OUTCOME.data];
+    this.setState({ crosshairValues: DATA.map(d => d[index]) });
+  }
+
+  _hintValue(value) {
+    console.log('holi', value);
+    this.setState({ crosshairValues: [value] });
+  }
+
+  _onMouseLeave() {
+    this.setState({ crosshairValues: [] });
+  }
   renderChart() {
+    const { crosshairValues } = this.state;
     if (this.props.chartType === 'line') {
       return [
         <LineMarkSeries
+          animation
           key="one"
           color={this.INCOME.color}
           data={this.INCOME.data}
           style={{ strokeWidth: 1 }}
+          onNearestX={this._onNearestX}
+          
         />,
         <LineMarkSeries
+          animation
           key="two"
           color={this.OUTCOME.color}
           data={this.OUTCOME.data}
@@ -161,9 +190,9 @@ class Chart extends Component {
     const drawArea = {
       top: 0,
       bottom: 500,
-      right: Math.min(center + ((baseVal / scale) / 2), baseVal),
-      left: Math.max(center - ((baseVal / scale) / 2), 0),
-    }
+      right: Math.min(center + baseVal / scale / 2, baseVal),
+      left: Math.max(center - baseVal / scale / 2, 0)
+    };
     const xScale = ScaleUtils.getAttributeScale(inheritProps, 'x');
     const yScale = ScaleUtils.getAttributeScale(inheritProps, 'y');
 
@@ -172,7 +201,7 @@ class Chart extends Component {
       right: xScale.invert(drawArea.right),
       bottom: yScale.invert(drawArea.bottom),
       left: xScale.invert(drawArea.left)
-    }
+    };
     this.setState({ lastDrawLocation: domainArea });
   }
 
@@ -181,9 +210,9 @@ class Chart extends Component {
     const drawArea = {
       top: 0,
       bottom: 500,
-      right: Math.max(center + ((baseVal / scale) / 2), baseVal),
-      left: Math.min(center - ((baseVal / scale) / 2), 0),
-    }
+      right: Math.max(center + baseVal / scale / 2, baseVal),
+      left: Math.min(center - baseVal / scale / 2, 0)
+    };
     const xScale = ScaleUtils.getAttributeScale(inheritProps, 'x');
     const yScale = ScaleUtils.getAttributeScale(inheritProps, 'y');
 
@@ -192,12 +221,12 @@ class Chart extends Component {
       right: xScale.invert(drawArea.right),
       bottom: yScale.invert(drawArea.bottom),
       left: xScale.invert(drawArea.left)
-    }
+    };
     this.setState({ lastDrawLocation: domainArea });
   }
 
-  setCorrectX(){
-    const {baseVal, inheritProps, lastDrawLocation} = this.state;
+  setCorrectX() {
+    const { baseVal, inheritProps, lastDrawLocation } = this.state;
     inheritProps.xRange[1] = baseVal;
     if (lastDrawLocation) {
       inheritProps.xDomain[0] = lastDrawLocation.left;
@@ -205,26 +234,34 @@ class Chart extends Component {
     }
   }
   render() {
-    const { lastDrawLocation } = this.state;
+    const { lastDrawLocation, crosshairValues } = this.state;
     return (
       <div className="chartBox">
-        <Col s={12} ><h1>{this.props.chartType} Chart</h1></Col>
+        <Col s={12}>
+          <h1>{this.props.chartType} Chart</h1>
+        </Col>
         <div className="pull-right mr-1">
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            this.setState({ lastDrawLocation: null });
-          }}
-        >
-          Reset Zoom
-        </Button>
-      </div>
-      <div className="pull-right mt--10 text-center">
-        <DiscreteColorLegend width={180} items={[this.INCOME, this.OUTCOME]} />
-      </div>
+          <Button
+            onClick={e => {
+              e.preventDefault();
+              this.setState({ lastDrawLocation: null });
+            }}
+          >
+            Reset Zoom
+          </Button>
+        </div>
+        <div className="pull-right mt--10 text-center">
+          <DiscreteColorLegend
+            width={180}
+            items={[this.INCOME, this.OUTCOME]}
+          />
+        </div>
         <Hammer
           onPinchStart={initialSpot => {
-            this.setState({ center: initialSpot.center.x, baseVal: initialSpot.target.width.baseVal.value })
+            this.setState({
+              center: initialSpot.center.x,
+              baseVal: initialSpot.target.width.baseVal.value
+            });
             this.setCorrectX();
           }}
           onPinchOut={spot => {
@@ -236,14 +273,19 @@ class Chart extends Component {
           onTap={tap => {
             this.setState({ lastDrawLocation: null });
           }}
-          options={{ recognizers: { pinch: { enable: true } } }}>
+          options={{ recognizers: { pinch: { enable: true } } }}
+        >
           <div>
             <FlexibleWidthXYPlot
               height={500}
               animation
               xDomain={
-                lastDrawLocation && [lastDrawLocation.left, lastDrawLocation.right]
+                lastDrawLocation && [
+                  lastDrawLocation.left,
+                  lastDrawLocation.right
+                ]
               }
+              onMouseLeave={this._onMouseLeave}
             >
               <GradientDefs>
                 <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
@@ -258,6 +300,7 @@ class Chart extends Component {
               <XAxis tickFormat={x => MONTHS[x]} tickLabelAngle={-45} />
               <YAxis tickFormat={p => '$' + p} />
               {this.renderChart()}
+
               <Highlight
                 onBrushEnd={area => {
                   this.setState({
@@ -267,6 +310,18 @@ class Chart extends Component {
                 passProps={props => {
                   this.assignProps(props);
                 }}
+              />
+              <Crosshair
+                values={crosshairValues}
+                itemsFormat={values =>
+                  values.map(
+                    (spot, index) =>
+                      index === 0
+                        ? { title: 'Income', value: spot.y }
+                        : { title: 'Outcome', value: spot.y }
+                  )
+                }
+                titleFormat={values => {return {title: 'Month', value: MONTHS[values[0].x]}}}
               />
             </FlexibleWidthXYPlot>
           </div>
