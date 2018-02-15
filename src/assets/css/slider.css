@@ -1,3 +1,52 @@
-.carousel .carousel-item img { width: 360px; height: 295px; border: 1px solid #2BBBAD; border-radius: 3px; }
+/*
+* @style     Styles from Slider.jsx
+* @version   1.0
+* @author    Intersys Consulting, Inc  
+*/
 
-.btn { margin-left: 43%; margin-top: 2%; }
+.chart { 
+    color: white; 
+    text-align: center; 
+    cursor: pointer; 
+}
+
+.chart-green { 
+    background: linear-gradient(90deg, #2BBBAD, #30cfc0) 
+}
+
+.chart-green img { 
+    border: 10px solid transparent; 
+}
+
+.chart-blue { 
+    background: linear-gradient(#589bd4, #146cb5); 
+}
+
+.chart-blue img { 
+    border: 10px solid transparent; 
+}
+
+.chart h3 { 
+    float: left; margin-top: 4%; 
+}
+
+.chart p { 
+    text-align: justify; 
+    display: inline-block;
+}
+
+.carousel.carousel-slider { 
+    height: 300px !important;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+                0 1px 5px 0 rgba(0,0,0,0.12), 
+                0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.carousel .carousel-item img { 
+    height: 250px; 
+    margin-top: 23px;
+}
+
+.btn { 
+    margin-left: 43%; margin-top: 2%; 
+}
