@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/header.jsx';
+import HeaderGraphics from './components/Header_Graphics.jsx';
 import SideMenu from './components/sidenav.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
@@ -17,7 +18,7 @@ class App extends Component {
       typeOfChart: "line",
       rangeOfValues: {
         initMonth: "January",
-        initYear: 2017,
+        initYear: 2018,
         endMonth: "December",
         endYear: 2017
       }
@@ -52,20 +53,37 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <Row>
-              <Col s={12}>
-                <Header />
-              </Col>
-            </Row>
-            <Row>
-              <Route exact path="/" component={Slider} />
-              <Route exact path="/chart" render={(props) => (<div><Col s={12} m={3}>
-                <SideMenu onChartTypeChange={this.onChartTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange}/>
-              </Col>
-              <Col s={12} m={9}>
-                <Chart chartType={this.state.typeOfChart} onValueChange={this.onValueChange}/>
-              </Col></div>)}/>
-            </Row>
+            <Route exact path="/" render={(props) => (
+              <div>
+                <Row>
+                  <Col s={12}>
+                    <Header />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12}>
+                    <Slider />
+                  </Col>
+                </Row>
+              </div>
+            )}/>
+            <Route exact path="/chart" render={(props) => (
+              <div>
+                <Row>
+                  <Col s={12}>
+                    <HeaderGraphics onChartTypeChange={this.onChartTypeChange}/>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12} m={3}>
+                    <SideMenu onChartTypeChange={this.onChartTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange}/>
+                  </Col>
+                  <Col s={12} m={9}>
+                    <Chart chartType={this.state.typeOfChart} onValueChange={this.onValueChange}/>
+                  </Col>
+                </Row>
+              </div>
+            )}/>
             <Row>
               <Col s={12}>
                 <Footer />

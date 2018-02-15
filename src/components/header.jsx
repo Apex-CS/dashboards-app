@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem } from 'react-materialize'
-import logo from '../assets/images/intersys-small.svg';
+import {Navbar, NavItem, Icon } from 'react-materialize'
+import logo from '../assets/images/intersys-logo.svg';
 import '../assets/css/header.css';
 
 class Header extends Component {
   render() {
     return(    
-    <Navbar className='top-menu'>
-        <NavItem href='#'><img className='navigation-logo' src={logo}/></NavItem>
-        <NavItem href='#'>Graphics</NavItem>
-        <NavItem href='#'>?</NavItem>
+    <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
+        <NavItem href='/chart'>Go To Graphics</NavItem>
+        <NavItem href='#'><Icon>help</Icon></NavItem>
     </Navbar>
     );
   }

@@ -17,6 +17,13 @@
     line-height: 50px;
 }
 
-.navigation-logo {
-    height: 50px;
+.top-menu li a i {
+    color: #3F3F3F;
+    line-height: 50px;
+}
+
+.navbar_logo {
+    height: 35px;
+    margin:1rem;
+    padding-top: 5px;
 }

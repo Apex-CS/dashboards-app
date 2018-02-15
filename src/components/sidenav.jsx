@@ -30,7 +30,17 @@ const months = [
     'November',
     'December'
 ];
-const years = [2015,2016,2017];
+//To Validate values 3 years back (exactly 3 years available)
+var years = [];
+var maxValue=3;
+if(currentMonth===11)
+    maxValue=2;
+
+for (maxValue; maxValue>=0; maxValue--) {
+    years.push(currentYear-maxValue);
+}
+//End of validation 
+
 export default class SideMenu extends Component {
         
     constructor(props) {
@@ -55,6 +65,7 @@ export default class SideMenu extends Component {
             init_year --;
             init_month = 12 + init_month;                
         }
+        console.log(this.props.rangeofValues);
         this.props.onValueChange(months[init_month],"initMonth");
         this.props.onValueChange(init_year,"initYear");     
 
@@ -64,7 +75,7 @@ export default class SideMenu extends Component {
         }
         this.props.onValueChange(months[end_month],"endMonth");
         this.props.onValueChange(end_year,"endYear");     
-
+        console.log(this.props.rangeofValues);
     }
 
     initMonth(initialMonth) {
@@ -82,8 +93,23 @@ export default class SideMenu extends Component {
     }
 
     render() {
-        const monthOptionList = months.map(month => {
-            return <option value={month} key={month}>{month}</option>
+        const initialMonthList = months.map((month,index) => {
+            if(this.props.rangeofValues.initYear===currentYear){
+                if(index > currentMonth-1){
+                    return <option value={month} key={month} disabled>{month}</option>
+                }
+                else {
+                    return <option value={month} key={month} >{month}</option>
+                }
+            }
+            else {
+                return <option value={month} key={month} >{month}</option>
+            }
+           
+        });
+
+        const endMonthList = months.map(month => {
+            return <option value={month} key={month} >{month}</option>
         });
         
         const yearsOptionList = years.map(year => {
@@ -112,13 +138,13 @@ export default class SideMenu extends Component {
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Initial</h6>
                         </Col>
-                        <Input s={6}  className="selector" type='select' label="Month" onChange={ e => this.initMonth(e.target.value)}>{monthOptionList}</Input>
+                        <Input s={6}  className="selector" type='select' label="Month" onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
                         <Input s={6} type='select' label="Year" onChange={ e => this.initYear(e.target.value)}>{yearsOptionList}</Input>
 
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Final</h6>
                         </Col>
-                        <Input s={6} className="selector" type='select' label="Month" onChange={ e => this.finalMonth(e.target.value)}>{monthOptionList}</Input>
+                        <Input s={6} other={{value:this.props.rangeofValues.endMonth}} className="selector" type='select' label="Month" onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
                         <Input s={6} type='select' label="Year" onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
                         
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
