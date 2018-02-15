@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Header from './components/header.jsx';
 import HeaderGraphics from './components/Header_Graphics.jsx';
 import SideMenu from './components/sidenav.jsx';
+import MainParallax from './components/parallax.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
 import { Row, Col } from 'react-materialize';
 import Slider from './components/slider';
+import './assets/css/main.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.css';
@@ -37,7 +39,9 @@ class App extends Component {
         this.state.rangeOfValues.initMonth = newValue
         break;
       case 'initYear':
+        console.log(this.state.rangeOfValues.initYear);
         this.state.rangeOfValues.initYear = newValue
+        console.log(this.state.rangeOfValues.initYear);
         break;
       case 'endMonth':
         this.state.rangeOfValues.endMonth = newValue
@@ -62,7 +66,7 @@ class App extends Component {
                 </Row>
                 <Row>
                   <Col s={12}>
-                    <Slider />
+                    <MainParallax />
                   </Col>
                 </Row>
               </div>
