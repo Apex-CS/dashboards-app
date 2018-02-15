@@ -6,7 +6,7 @@ class Footer extends Component {
         return (
             <div>
                 <div className="footer">
-                    <ul className="menu">
+                    <ul>
                         <li><a className="grey-text text-lighten-3" target="_blank" href="https://www.intersysconsulting.com/company/">Company</a></li>
                         <li><a className="grey-text text-lighten-3" target="_blank" href="https://www.intersysconsulting.com/services/">Services</a></li>
                         <li><a className="grey-text text-lighten-3" target="_blank" href="https://www.intersysconsulting.com/resources/">Resources</a></li>

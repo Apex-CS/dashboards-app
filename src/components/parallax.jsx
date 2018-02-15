@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Parallax} from 'react-materialize'
+import {Parallax, Row, Button, Col} from 'react-materialize'
+import '../assets/css/parallax.css';
 
 class MainParallax extends Component {
     render() {
@@ -7,10 +8,17 @@ class MainParallax extends Component {
             <div>
                 <Parallax imageSrc="http://materializecss.com/images/parallax1.jpg"/>
                 <div className="section white">
-                    <div className="row container">
-                        <h2 className="header">Parallax</h2>
-                        <p className="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-                    </div>
+                    <Row>
+                        <Col s={12} m={6} className="parrallax_left">
+                            <p className="parallax_header">Lost About Graphics?</p>
+                            <p className="parallax_text">Don't worry click on the button to learn more!</p>
+                        </Col>
+                        <Col s={12} m={6} className="parrallax_right">
+                            <Button waves='light' href="" >Learn More</Button>
+                        </Col>
+                        
+                        
+                    </Row>
                 </div>
                 <Parallax imageSrc="http://materializecss.com/images/parallax2.jpg"/>
             </div>

@@ -20,11 +20,12 @@
 .top-menu li a i {
     color: #585A61;
     line-height: 50px;
+    font-size: 1.5rem;
 }
 .top-menu a i {
     color: #585A61;
     font-size: 3rem;
-    line-height: 5rem;
+    line-height: 64px;
 }
 
 .navbar_logo {
