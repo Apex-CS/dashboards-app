@@ -18,8 +18,13 @@
 }
 
 .top-menu li a i {
-    color: #3F3F3F;
+    color: #585A61;
     line-height: 50px;
+}
+.top-menu a i {
+    color: #585A61;
+    font-size: 3rem;
+    line-height: 5rem;
 }
 
 .navbar_logo {
