@@ -19,10 +19,10 @@ class App extends Component {
     this.state = {
       typeOfChart: "line",
       rangeOfValues: {
-        initMonth: "January",
-        initYear: 2018,
-        endMonth: "December",
-        endYear: 2017
+        initMonth: "February",
+        initYear: 2017,
+        endMonth: "January",
+        endYear: 2018
       }
     };
     this.onChartTypeChange = this.onChartTypeChange.bind(this);
@@ -33,23 +33,24 @@ class App extends Component {
     this.setState({ typeOfChart: newChartType });
   }
   
-  onValueChange (newValue,typeOfValue) {
+  onValueChange (newValue, typeOfValue) {
+    const {rangeOfValues} = this.state;
+    const range = rangeOfValues;
     switch(typeOfValue) {
       case 'initMonth':
-        this.state.rangeOfValues.initMonth = newValue
+        range.initMonth = newValue
         break;
       case 'initYear':
-        console.log(this.state.rangeOfValues.initYear);
-        this.state.rangeOfValues.initYear = newValue
-        console.log(this.state.rangeOfValues.initYear);
+        range.initYear = newValue
         break;
       case 'endMonth':
-        this.state.rangeOfValues.endMonth = newValue
+        range.endMonth = newValue
         break;
       case 'endYear':
-        this.state.rangeOfValues.endYear = newValue
+        range.endYear = newValue
         break;
     }
+    this.setState({rangeofValues: range});
   }
 
   render() {
@@ -83,7 +84,7 @@ class App extends Component {
                     <SideMenu onChartTypeChange={this.onChartTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange}/>
                   </Col>
                   <Col s={12} m={9}>
-                    <Chart chartType={this.state.typeOfChart} onValueChange={this.onValueChange}/>
+                    <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                   </Col>
                 </Row>
               </div>
