@@ -7,8 +7,8 @@ class Header extends Component {
   render() {
     return(    
     <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
-        <NavItem href='/chart'>Go To Graphics</NavItem>
-        <NavItem href='#'><Icon>help</Icon></NavItem>
+        <NavItem href='/dashboards'>Go To Dashboards</NavItem>
+        <NavItem href='/help'><Icon>help</Icon></NavItem>
     </Navbar>
     );
   }

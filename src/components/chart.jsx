@@ -102,22 +102,42 @@ class Chart extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(this.props.chartType === newProps.chartType) {
+    if (this.props.chartType === newProps.chartType) {
       this.buildDataset(newProps.rangeOfValues);
     }
   }
 
   buildDataset(newData) {
-    const {income, outcome} = this.state;
-    const initial = DATA.findIndex(element => element.year === newData.initYear && element.month === newData.initMonth);
-    const end = DATA.findIndex(element => element.year === newData.endYear && element.month === newData.endMonth);
-    const range = DATA.slice(initial, end+1);
-    income.data = range.map((value, index) => {return {x: index, y:value.income, year: value.year, month: value.month}});
-    outcome.data = range.map((value, index) => {return {x: index, y:value.outcome, year: value.year, month: value.month}});
-    this.setState({income:income, outcome: outcome});
+    const { income, outcome } = this.state;
+    const initial = DATA.findIndex(
+      element =>
+        element.year === newData.initYear && element.month === newData.initMonth
+    );
+    const end = DATA.findIndex(
+      element =>
+        element.year === newData.endYear && element.month === newData.endMonth
+    );
+    const range = DATA.slice(initial, end + 1);
+    income.data = range.map((value, index) => {
+      return {
+        x: index,
+        y: value.income,
+        year: value.year,
+        month: value.month
+      };
+    });
+    outcome.data = range.map((value, index) => {
+      return {
+        x: index,
+        y: value.outcome,
+        year: value.year,
+        month: value.month
+      };
+    });
+    this.setState({ income: income, outcome: outcome });
   }
   _onNearestX(values, { index }) {
-    const {income, outcome} = this.state;
+    const { income, outcome } = this.state;
     const DATA = [income.data, outcome.data];
     this.setState({ crosshairValues: DATA.map(d => d[index]) });
   }
@@ -149,11 +169,7 @@ class Chart extends Component {
 
     if (this.props.chartType === 'bar') {
       return [
-        <VerticalBarSeries
-          key="one"
-          color={income.color}
-          data={income.data}
-        />,
+        <VerticalBarSeries key="one" color={income.color} data={income.data} />,
         <VerticalBarSeries
           key="two"
           color={outcome.color}
@@ -163,16 +179,8 @@ class Chart extends Component {
     }
     if (this.props.chartType === 'area') {
       return [
-        <AreaSeries
-          key="one"
-          color={income.color}
-          data={income.data}
-        />,
-        <AreaSeries
-          key="two"
-          color={outcome.color}
-          data={outcome.data}
-        />
+        <AreaSeries key="one" color={income.color} data={income.data} />,
+        <AreaSeries key="two" color={outcome.color} data={outcome.data} />
       ];
     }
     if (this.props.chartType === 'gradient') {
@@ -191,16 +199,8 @@ class Chart extends Component {
     }
 
     return [
-      <MarkSeries
-        key="one"
-        color={income.color}
-        data={income.data}
-      />,
-      <MarkSeries
-        key="two"
-        color={outcome.color}
-        data={outcome.data}
-      />
+      <MarkSeries key="one" color={income.color} data={income.data} />,
+      <MarkSeries key="two" color={outcome.color} data={outcome.data} />
     ];
   }
 
@@ -264,7 +264,8 @@ class Chart extends Component {
           <h1>{this.props.chartType} Chart</h1>
         </Col>
         <div className="pull-right mr-1">
-          <Button waves="light"
+          <Button
+            waves="light"
             onClick={e => {
               e.preventDefault();
               this.setState({ lastDrawLocation: null });
@@ -274,10 +275,7 @@ class Chart extends Component {
           </Button>
         </div>
         <div className="pull-right mt--10 text-center">
-          <DiscreteColorLegend
-            width={180}
-            items={[income, outcome]}
-          />
+          <DiscreteColorLegend width={180} items={[income, outcome]} />
         </div>
         <Hammer
           onPinchStart={initialSpot => {
@@ -320,7 +318,18 @@ class Chart extends Component {
               </GradientDefs>
               <VerticalGridLines />
               <HorizontalGridLines />
-              <XAxis tickFormat={({month, year}) => month} tickLabelAngle={-45} />
+              <XAxis
+                tickFormat={x =>
+                  x % 1 === 0 && x <= income.data.length - 1
+                    ? `${income.data[x].month.substr(0, 3)} ${income.data[
+                        x
+                      ].year
+                        .toString()
+                        .substr(2, 4)}`
+                    : ''
+                }
+                tickLabelAngle={-45}
+              />
               <YAxis tickFormat={p => '$' + p} />
               {this.renderChart()}
 
@@ -345,7 +354,7 @@ class Chart extends Component {
                   )
                 }
                 titleFormat={values => {
-                  return { title: 'Month', value: MONTHS[values[0].x] };
+                  return { title: 'Month', value: `${values[0].month} ${values[0].year}` };
                 }}
               />
             </FlexibleWidthXYPlot>
