@@ -28,7 +28,7 @@ export default class HeaderGraphics extends Component {
     return(    
     <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
       {chartOptionList}
-      <NavItem href='#'><Icon>help</Icon></NavItem>    
+      <NavItem href='/help'><Icon>help</Icon></NavItem>    
     </Navbar>
     );
   }

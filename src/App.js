@@ -72,7 +72,7 @@ class App extends Component {
                 </Row>
               </div>
             )}/>
-            <Route exact path="/chart" render={(props) => (
+            <Route exact path="/dashboards" render={(props) => (
               <div>
                 <Row>
                   <Col s={12}>
@@ -87,6 +87,21 @@ class App extends Component {
                     <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                   </Col>
                 </Row>
+              </div>
+            )}/>
+            <Route exact path="/help" render={(props) => (
+              <div>
+                <Row>
+                  <Col s={12}>
+                    <Header />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12}>
+                    <Slider />
+                  </Col>
+                </Row>
+               
               </div>
             )}/>
             <Row>
