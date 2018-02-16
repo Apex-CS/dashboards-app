@@ -119,3 +119,11 @@
     font-size: 1.3rem;
     margin-top: -4px;
 }
+
+.dropdownCharts {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdownCharts i {
+    margin-left: 10px !important;
+}

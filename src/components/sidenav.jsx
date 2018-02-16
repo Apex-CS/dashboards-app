@@ -92,7 +92,7 @@ export default class SideMenu extends Component {
 
     render() {
         const initialMonthList = months.map((month,index) => {
-            if(this.props.rangeofValues.initYear===currentYear){
+            if(this.props.rangeofValues.initYear === currentYear) {
                 if(index > currentMonth-1){
                     return <option value={month} key={month} disabled>{month}</option>
                 }
@@ -106,10 +106,8 @@ export default class SideMenu extends Component {
            
         });
 
-        console.log('Wow, such debugging', this.props.rangeofValues)
-
         const endMonthList = months.map((month,index) => {
-            if(this.props.rangeofValues.endYear===currentYear){
+            if(this.props.rangeofValues.endYear === currentYear) {
                 if(index > currentMonth-1){
                     return <option value={month} key={month} disabled>{month}</option>
                 }
@@ -122,8 +120,29 @@ export default class SideMenu extends Component {
             }
         });
         
-        const yearsOptionList = years.map(year => {
-            return <option value={year} key={year}>{year}</option>
+        const initialYearList = years.map(year => {
+            if(this.props.rangeofValues.initMonth === 'January') {
+                return <option value={year} key={year}>{year}</option>
+            }
+            else if (year === 2018) {
+                return <option value={year} key={year} disabled>{year}</option>
+            }
+            else {
+                return <option value={year} key={year}>{year}</option>
+            }
+            
+        });
+
+        const endYearList = years.map(year => {
+            if(this.props.rangeofValues.endMonth === 'January') {
+                return <option value={year} key={year}>{year}</option>
+            }
+            else if (year === 2018) {
+                return <option value={year} key={year} disabled>{year}</option>
+            }
+            else {
+                return <option value={year} key={year}>{year}</option>
+            }
         });
 
         const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
@@ -149,13 +168,13 @@ export default class SideMenu extends Component {
                             <h6 s={12} l={6} className="rangeValues">Initial</h6>
                         </Col>
                         <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
-                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{yearsOptionList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{initialYearList}</Input>
 
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Final</h6>
                         </Col>
-                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endYear}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
-                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endMonth}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{endYearList}</Input>
                         
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
@@ -163,9 +182,9 @@ export default class SideMenu extends Component {
                     </Row>
                     <Row className="chartType">
                         <Col s={12}>
-                            <h2>Type of Chart</h2>
+                            <h2>Type of Dashboard</h2>
                         </Col>
-                        <Dropdown s={12} trigger={<Button>Select the type of chart!</Button>}>{chartOptionList}</Dropdown>
+                        <Dropdown s={12} trigger={<div><Button className="dropdownCharts">Select Dashboard!<Icon right>keyboard_arrow_down</Icon></Button></div>}>{chartOptionList}</Dropdown>
                     </Row>
             </Row>   
         );
