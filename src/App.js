@@ -101,7 +101,6 @@ class App extends Component {
                     <Slider />
                   </Col>
                 </Row>
-               
               </div>
             )}/>
             <Row>
