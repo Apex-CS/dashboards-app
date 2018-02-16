@@ -282,9 +282,13 @@ class Chart extends Component {
               <HorizontalGridLines />
               <XAxis
                 tickFormat={x =>
-                  `${income.data[x].month.substr(0, 3)} ${income.data[x].year
-                    .toString()
-                    .substr(2, 4)}`
+                  x % 1 === 0
+                    ? `${income.data[x].month.substr(0, 3)} ${income.data[
+                        x
+                      ].year
+                        .toString()
+                        .substr(2, 4)}`
+                    : ''
                 }
                 tickLabelAngle={-45}
               />
