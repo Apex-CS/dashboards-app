@@ -74,7 +74,7 @@ export default class SideMenu extends Component {
             end_month = 12 + init_month;
         }
         this.props.onValueChange(months[end_month],"endMonth");
-        this.props.onValueChange(end_year,"endYear");     
+        this.props.onValueChange(parseInt(end_year),"endYear");     
         console.log(this.props.rangeofValues);
     }
 
@@ -83,13 +83,13 @@ export default class SideMenu extends Component {
     }
 
     initYear(initialYear) {
-        this.props.onValueChange(months,"initYear");
+        this.props.onValueChange(parseInt(initialYear),"initYear");
     }
     finalMonth(finalMonth) {
         this.props.onValueChange(finalMonth,"endMonth");
     }
     finalYear(finalYear) {
-        this.props.onValueChange(finalYear,"endYear");
+        this.props.onValueChange(parseInt(finalYear),"endYear");
     }
 
     render() {
