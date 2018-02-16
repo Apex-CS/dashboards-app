@@ -65,9 +65,8 @@ export default class SideMenu extends Component {
             init_year --;
             init_month = 12 + init_month;                
         }
-        console.log(this.props.rangeofValues);
         this.props.onValueChange(months[init_month],"initMonth");
-        this.props.onValueChange(init_year,"initYear");     
+        this.props.onValueChange(parseInt(init_year),"initYear");     
 
         if(end_month < 0){
             end_year --;
@@ -75,7 +74,6 @@ export default class SideMenu extends Component {
         }
         this.props.onValueChange(months[end_month],"endMonth");
         this.props.onValueChange(parseInt(end_year),"endYear");     
-        console.log(this.props.rangeofValues);
     }
 
     initMonth(initialMonth) {
@@ -108,8 +106,20 @@ export default class SideMenu extends Component {
            
         });
 
-        const endMonthList = months.map(month => {
-            return <option value={month} key={month} >{month}</option>
+        console.log('Wow, such debugging', this.props.rangeofValues)
+
+        const endMonthList = months.map((month,index) => {
+            if(this.props.rangeofValues.endYear===currentYear){
+                if(index > currentMonth-1){
+                    return <option value={month} key={month} disabled>{month}</option>
+                }
+                else {
+                    return <option value={month} key={month} >{month}</option>
+                }
+            }
+            else {
+                return <option value={month} key={month} >{month}</option>
+            }
         });
         
         const yearsOptionList = years.map(year => {
@@ -138,14 +148,14 @@ export default class SideMenu extends Component {
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Initial</h6>
                         </Col>
-                        <Input s={6}  className="selector" type='select' label="Month" onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
-                        <Input s={6} type='select' label="Year" onChange={ e => this.initYear(e.target.value)}>{yearsOptionList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{yearsOptionList}</Input>
 
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Final</h6>
                         </Col>
-                        <Input s={6} other={{value:this.props.rangeofValues.endMonth}} className="selector" type='select' label="Month" onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
-                        <Input s={6} type='select' label="Year" onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endYear}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{yearsOptionList}</Input>
                         
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
