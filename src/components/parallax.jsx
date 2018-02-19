@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {Parallax, Row, Button, Col} from 'react-materialize'
 import '../assets/css/parallax.css';
+import MDC1 from '../assets/images/MDC-1.JPG';
+import MDC2 from '../assets/images/MDC-2.JPG';
 
 class MainParallax extends Component {
     render() {
         return( 
             <div>
-                <Parallax imageSrc="http://materializecss.com/images/parallax1.jpg"/>
+                <Parallax imageSrc={MDC1}/>
                 <div className="section white">
                     <Row>
                         <Col s={12} m={6} className="parrallax_left">
@@ -20,7 +22,7 @@ class MainParallax extends Component {
                         
                     </Row>
                 </div>
-                <Parallax imageSrc="http://materializecss.com/images/parallax2.jpg"/>
+                <Parallax imageSrc={MDC2}/>
             </div>
         );
     }

@@ -3,6 +3,11 @@
     i_blue: '#146CB5'
 */
 
+.parallax-container img {
+    width: 100%;
+    
+}
+
 .parallax_header {
     font-size: 3rem;
     font-weight: bold;
