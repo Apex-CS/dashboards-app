@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Card, CardTitle, Table} from 'react-materialize'
+import {Row, Col, Card, CardTitle} from 'react-materialize'
 import '../assets/css/slider.css';
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import chart_area from '../assets/images/chart_area.PNG'
 import chart_gradient from '../assets/images/chart_gradient.PNG'
 import chart_dot from '../assets/images/chart_dot.PNG'
 
-class Sliderr extends Component {
+class Slider extends Component {
     linkDashboard = {
         link: '/dashboards',
         text: 'View details'
@@ -97,4 +97,4 @@ class Sliderr extends Component {
     }
 }
 
-export default Sliderr;
+export default Slider;
