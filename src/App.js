@@ -9,9 +9,9 @@ import { Row, Col } from 'react-materialize';
 import Slider from './components/slider';
 import './assets/css/main.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 import 'font-awesome/css/font-awesome.css';
 import '../node_modules/react-vis/dist/style.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class App extends Component {
                 </Row>
                 <Row>
                   <Col s={12}>
-                    <Slider />
+                    <Slider onChartTypeChange={this.onChartTypeChange}/>
                   </Col>
                 </Row>
               </div>

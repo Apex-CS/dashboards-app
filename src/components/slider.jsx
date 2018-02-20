@@ -10,6 +10,16 @@ import chart_gradient from '../assets/images/chart_gradient.PNG'
 import chart_dot from '../assets/images/chart_dot.PNG'
 
 class Slider extends Component {
+    /*constructor(props) {
+        super(props);
+        this.chartSelectorHandler = this.chartSelectorHandler.bind(this);
+    }
+
+    chartSelectorHandler(e,chartType) {
+        e.preventDefault();
+        this.props.onChartTypeChange(chartType);
+    }*/
+
     linkDashboard = {
         link: '/dashboards',
         text: 'View details'
@@ -30,6 +40,8 @@ class Slider extends Component {
                             It is a basic type of chart common in many fields.
                         </p>
                     }>
+
+                    
                     <a href={this.linkDashboard.link}>{this.linkDashboard.text}</a>
                 </Card>
             </Col>
@@ -60,9 +72,7 @@ class Slider extends Component {
                 </Card>
             </Col>
         </Row>
-            
         <Row>
-            
             <Col m={6} l={4}>
                 <Card 
                     header={<CardTitle reveal image={chart_gradient} waves="light" />}
