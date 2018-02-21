@@ -6,7 +6,7 @@ import MainParallax from './components/parallax.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
 import { Row, Col } from 'react-materialize';
-import Slider from './components/slider';
+import Help_Page from './components/help_page';
 import './assets/css/main.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
@@ -98,7 +98,7 @@ class App extends Component {
                 </Row>
                 <Row>
                   <Col s={12}>
-                    <Slider onChartTypeChange={this.onChartTypeChange}/>
+                    <Help_Page onChartTypeChange={this.onChartTypeChange}/>
                   </Col>
                 </Row>
               </div>
