@@ -1,7 +1,7 @@
 /*
-* @style     Styles from Slider.jsx
-* @path      src/components/slider.jsx
-* @version   1.0
+* @style     Styles from help_page.jsx
+* @path      src/components/help_page.jsx
+* @version   2.0
 * @author    Intersys Consulting, Inc  
 */
 
@@ -12,7 +12,7 @@
     width: 100%;
 }
 
-.cardIntersys .btnIntersys {
+.cardIntersys .btn_help {
     margin-bottom: 3%;
     width: 92%;
     margin-left: 4%;
@@ -31,11 +31,11 @@
     border: 1px solid #72C168;
 }
 
-.container {
+.container_help {
     width: 100%;
     padding: 5px 22px;
 }
-.container p {
+.container_help p {
     text-align: justify;
     background: #FAFAFA;
     padding: 10px 20px;
@@ -58,12 +58,12 @@
     font-size: 17px;
 }
 
-.btnIntersys.btnPrimary {
+.btnIntersys.btn_help {
     background-color:#589bd4;
     border-color: #3888cc;
     transition-duration: 0.3s;
 }
 
-.btnIntersys.btnPrimary:hover {
+.btnIntersys.btn_help:hover {
     background-color:#3888cc;
 }

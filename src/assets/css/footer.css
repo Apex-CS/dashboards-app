@@ -1,3 +1,10 @@
+/*
+* @style     Styles from footer.jsx
+* @path      src/components/footer.jsx
+* @version   2.0
+* @author    Intersys Consulting, Inc  
+*/
+
 .footer {
     position: relative;
     height: 130px;
@@ -33,7 +40,7 @@
 
 .footer li a {
     display: block;
-    padding: 16px;
+    padding: 16px 8px;
     color: #8b939b;
 }
 
@@ -50,6 +57,5 @@
     text-align: center; 
     color: #146CB5; 
     font-size: 14px; 
-    font-weight: bold;
     margin-bottom: -20px;
 }
