@@ -1,0 +1,63 @@
+/*
+    i_green: '#72C168',
+    i_blue: '#146CB5'
+*/
+/*
+.parallax-container img {
+    width: 100%;   
+}*/
+
+.parallax_header {
+    font-size: 3rem;
+    font-weight: 800;
+    color:white;
+    text-shadow: 2px 2px 2px #585A61;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-transform: initial;
+    line-height: 1.2;
+    margin-bottom: 40px;
+}
+
+.parallax_header span {
+    color: #f88f3d;
+} 
+
+.parallax_text {
+    font-size: 1rem;
+    color:#FFF ;
+    margin: 0;
+    margin-left: 2px;
+    text-shadow: 2px 2px 2px #585A61;
+    margin-bottom: 20px;
+}
+
+.pitch_container {
+    /*background-color: rgba(255,255,255,0.5);*/
+    padding: 20px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mobile_landing {
+    width: 70%;
+    margin: 20px;
+}
+
+.inside_parallax {
+    background: url('../images/MDC-3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.demo_button {
+    background-color: #72C168;
+    margin: 10px;
+}
+
+.learn_button {
+    background-color: #146CB5;
+    margin: 10px;
+}
