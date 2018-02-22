@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/header.jsx';
 import HeaderGraphics from './components/Header_Graphics.jsx';
 import SideMenu from './components/sidenav.jsx';
-import MainParallax from './components/parallax.jsx';
+import PitchHeader from './components/Pitch.jsx';
+import Features from './components/Features.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
 import { Row, Col } from 'react-materialize';
@@ -67,7 +68,12 @@ class App extends Component {
                 </Row>
                 <Row>
                   <Col s={12}>
-                    <MainParallax />
+                    <PitchHeader />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12}>
+                    <Features />
                   </Col>
                 </Row>
               </div>
