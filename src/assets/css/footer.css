@@ -1,12 +1,22 @@
 .footer {
     position: relative;
-    height: 69px;
+    height: 130px;
     left: 0;
     bottom: 0%;
     width: 100%;
     background-color: #494f55;
-    padding: 8px;
-    padding-right: 20px;
+}
+
+.footer .left {
+    padding: 34px 17px;
+}
+
+.footer .right {
+    margin-top: 15px;
+}
+
+.mr-30 {
+    margin-right: 30px;
 }
 
 .footer ul {
@@ -24,10 +34,14 @@
 .footer li a {
     display: block;
     padding: 16px;
+    color: #8b939b;
 }
 
 .footer li a:hover {
-    color: #72C168 !important; 
+    color: #2794eb;
+    text-decoration-color: #1588e3;
+    text-decoration: underline;
+    text-decoration-style: dotted;
 }
  
 .copyright { 
