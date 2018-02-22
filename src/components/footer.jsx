@@ -5,17 +5,21 @@ import ImgIntersysFast from '../assets/images/intersys-fast-50.png';
 import ImgIntersysInc from '../assets/images/intersys-inc-5000.png';
 
 class Footer extends Component {
+    PATH = 'https://www.intersysconsulting.com/';
+
     render() {
         return (
             <div>
                 <div className="footer">
                     <div className="left">
                         <ul>
-                            <li><a target="_blank" href="https://www.intersysconsulting.com/company/">Company</a></li>
-                            <li><a target="_blank" href="https://www.intersysconsulting.com/services/">Services</a></li>
-                            <li><a target="_blank" href="https://www.intersysconsulting.com/resources/">Resources</a></li>
-                            <li><a target="_blank" href="https://www.intersysconsulting.com/careers/">Careers at Intersys</a></li>
-                            <li><a target="_blank" href="https://www.intersysconsulting.com/team-portal/">Team Portal</a></li>
+                            <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
+                            <li><a target="_blank" href={this.PATH + "team-portal/"}>Team Portal</a></li>
+                            <li><a target="_blank" href={this.PATH + "company/partners/"}>Partners</a></li>
+                            <li><a target="_blank" href={this.PATH + "careers/"}>Careers at Intersys</a></li>
+                            <li><a target="_blank" href={this.PATH + "resources/"}>Resources</a></li>
+                            <li><a target="_blank" href={this.PATH + "services/"}>Services</a></li>
+                            <li><a target="_blank" href={this.PATH + "company/"}>Company</a></li>
                         </ul>
                     </div>
                     <div className="right">
