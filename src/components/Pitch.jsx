@@ -12,7 +12,7 @@ class PitchHeader extends Component {
                 {/*<Parallax imageSrc={MDC1}/>*/}
                 <Row className="section inside_parallax">
                     <Col s={12} m={7} className="parrallax_left">
-                        <div className="container">
+                        <div className="container pitch_container">
                             <p className="parallax_header">Introducing your new <span>best</span> friend at work</p>
                             <p className="parallax_text">This application provides an easy way to chart your data in all your devices.</p>
                             <Button className="demo_button" waves='light' href="">See Demo</Button>
