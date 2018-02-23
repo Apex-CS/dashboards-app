@@ -15,8 +15,10 @@ class PitchHeader extends Component {
                         <div className="container pitch_container">
                             <p className="parallax_header">Introducing your new <span>best</span> friend at work</p>
                             <p className="parallax_text">This application provides an easy way to chart your data in all your devices.</p>
-                            <Button className="demo_button" waves='light' href="">See Demo</Button>
-                            <Button className="learn_button" waves='light' href="">Learn More</Button>
+                            <div className="pitch_buttons">
+                                <Button className="demo_button" waves='light' href="">See Demo</Button>
+                                <Button className="learn_button" waves='light' href="">Learn More</Button>
+                            </div>
                         </div>
                     </Col>
                     <Col s={12} m={5} className="parrallax_right">
