@@ -17,6 +17,7 @@
     text-transform: initial;
     line-height: 1.2;
     margin-bottom: 40px;
+    max-width: 530px;
 }
 
 .parallax_header span {
@@ -30,6 +31,7 @@
     margin-left: 2px;
     text-shadow: 2px 2px 2px #585A61;
     margin-bottom: 20px;
+    max-width: 530px;
 }
 
 .pitch_container {
@@ -39,6 +41,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.pitch_buttons {
+    max-width: 530px;
 }
 
 .mobile_landing {
