@@ -39,7 +39,8 @@ class Highlight extends AbstractSeries {
   }
 
   onParentMouseDown(e) {
-    const {marginLeft, innerHeight, onBrushStart} = this.props;
+    
+    const {marginLeft, innerHeight, onBrushStart, onClick} = this.props;
     const location = e.nativeEvent.offsetX - marginLeft;
     this.setState({
       drawing: true,
@@ -106,7 +107,7 @@ class Highlight extends AbstractSeries {
   }
 
   render() {
-    const {marginLeft, marginTop, innerWidth, innerHeight, color, opacity} = this.props;
+    const {marginLeft, marginTop, innerWidth, innerHeight, color, opacity, onClick} = this.props;
     const {drawArea: {left, right, top, bottom}} = this.state;
     return (
       <g transform={`translate(${marginLeft}, ${marginTop})`}
@@ -122,6 +123,7 @@ class Highlight extends AbstractSeries {
           y={0}
           width={innerWidth}
           height={innerHeight}
+          onClick={(e) => onClick(e)}
         />
         <rect 
           className="highlight"

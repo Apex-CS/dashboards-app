@@ -9,6 +9,9 @@ import {
   Col,
   Dropdown
 } from 'react-materialize';
+import { OverlayPanel } from 'primereact/components/overlaypanel/OverlayPanel';
+import { DataTable } from 'primereact/components/datatable/DataTable';
+import {  Column } from 'primereact/components/column/Column';
 import {
   XAxis,
   YAxis,
@@ -27,7 +30,7 @@ import {
 import { Colors, MONTHS } from '../assets/theme';
 import Highlight from './charts/Highlight';
 import Hammer from 'react-hammerjs';
-import { DATA_MONTHS } from './charts/values';
+import { DATA_MONTHS, DATA_DAYS } from './charts/values';
 
 const { i_blue, i_green } = Colors;
 
@@ -50,16 +53,17 @@ class Chart extends Component {
       color: i_green,
       disabled: false,
       data: []
-    }
+    },
+    tabData: []
   };
   xDomain = [];
-
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
 
   constructor(props) {
     super(props);
     this._onNearestX = this._onNearestX.bind(this);
     this._onMouseLeave = this._onMouseLeave.bind(this);
+    this.showTab = this.showTab.bind(this);
     this.buildDataset(this.props.rangeOfValues);
   }
 
@@ -218,8 +222,22 @@ class Chart extends Component {
       inheritProps.xDomain[1] = lastDrawLocation.right;
     }
   }
+
+  showTab(e) {
+    const point = this.state.crosshairValues[0];console.log(point);
+    const data = DATA_DAYS.filter(element => {if (element.month == point.month && element.year == point.year) {console.log(element); return element}});
+    this.setState({tabData: data});
+    this.op.toggle(e);
+  }
   render() {
-    const { lastDrawLocation, crosshairValues, income, outcome } = this.state;
+    const {
+      lastDrawLocation,
+      crosshairValues,
+      income,
+      outcome,
+      inheritProps,
+      tabData
+    } = this.state;
     return (
       <div className="chartBox">
         <Col s={12}>
@@ -270,6 +288,19 @@ class Chart extends Component {
               }
               onMouseLeave={this._onMouseLeave}
             >
+              <OverlayPanel
+                ref={el => {
+                  this.op = el;
+                }}
+                showCloseIcon={true}
+                dismissable={true}
+              >
+                <DataTable value={tabData}>
+                  <Column field="day" header="Day" />
+                  <Column field="income" header="Income" />
+                  <Column field="outcome" header="Outcome" />
+                </DataTable>
+              </OverlayPanel>
               <GradientDefs>
                 <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
                   <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
@@ -304,7 +335,9 @@ class Chart extends Component {
                 passProps={props => {
                   this.assignProps(props);
                 }}
+                onClick={this.showTab}
               />
+
               <Crosshair
                 values={crosshairValues}
                 itemsFormat={values =>
@@ -316,7 +349,10 @@ class Chart extends Component {
                   )
                 }
                 titleFormat={values => {
-                  return { title: 'Month', value: `${values[0].month} ${values[0].year}` };
+                  return {
+                    title: 'Month',
+                    value: `${values[0].month} ${values[0].year}`
+                  };
                 }}
               />
             </FlexibleWidthXYPlot>
