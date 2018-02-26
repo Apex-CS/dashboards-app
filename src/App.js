@@ -13,6 +13,7 @@ import './assets/css/main.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 import '../node_modules/react-vis/dist/style.css';
+import Help_Title from './components/help_title';
 
 
 class App extends Component {
@@ -105,6 +106,9 @@ class App extends Component {
                   <Col s={12}>
                     <Header />
                   </Col>
+                </Row>
+                <Row>
+                  <Col s={12}><Help_Title /></Col>
                 </Row>
                 <Row>
                   <Col s={12}>

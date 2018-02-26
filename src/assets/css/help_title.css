@@ -1,0 +1,37 @@
+.containerHelp {
+    background-color: #589bd4;
+    padding: 25px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    /*border-top: 4px solid #72c168;
+    border-bottom: 4px solid #72c168;*/
+}
+
+.containerHelp img {
+    margin-top: 20px;
+    height: 13rem;
+    border-radius: 50%;
+}
+
+.containerHelp h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.containerHelp p {
+    color: white;
+    font-size: 22px;
+}
+
+.containerHelp h3 span {
+    background: #72c168;
+    color: white;
+    border-top-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    padding: 0 10px 0 10px;
+}
+
+.containerHelp .bold {
+    font-weight: bold;
+    color: black;
+}
