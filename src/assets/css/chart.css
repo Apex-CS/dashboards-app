@@ -22,20 +22,14 @@
     color: white;
 }
 
-LineSeries {
-    stroke-width: 8;
+.chartBox .legends {
+    float: left;
+    padding:0px 10px;
 }
 
-.pull-right {
+.chartBox .resetButton {
     float: right;
-}
-
-.mr-1 {
-    margin-right: 1rem;
-}
-
-.mt--10 {
-    margin-top:-10px;
+    padding: 10px;
 }
 
 .text-center {
