@@ -27,7 +27,7 @@ import {
 import { Colors, MONTHS } from '../assets/theme';
 import Highlight from './charts/Highlight';
 import Hammer from 'react-hammerjs';
-import { DATA } from './charts/values';
+import { DATA_MONTHS } from './charts/values';
 
 const { i_blue, i_green } = Colors;
 
@@ -54,44 +54,6 @@ class Chart extends Component {
   };
   xDomain = [];
 
-  INCOME = {
-    title: 'Income',
-    color: i_blue,
-    disabled: false,
-    data: [
-      { x: 0, y: 28 },
-      { x: 1, y: 31 },
-      { x: 2, y: 4.2 },
-      { x: 3, y: 9 },
-      { x: 4, y: 8 },
-      { x: 5, y: 1 },
-      { x: 6, y: 7 },
-      { x: 7, y: 6 },
-      { x: 8, y: 3 },
-      { x: 9, y: 2 },
-      { x: 10, y: 1 },
-      { x: 11, y: 15 }
-    ]
-  };
-  OUTCOME = {
-    title: 'Outcome',
-    color: i_green,
-    disabled: false,
-    data: [
-      { x: 0, y: 2 },
-      { x: 1, y: 8 },
-      { x: 2, y: 12 },
-      { x: 3, y: 22 },
-      { x: 4, y: 21 },
-      { x: 5, y: 10 },
-      { x: 6, y: 7 },
-      { x: 7, y: 6 },
-      { x: 8, y: 30 },
-      { x: 9, y: 21 },
-      { x: 10, y: 1 },
-      { x: 11, y: 10 }
-    ]
-  };
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
 
   constructor(props) {
@@ -109,15 +71,15 @@ class Chart extends Component {
 
   buildDataset(newData) {
     const { income, outcome } = this.state;
-    const initial = DATA.findIndex(
+    const initial = DATA_MONTHS.findIndex(
       element =>
         element.year === newData.initYear && element.month === newData.initMonth
     );
-    const end = DATA.findIndex(
+    const end = DATA_MONTHS.findIndex(
       element =>
         element.year === newData.endYear && element.month === newData.endMonth
     );
-    const range = DATA.slice(initial, end + 1);
+    const range = DATA_MONTHS.slice(initial, end + 1);
     income.data = range.map((value, index) => {
       return {
         x: index,
