@@ -53,13 +53,13 @@ export default class SideMenu extends Component {
         
     constructor(props) {
         super(props);
-        this.chartSelectorHandler = this.chartSelectorHandler.bind(this);
+        this.dashboardSelectorHandler = this.dashboardSelectorHandler.bind(this);
         this.rangeButtonsHandler = this.rangeButtonsHandler.bind(this);
     }
 
-    chartSelectorHandler(e,chartType) {
+    dashboardSelectorHandler(e,dashboardType) {
         e.preventDefault();
-        this.props.onChartTypeChange(chartType);
+        this.props.onDashboardTypeChange(dashboardType);
     }
     
     rangeButtonsHandler(e,valuesRange) {
@@ -82,6 +82,11 @@ export default class SideMenu extends Component {
         }
         this.props.onValueChange(months[end_month],"endMonth");
         this.props.onValueChange(parseInt(end_year),"endYear");     
+    }
+    
+    chartsSelectionHandler(e,chartType) {
+        e.preventDefault();
+        console.log(chartType);
     }
 
     initMonth(initialMonth) {
@@ -171,12 +176,12 @@ export default class SideMenu extends Component {
         });
 
         const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
-        const chartOptionList = chart_types.map(chartType => {
+        const chartOptionList = chart_types.map(dashboardType => {
             return <NavItem 
-            value={chartType}
-            key={chartType}
-            onClick={ e => this.chartSelectorHandler(e,chartType) }
-            >{chartType} chart</NavItem>
+            value={dashboardType}
+            key={dashboardType}
+            onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
+            >{dashboardType} chart</NavItem>
         });
     
         return( 
@@ -205,11 +210,23 @@ export default class SideMenu extends Component {
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,12)}>1y<Icon left>tune</Icon></Button>
                     </Row>
-                    <Row className="chartType">
+                    <Row className="dashboardType">
                         <Col s={12}>
                             <h2>Type of Dashboard</h2>
                         </Col>
                         <Dropdown s={12} trigger={<div><Button className="dropdownCharts">Select Dashboard!<Icon right>keyboard_arrow_down</Icon></Button></div>}>{chartOptionList}</Dropdown>
+                    </Row>
+                    <Row className="chartShow">
+                        <Col s={12}>
+                            <h2>Charts</h2>
+                        </Col>
+                        <Col s={12}>
+                            <input type="checkbox" id="income_outcome" checked="checked" value="income_outcome" onChange={e => this.chartsSelectionHandler(e,e.target.value)} />
+                            <label for="income_outcome">Incomes/Outcomes</label>
+                            {/*<Input name='income_outcome' type='checkbox' value='income_outcome' label='Incomes/Outcomes' onChange={e => this.chartsSelectionHandler(e,e.target.checked)}/>*/}
+                            <Input name='profit' type='checkbox' value='profit' label='Profit' onChange={e => this.chartsSelectionHandler(e,e.target.value)}/>
+                            <Input name='net_revenue' type='checkbox' value='net_revenue' label='Net Revenue' onChange={e => this.chartsSelectionHandler(e,e.target.value)}/>
+                        </Col>
                     </Row>
             </Row>   
         );

@@ -6,12 +6,15 @@ import PitchHeader from './components/Pitch.jsx';
 import Features from './components/Features.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
+import ProfitChart from './components/ProfitChart.jsx';
+import SimpleRadialChart from './components/NetRevenueChart.jsx';
 import { Row, Col } from 'react-materialize';
 import Help_Page from './components/help_page';
 import './assets/css/main.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 import '../node_modules/react-vis/dist/style.css';
+import Help_Title from './components/help_title';
 
 
 class App extends Component {
@@ -26,11 +29,11 @@ class App extends Component {
         endYear: 2018
       }
     };
-    this.onChartTypeChange = this.onChartTypeChange.bind(this);
+    this.onDashboardTypeChange = this.onDashboardTypeChange.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
   }
 
-  onChartTypeChange(newChartType) {
+  onDashboardTypeChange(newChartType) {
     this.setState({ typeOfChart: newChartType });
   }
   
@@ -82,15 +85,25 @@ class App extends Component {
               <div>
                 <Row>
                   <Col s={12}>
-                    <HeaderGraphics onChartTypeChange={this.onChartTypeChange}/>
+                    <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
                   </Col>
                 </Row>
                 <Row>
                   <Col s={12} m={3}>
-                    <SideMenu onChartTypeChange={this.onChartTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange}/>
+                    <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange}/>
                   </Col>
                   <Col s={12} m={9}>
                     <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12} m={9} offset="m3">
+                    <ProfitChart rangeOfValues={this.state.rangeOfValues} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12} m={9} offset="m3">
+                  <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
                   </Col>
                 </Row>
               </div>
@@ -103,8 +116,11 @@ class App extends Component {
                   </Col>
                 </Row>
                 <Row>
+                  <Col s={12}><Help_Title /></Col>
+                </Row>
+                <Row>
                   <Col s={12}>
-                    <Help_Page onChartTypeChange={this.onChartTypeChange}/>
+                    <Help_Page onDashboardTypeChange={this.onDashboardTypeChange}/>
                   </Col>
                 </Row>
               </div>

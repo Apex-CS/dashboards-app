@@ -22,19 +22,19 @@
     width: 100%;
     transition-duration: 0.6s;
     cursor: pointer;
-    border: 2px solid #72C168;
+    border: 1px solid #72C168;
     transform: scale(0.9);
 }
 
 .cardIntersys img:hover {
     transform: scale(1.0);
-    border: 1px solid #72C168;
 }
 
 .container_help {
     width: 100%;
     padding: 5px 22px;
 }
+
 .container_help p {
     text-align: justify;
     background: #FAFAFA;
@@ -59,7 +59,7 @@
 }
 
 .btnIntersys.btn_help {
-    background-color:#589bd4;
+    background-color:#146CB5;
     border-color: #3888cc;
     transition-duration: 0.3s;
 }
