@@ -7,14 +7,13 @@ import {
   HorizontalGridLines,
   VerticalGridLines,
   VerticalBarSeries,
-  MarkSeries,
   FlexibleWidthXYPlot,
   DiscreteColorLegend,
 } from 'react-vis';
 import { Colors, MONTHS } from '../assets/theme';
-import { DATA } from './charts/values';
+import { DATA_MONTHS } from './charts/values';
 
-const { i_orange, i_aqua } = Colors;
+const { i_aqua } = Colors;
 
 class ProfitChart extends Component {
   state = {
@@ -24,11 +23,6 @@ class ProfitChart extends Component {
       color: i_aqua,
       disabled: false
     },
-    /*regular_profit: {
-      title: 'Regular Profit',
-      color: i_orange,
-      disabled: false
-    }*/
   };
 
   constructor(props) {
@@ -42,15 +36,15 @@ class ProfitChart extends Component {
 
   buildDataset(newData) {
     const { profit } = this.state;
-    const initial = DATA.findIndex(
+    const initial = DATA_MONTHS.findIndex(
       element =>
         element.year === newData.initYear && element.month === newData.initMonth
     );
-    const end = DATA.findIndex(
+    const end = DATA_MONTHS.findIndex(
       element =>
         element.year === newData.endYear && element.month === newData.endMonth
     );
-    const range = DATA.slice(initial, end + 1);
+    const range = DATA_MONTHS.slice(initial, end + 1);
     
     profit.data = range.map((value, index) => {
         return {
@@ -70,13 +64,13 @@ class ProfitChart extends Component {
   render() {
     const { profit } = this.state;
     return (
-      <div className="chartBox">
+      <Row className="chartBox">
         <Col s={12}>
           <h1>Profit Chart</h1>
         </Col>
         
         <div className="legends">
-          <DiscreteColorLegend width={180} items={[profit/*, regular_profit*/]} />
+          <DiscreteColorLegend width={180} items={[profit]} />
         </div>
             <FlexibleWidthXYPlot
               height={500}
@@ -97,10 +91,9 @@ class ProfitChart extends Component {
                 tickLabelAngle={-45}
               />
               <YAxis tickFormat={p => '$' + p} />
-              {/*if (profit.data.y >=7){ profit.color }*/}
               <VerticalBarSeries animation key="profit" color={profit.color} data={profit.data} />
             </FlexibleWidthXYPlot>
-      </div>
+      </Row>
     );
   }
 }

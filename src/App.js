@@ -7,6 +7,7 @@ import Features from './components/Features.jsx';
 import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
 import ProfitChart from './components/ProfitChart.jsx';
+import SimpleRadialChart from './components/NetRevenueChart.jsx';
 import { Row, Col } from 'react-materialize';
 import Help_Page from './components/help_page';
 import './assets/css/main.css';
@@ -94,8 +95,15 @@ class App extends Component {
                   <Col s={12} m={9}>
                     <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                   </Col>
+                </Row>
+                <Row>
                   <Col s={12} m={9} offset="m3">
-                    <ProfitChart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+                    <ProfitChart rangeOfValues={this.state.rangeOfValues} />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col s={12} m={9} offset="m3">
+                  <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
                   </Col>
                 </Row>
               </div>
