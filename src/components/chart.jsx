@@ -54,7 +54,8 @@ class Chart extends Component {
       disabled: false,
       data: []
     },
-    tabData: []
+    tabData: [],
+    crosshairPosition: 'right'
   };
   xDomain = [];
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
@@ -224,9 +225,12 @@ class Chart extends Component {
   }
 
   showTab(e) {
-    const point = this.state.crosshairValues[0];console.log(point);
-    const data = DATA_DAYS.filter(element => {if (element.month == point.month && element.year == point.year) {console.log(element); return element}});
-    this.setState({tabData: data});
+    const {income} = this.state;
+    const point = this.state.crosshairValues[0];
+    const data = DATA_DAYS.filter(element => element.month == point.month && element.year == point.year);
+    const dataPoint = income.data.find((element => element.month == point.month && element.year == point.year));
+    this.setState({tabData: data, crosshairPosition: income.data.indexOf(dataPoint) > (income.data.length / 2) ? 'left' : 'right'});
+
     this.op.toggle(e);
   }
   render() {
@@ -236,7 +240,8 @@ class Chart extends Component {
       income,
       outcome,
       inheritProps,
-      tabData
+      tabData,
+      crosshairPosition
     } = this.state;
     return (
       <div className="chartBox">
@@ -250,6 +255,7 @@ class Chart extends Component {
               e.preventDefault();
               this.setState({ lastDrawLocation: null });
             }}
+            style={{zIndex: -1}}
           >
             Reset Zoom
           </Button>
@@ -293,12 +299,13 @@ class Chart extends Component {
                   this.op = el;
                 }}
                 showCloseIcon={true}
-                dismissable={true}
+                className={`overlay-panel-${crosshairPosition}`}
               >
+                {tabData[0] && <div>{`${tabData[0].month} ${tabData[0].year}`}</div>}
                 <DataTable value={tabData}>
                   <Column field="day" header="Day" />
-                  <Column field="income" header="Income" />
-                  <Column field="outcome" header="Outcome" />
+                  <Column field="income" header="In" />
+                  <Column field="outcome" header="Out" />
                 </DataTable>
               </OverlayPanel>
               <GradientDefs>

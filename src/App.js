@@ -13,6 +13,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.css';
 import '../node_modules/react-vis/dist/style.css';
 import Help_Title from './components/help_title';
+import 'primereact/resources/primereact.min.css';
 
 
 class App extends Component {
