@@ -225,7 +225,7 @@ class Chart extends Component {
         <Col s={12}>
           <h1>{this.props.chartType} Chart</h1>
         </Col>
-        <div className="pull-right mr-1">
+        <div className="resetButton">
           <Button
             waves="light"
             onClick={e => {
@@ -236,7 +236,7 @@ class Chart extends Component {
             Reset Zoom
           </Button>
         </div>
-        <div className="pull-right mt--10 text-center">
+        <div className="legends">
           <DiscreteColorLegend width={180} items={[income, outcome]} />
         </div>
         <Hammer

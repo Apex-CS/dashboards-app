@@ -6,23 +6,23 @@ import '../assets/css/header.css';
 export default class HeaderGraphics extends Component {
   constructor(props) {
     super(props);
-    this.chartSelectorHandler = this.chartSelectorHandler.bind(this);
+    this.dashboardSelectorHandler = this.dashboardSelectorHandler.bind(this);
   } 
   
-  chartSelectorHandler(e,chartType) {
+  dashboardSelectorHandler(e,dashboardType) {
     e.preventDefault();
-    this.props.onChartTypeChange(chartType);
+    this.props.onDashboardTypeChange(dashboardType);
   }
   
   render() {
 
     const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
-        const chartOptionList = chart_types.map(chartType => {
+        const chartOptionList = chart_types.map(dashboardType => {
             return <NavItem 
-            value={chartType}
-            key={chartType}
-            onClick={ e => this.chartSelectorHandler(e,chartType) }
-            >{chartType} chart</NavItem>
+            value={dashboardType}
+            key={dashboardType}
+            onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
+            >{dashboardType} chart</NavItem>
         });
 
     return(    
