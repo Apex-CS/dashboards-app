@@ -41,7 +41,6 @@ class Highlight extends AbstractSeries {
   onParentMouseDown(e) {
     const { marginLeft, innerHeight, onBrushStart, onClick } = this.props;
     const location = e.nativeEvent.offsetX - marginLeft;
-    console.log(this.state.singleClick);
     this.setState({
       drawing: true,
       drawArea: {

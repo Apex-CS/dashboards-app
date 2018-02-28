@@ -46,6 +46,7 @@ LineSeries {
 }
 
 .ui-overlaypanel {
+  width: 166px;
   position: absolute;
   padding: 20px;
   margin: 1em 0 3em;
@@ -87,55 +88,22 @@ LineSeries {
   top: -2px !important;
 }
 
-.overlay-panel-left {
-  left: 0% !important;
-}
-
 .overlay-panel-left:before {
-    right: -25px;
-    border-width: 11px 0px 11px 25px;
-  }
+  right: -25px;
+  border-width: 11px 0px 11px 25px;
+}
 
 .overlay-panel-left:after {
-    right: -21px;
-    border-width: 9px 0 9px 21px;
-  }
+  right: -21px;
+  border-width: 9px 0 9px 21px;
+}
 
 .overlay-panel-right:before {
-    left: -25px;
-    border-width: 11px 25px 11px 0;
-  }
+  left: -25px;
+  border-width: 11px 25px 11px 0;
+}
 
 .overlay-panel-right:after {
-    left: -21px;
-    border-width: 9px 21px 9px 0;
-  }
-@media only screen and (min-width: 930px) {
-  .ui-overlaypanel {
-    width: 30%;
-  }
-
-  .overlay-panel-right {
-    left: 70% !important;
-  }
-}
-
-@media only screen and (max-width: 929px) and (min-width: 710px) {
-  .ui-overlaypanel {
-    width: 40%;
-  }
-
-  .overlay-panel-right {
-    left: 60% !important;
-  }
-}
-
-@media only screen and (max-width: 709px) {
-  .ui-overlaypanel {
-    width: 50%;
-  }
-
-  .overlay-panel-right {
-    left: 50% !important;
-  }
+  left: -21px;
+  border-width: 9px 21px 9px 0;
 }

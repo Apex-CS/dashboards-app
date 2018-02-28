@@ -55,7 +55,8 @@ class Chart extends Component {
       data: []
     },
     tabData: [],
-    crosshairPosition: 'right'
+    crosshairPosition: 'right',
+    crosshairX: 0
   };
   xDomain = [];
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
@@ -225,7 +226,8 @@ class Chart extends Component {
   }
 
   showTab(e) {
-    const { income } = this.state;
+    const { income, crosshairPosition, baseVal } = this.state;
+    const percent = e.target.width.baseVal.value / income.data.length;
     const point = this.state.crosshairValues[0];
     const data = DATA_DAYS.filter(
       element => element.month == point.month && element.year == point.year
@@ -238,7 +240,11 @@ class Chart extends Component {
       crosshairPosition:
         income.data.indexOf(dataPoint) > income.data.length / 2
           ? 'left'
-          : 'right'
+          : 'right',
+      crosshairX:
+        income.data.indexOf(dataPoint) > income.data.length / 2
+          ? e.nativeEvent.offsetX - 181 - percent
+          : e.nativeEvent.offsetX + percent + 25
     });
 
     this.op.toggle(e);
@@ -249,7 +255,7 @@ class Chart extends Component {
       crosshairValues,
       income,
       outcome,
-
+      crosshairX,
       inheritProps,
       tabData,
       crosshairPosition
@@ -315,6 +321,7 @@ class Chart extends Component {
                   }}
                   showCloseIcon={true}
                   className={`overlay-panel-${crosshairPosition}`}
+                  style={{ left: crosshairX }}
                 >
                   {tabData[0] && (
                     <div>{`${tabData[0].month} ${tabData[0].year}`}</div>
@@ -353,7 +360,11 @@ class Chart extends Component {
                   }
                   tickLabelAngle={-45}
                 />
-                <YAxis tickFormat={p => '$' + p} />
+                <YAxis
+                  tickFormat={p => `$ ${p} k`}
+                  tickLabelAngle={-45}
+                  left={1}
+                />
                 {this.renderChart()}
                 <Crosshair
                   values={crosshairValues}
@@ -361,8 +372,8 @@ class Chart extends Component {
                     values.map(
                       (spot, index) =>
                         index === 0
-                          ? { title: 'Income', value: spot.y }
-                          : { title: 'Outcome', value: spot.y }
+                          ? { title: 'Income', value: `$ ${spot.y} k` }
+                          : { title: 'Outcome', value: `$ ${spot.y} k` }
                     )
                   }
                   titleFormat={values => {
