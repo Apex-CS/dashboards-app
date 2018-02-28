@@ -13,7 +13,7 @@ class Features extends Component {
                     <Col className="feature_thumbnail" s={12} m={4}>
                        <img src={adaptable}/>
                        <h1>Web/Mobile adaptable</h1>
-                       <p>The application can be easily opened in any device keeping full functionatily, also you should not worry for the browser, it's compatible with all recent ones.</p>
+                       <p>The application can be easily opened in any device keeping full functionality, technology at your fingertips. Also you should not worry for the browser, It’s compatible with all the recent ones! </p>
                     </Col>
                     <Col className="feature_thumbnail" s={12} m={4}>
                        <img src={flexible}/>

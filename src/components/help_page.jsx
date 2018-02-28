@@ -24,9 +24,6 @@ class Help_Page extends Component {
         link: '/dashboards',
         text: 'View dashboard'
     };
-    modem() {
-        alert('alan');
-    }
 
     render() {
     return(
