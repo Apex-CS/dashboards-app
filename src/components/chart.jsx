@@ -11,7 +11,7 @@ import {
 } from 'react-materialize';
 import { OverlayPanel } from 'primereact/components/overlaypanel/OverlayPanel';
 import { DataTable } from 'primereact/components/datatable/DataTable';
-import {  Column } from 'primereact/components/column/Column';
+import { Column } from 'primereact/components/column/Column';
 import {
   XAxis,
   YAxis,
@@ -225,11 +225,21 @@ class Chart extends Component {
   }
 
   showTab(e) {
-    const {income} = this.state;
+    const { income } = this.state;
     const point = this.state.crosshairValues[0];
-    const data = DATA_DAYS.filter(element => element.month == point.month && element.year == point.year);
-    const dataPoint = income.data.find((element => element.month == point.month && element.year == point.year));
-    this.setState({tabData: data, crosshairPosition: income.data.indexOf(dataPoint) > (income.data.length / 2) ? 'left' : 'right'});
+    const data = DATA_DAYS.filter(
+      element => element.month == point.month && element.year == point.year
+    );
+    const dataPoint = income.data.find(
+      element => element.month == point.month && element.year == point.year
+    );
+    this.setState({
+      tabData: data,
+      crosshairPosition:
+        income.data.indexOf(dataPoint) > income.data.length / 2
+          ? 'left'
+          : 'right'
+    });
 
     this.op.toggle(e);
   }
@@ -239,132 +249,145 @@ class Chart extends Component {
       crosshairValues,
       income,
       outcome,
+
       inheritProps,
       tabData,
       crosshairPosition
     } = this.state;
     return (
       <div className="chartBox">
-        <Col s={12}>
-          <h1>{this.props.chartType} Chart</h1>
-        </Col>
-        <div className="pull-right mr-1">
-          <Button
-            waves="light"
-            onClick={e => {
-              e.preventDefault();
+        <Row>
+          <Col s={12}>
+            <h1>{this.props.chartType} Chart</h1>
+          </Col>
+        </Row>
+        <Row>
+          <div className="pull-right mr-1">
+            <Button
+              waves="light"
+              onClick={e => {
+                e.preventDefault();
+                this.setState({ lastDrawLocation: null });
+              }}
+            >
+              Reset Zoom
+            </Button>
+          </div>
+          <div className="pull-right mt--10 text-center">
+            <DiscreteColorLegend width={180} items={[income, outcome]} />
+          </div>
+        </Row>
+        <Row>
+          <Hammer
+            onPinchStart={initialSpot => {
+              this.setState({
+                center: initialSpot.center.x,
+                baseVal: initialSpot.target.width.baseVal.value
+              });
+              this.setCorrectX();
+            }}
+            onPinchOut={spot => {
+              this.pinchOutChart(spot.scale);
+            }}
+            onPinchIn={spot => {
+              this.pinchInChart(spot.scale);
+            }}
+            onDoubleTap={tap => {
               this.setState({ lastDrawLocation: null });
             }}
-            style={{zIndex: -1}}
+            options={{ recognizers: { pinch: { enable: true } } }}
           >
-            Reset Zoom
-          </Button>
-        </div>
-        <div className="pull-right mt--10 text-center">
-          <DiscreteColorLegend width={180} items={[income, outcome]} />
-        </div>
-        <Hammer
-          onPinchStart={initialSpot => {
-            this.setState({
-              center: initialSpot.center.x,
-              baseVal: initialSpot.target.width.baseVal.value
-            });
-            this.setCorrectX();
-          }}
-          onPinchOut={spot => {
-            this.pinchOutChart(spot.scale);
-          }}
-          onPinchIn={spot => {
-            this.pinchInChart(spot.scale);
-          }}
-          onTap={tap => {
-            this.setState({ lastDrawLocation: null });
-          }}
-          options={{ recognizers: { pinch: { enable: true } } }}
-        >
-          <div>
-            <FlexibleWidthXYPlot
-              height={500}
-              animation
-              xDomain={
-                lastDrawLocation && [
-                  lastDrawLocation.left,
-                  lastDrawLocation.right
-                ]
-              }
-              onMouseLeave={this._onMouseLeave}
-            >
-              <OverlayPanel
-                ref={el => {
-                  this.op = el;
-                }}
-                showCloseIcon={true}
-                className={`overlay-panel-${crosshairPosition}`}
+            <div>
+              <FlexibleWidthXYPlot
+                height={500}
+                animation
+                xDomain={
+                  lastDrawLocation && [
+                    lastDrawLocation.left,
+                    lastDrawLocation.right
+                  ]
+                }
+                onMouseLeave={this._onMouseLeave}
               >
-                {tabData[0] && <div>{`${tabData[0].month} ${tabData[0].year}`}</div>}
-                <DataTable value={tabData}>
-                  <Column field="day" header="Day" />
-                  <Column field="income" header="In" />
-                  <Column field="outcome" header="Out" />
-                </DataTable>
-              </OverlayPanel>
-              <GradientDefs>
-                <linearGradient id="greenGradient" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
-                </linearGradient>
-                <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
-                </linearGradient>
-              </GradientDefs>
-              <VerticalGridLines />
-              <HorizontalGridLines />
-              <XAxis
-                tickFormat={x =>
-                  x % 1 === 0 && x <= income.data.length - 1
-                    ? `${income.data[x].month.substr(0, 3)} ${income.data[
-                        x
-                      ].year
-                        .toString()
-                        .substr(2, 4)}`
-                    : ''
-                }
-                tickLabelAngle={-45}
-              />
-              <YAxis tickFormat={p => '$' + p} />
-              {this.renderChart()}
-
-              <Highlight
-                onBrushEnd={area => {
-                  this.setState({
-                    lastDrawLocation: area
-                  });
-                }}
-                passProps={props => {
-                  this.assignProps(props);
-                }}
-                onClick={this.showTab}
-              />
-
-              <Crosshair
-                values={crosshairValues}
-                itemsFormat={values =>
-                  values.map(
-                    (spot, index) =>
-                      index === 0
-                        ? { title: 'Income', value: spot.y }
-                        : { title: 'Outcome', value: spot.y }
-                  )
-                }
-                titleFormat={values => {
-                  return {
-                    title: 'Month',
-                    value: `${values[0].month} ${values[0].year}`
-                  };
-                }}
-              />
-            </FlexibleWidthXYPlot>
-          </div>
-        </Hammer>
+                <OverlayPanel
+                  ref={el => {
+                    this.op = el;
+                  }}
+                  showCloseIcon={true}
+                  className={`overlay-panel-${crosshairPosition}`}
+                >
+                  {tabData[0] && (
+                    <div>{`${tabData[0].month} ${tabData[0].year}`}</div>
+                  )}
+                  <DataTable value={tabData}>
+                    <Column field="day" header="Day" />
+                    <Column field="income" header="In" />
+                    <Column field="outcome" header="Out" />
+                  </DataTable>
+                </OverlayPanel>
+                <GradientDefs>
+                  <linearGradient
+                    id="greenGradient"
+                    x1="0"
+                    x2="0"
+                    y1="0"
+                    y2="1"
+                  >
+                    <stop offset="0%" stopColor={i_green} stopOpacity={0.5} />
+                  </linearGradient>
+                  <linearGradient id="blueGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor={i_blue} stopOpacity={0.5} />
+                  </linearGradient>
+                </GradientDefs>
+                <VerticalGridLines />
+                <HorizontalGridLines />
+                <XAxis
+                  tickFormat={x =>
+                    x % 1 === 0 && x <= income.data.length - 1
+                      ? `${income.data[x].month.substr(0, 3)} ${income.data[
+                          x
+                        ].year
+                          .toString()
+                          .substr(2, 4)}`
+                      : ''
+                  }
+                  tickLabelAngle={-45}
+                />
+                <YAxis tickFormat={p => '$' + p} />
+                {this.renderChart()}
+                <Crosshair
+                  values={crosshairValues}
+                  itemsFormat={values =>
+                    values.map(
+                      (spot, index) =>
+                        index === 0
+                          ? { title: 'Income', value: spot.y }
+                          : { title: 'Outcome', value: spot.y }
+                    )
+                  }
+                  titleFormat={values => {
+                    return {
+                      title: 'Month',
+                      value: `${values[0].month} ${values[0].year}`
+                    };
+                  }}
+                  style={{ top: '70%' }}
+                />
+                <Highlight
+                  onBrushEnd={area => {
+                    this.setState({
+                      lastDrawLocation: area
+                    });
+                  }}
+                  passProps={props => {
+                    this.assignProps(props);
+                  }}
+                  onClick={this.showTab}
+                />
+              </FlexibleWidthXYPlot>
+            </div>
+          </Hammer>
+        </Row>
       </div>
     );
   }
