@@ -16,8 +16,8 @@ class PitchHeader extends Component {
                             <p className="parallax_header">Introducing your new <span>best</span> friend at work</p>
                             <p className="parallax_text">This application provides an easy way to chart your data in all your devices.</p>
                             <div className="pitch_buttons">
-                                <Button className="demo_button" waves='light' href="">See Demo</Button>
-                                <Button className="learn_button" waves='light' href="">Learn More</Button>
+                                <Button className="demo_button" node='a' waves='light' href='www.intersysconsulting.com'>Get In Touch</Button>
+                                <Button className="learn_button"  node='a' waves='light' href='/dashboards'>Live Demo</Button>
                             </div>
                         </div>
                     </Col>

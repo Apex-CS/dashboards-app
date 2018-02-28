@@ -8,8 +8,11 @@ import {
   FlexibleWidthXYPlot
 } from 'react-vis';
 import { Colors } from '../assets/theme';
+import { DATA_MONTHS } from './charts/values';
 import { NETREVENUE } from './charts/values2';
 
+const { i_blue, i_green, i_orange, i_aqua, i_purple, i_gray} = Colors;
+const colors = [ i_blue, i_green, i_orange, i_aqua, i_purple, i_gray ];
 export default class SimpleRadialChart extends Component {
   state = {
     inheritProps: {},
@@ -17,6 +20,30 @@ export default class SimpleRadialChart extends Component {
       title: 'Net Revenue',
       disabled: false,
       data: []
+    },
+    servers: {
+        title: 'Servers',
+        color: i_green
+      },
+    storage: {
+        title: 'Storage',
+        color: i_gray
+    },
+    networking: {
+        title: 'Networking',
+        color: i_purple
+    },
+    services: {
+        title: 'Services',
+        color: i_aqua
+    },
+    finalConsumer: {
+        title: 'Final Consumer',
+        color: i_orange
+    },
+    software: {
+        title: 'Software',
+        color: i_blue
     },
     value: false
   };
@@ -40,7 +67,9 @@ export default class SimpleRadialChart extends Component {
       element =>
         element.year === newData.endYear && element.month === newData.endMonth
     );
+
     const range = NETREVENUE.slice(initial, end + 1);
+    const range2 = DATA_MONTHS.slice(initial, end + 1);
     
     netRevenue.data = range.reduce((total,value) => {
         
@@ -55,39 +84,63 @@ export default class SimpleRadialChart extends Component {
 
     });
 
+    netRevenue.totalRevenue = range2.reduce(
+        (total, value) => total + Number(value.income), 
+        0
+    );
+
     for (var key in netRevenue.data) {
         netRevenue.data[key] = netRevenue.data[key] / range.length;
     }
     
     this.setState({ netRevenue: netRevenue });
-    //console.log(this.state);
   }
   
   assignProps(props) {
     this.setState({ inheritProps: props });
   }
 
-
-  render() {
-    const {netRevenue, value} = this.state;
-    console.log(netRevenue.data);
+  render() { 
+    const {
+        netRevenue, 
+        value, 
+        servers, 
+        storage, 
+        networking, 
+        services,
+        finalConsumer,
+        software,
+        totalRevenue
+    } = this.state;
+    const percentualUnitDlls = netRevenue.totalRevenue/100;
     const dataValues = Object.keys(netRevenue.data).map( key => ({theta: netRevenue.data[key]}) );
     return (
         <Row className="pieChartBox">
             <Col s={12}>
             <h1>Net Revenue</h1>
             </Col>
+            <div className="legends">
+                <DiscreteColorLegend width={180} items={[servers, storage, networking, services, finalConsumer, software]} />
+            </div>
             <RadialChart
                 className={'pieChart'}
                 innerRadius={0}
                 getAngle={
                     d => d.theta}
+                colorRange={colors}
                 data={dataValues}
                 onValueMouseOver={v => this.setState({value: v})}
                 onSeriesMouseOut={v => this.setState({value: false})}
                 height={350}
                 width={350}>
-                {value && <Hint value={value}/>}
+                {
+                    value && <Hint value={value}>
+                    <div className="pieChartHint">
+                        <p>Revenue Percentage: <span>{value.theta.toFixed(2)} %</span></p>
+                        <p>Gross Revenue: <span className="dlls">$ {(percentualUnitDlls * value.theta).toFixed(2)}k USD</span></p>
+                    </div>
+                    </Hint>
+                }
             </RadialChart>
         </Row>  
     );
