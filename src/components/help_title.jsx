@@ -14,11 +14,8 @@ export default class Help_Title extends Component {
                 <Col m={6} l={8}>
                     <h3>Need <span>Help?</span></h3>
                     <p>
-                        You will find different types of graphs that will help you as a tool
-                        to measure your data that suits your needs.<br />
-
-                        <span className="bold">Thousands of people are using it !</span> 
-                        &nbsp;you will not find it at a better price with the most complete content, different graphics, original and unique
+                    Here you can find the information of all the functions of the app, to have the best performance possible of your new assistant! <br />
+                    Save money and time with your new personal information analyst
                     </p>
                 </Col>
                 <Col m={6}  l={4}>
