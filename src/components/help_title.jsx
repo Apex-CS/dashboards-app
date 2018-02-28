@@ -19,7 +19,7 @@ export default class Help_Title extends Component {
                     </p>
                 </Col>
                 <Col m={6}  l={4}>
-                    <div class="right">
+                    <div className="right">
                         <img src={search} />
                     </div>
                 </Col>
