@@ -167,3 +167,7 @@ LineSeries {
   left: -21px;
   border-width: 9px 21px 9px 0;
 }
+
+.clean-margin-bottom {
+  margin-bottom: 0;
+}

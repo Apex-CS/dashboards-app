@@ -84,9 +84,8 @@ export default class SideMenu extends Component {
         this.props.onValueChange(parseInt(end_year),"endYear");     
     }
     
-    chartsSelectionHandler(e,chartType) {
-        e.preventDefault();
-        console.log(chartType);
+    chartsSelectionHandler(e,type, value) {
+        this.props.showChart(type, value)
     }
 
     initMonth(initialMonth) {
@@ -221,11 +220,9 @@ export default class SideMenu extends Component {
                             <h2>Charts</h2>
                         </Col>
                         <Col s={12}>
-                            <input type="checkbox" id="income_outcome" checked="checked" value="income_outcome" onChange={e => this.chartsSelectionHandler(e,e.target.value)} />
-                            <label for="income_outcome">Incomes/Outcomes</label>
                             {/*<Input name='income_outcome' type='checkbox' value='income_outcome' label='Incomes/Outcomes' onChange={e => this.chartsSelectionHandler(e,e.target.checked)}/>*/}
-                            <Input name='profit' type='checkbox' value='profit' label='Profit' onChange={e => this.chartsSelectionHandler(e,e.target.value)}/>
-                            <Input name='net_revenue' type='checkbox' value='net_revenue' label='Net Revenue' onChange={e => this.chartsSelectionHandler(e,e.target.value)}/>
+                            <Input name='profit' type='checkbox' value='profit' label='Profit' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
+                            <Input name='revenue' type='checkbox' value='revenue' label='Net Revenue' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
                         </Col>
                     </Row>
             </Row>   

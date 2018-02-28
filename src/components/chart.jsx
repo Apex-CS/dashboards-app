@@ -262,12 +262,12 @@ class Chart extends Component {
     } = this.state;
     return (
       <div className="chartBox">
-        <Row>
+        <Row className={'clean-margin-bottom'}>
           <Col s={12}>
             <h1>{this.props.chartType} Chart</h1>
           </Col>
         </Row>
-        <Row>
+        <Row className={'clean-margin-bottom'}>
           <div className="pull-right mr-1">
             <Button
               waves="light"
@@ -279,7 +279,7 @@ class Chart extends Component {
               Reset Zoom
             </Button>
           </div>
-          <div className="pull-right mt--10 text-center">
+          <div className="legends">
             <DiscreteColorLegend width={180} items={[income, outcome]} />
           </div>
         </Row>
