@@ -1,8 +1,7 @@
 import React from 'react';
-import {ScaleUtils, AbstractSeries } from 'react-vis';
+import { ScaleUtils, AbstractSeries } from 'react-vis';
 
 class Highlight extends AbstractSeries {
-
   static defaultProps = {
     allow: 'x',
     color: 'rgb(77, 182, 172)',
@@ -11,48 +10,50 @@ class Highlight extends AbstractSeries {
 
   state = {
     drawing: false,
-    drawArea: {top: 0, right: 0, bottom: 0, left: 0},
-    startLoc: 0
+    drawArea: { top: 0, right: 0, bottom: 0, left: 0 },
+    startLoc: 0,
+    singleClick: true
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.passProps(this.props);
   }
 
   _getDrawArea(loc) {
-    const {innerWidth} = this.props;
-    const {drawArea, startLoc} = this.state;
+    const { innerWidth } = this.props;
+    const { drawArea, startLoc } = this.state;
 
-    if( loc < startLoc ) {
+    if (loc < startLoc) {
       return {
         ...drawArea,
         left: Math.max(loc, 0),
         right: startLoc
-      }
+      };
     }
 
     return {
       ...drawArea,
       right: Math.min(loc, innerWidth),
       left: startLoc
-    }
+    };
   }
 
   onParentMouseDown(e) {
-    const {marginLeft, innerHeight, onBrushStart} = this.props;
+    const { marginLeft, innerHeight, onBrushStart, onClick } = this.props;
     const location = e.nativeEvent.offsetX - marginLeft;
     this.setState({
       drawing: true,
       drawArea: {
-        top:0,
+        top: 0,
         right: location,
         bottom: innerHeight,
         left: location
       },
+      singleClick: true,
       startLoc: location
     });
 
-    if(onBrushStart){
+    if (onBrushStart) {
       onBrushStart(e);
     }
   }
@@ -62,18 +63,18 @@ class Highlight extends AbstractSeries {
       return;
     }
 
-    const {onBrushEnd} = this.props;
-    const {drawArea} = this.state;
+    const { onBrushEnd } = this.props;
+    const { drawArea } = this.state;
     const xScale = ScaleUtils.getAttributeScale(this.props, 'x');
     const yScale = ScaleUtils.getAttributeScale(this.props, 'y');
 
     this.setState({
       drawing: false,
-      drawArea: {top:0, right: 0, bottom: 0, left: 0},
+      drawArea: { top: 0, right: 0, bottom: 0, left: 0 },
       startloc: 0
     });
 
-    if (Math.abs(drawArea.right - drawArea.left) < 5){
+    if (Math.abs(drawArea.right - drawArea.left) < 5) {
       onBrushEnd(null);
       return;
     }
@@ -82,39 +83,48 @@ class Highlight extends AbstractSeries {
       right: xScale.invert(drawArea.right),
       bottom: yScale.invert(drawArea.bottom),
       left: xScale.invert(drawArea.left)
+    };
 
-    }
-
-    if(onBrushEnd) {
+    if (onBrushEnd) {
+      this.setState({ singleClick: false })
       onBrushEnd(domainArea);
     }
   }
 
   onParentMouseMove(e) {
-    const {marginLeft, onBrush} = this.props;
-    const {drawing} = this.state;
+    const { marginLeft, onBrush } = this.props;
+    const { drawing } = this.state;
     const loc = e.nativeEvent.offsetX - marginLeft;
 
     if (drawing) {
       const newDrawArea = this._getDrawArea(loc);
-      this.setState({drawArea: newDrawArea});
+      this.setState({ drawArea: newDrawArea});
 
-      if(onBrush){
+      if (onBrush) {
         onBrush(e);
       }
     }
   }
 
   render() {
-    const {marginLeft, marginTop, innerWidth, innerHeight, color, opacity} = this.props;
-    const {drawArea: {left, right, top, bottom}} = this.state;
+    const {
+      marginLeft,
+      marginTop,
+      innerWidth,
+      innerHeight,
+      color,
+      opacity,
+      onClick
+    } = this.props;
+    const { drawArea: { left, right, top, bottom }, singleClick } = this.state;
     return (
-      <g transform={`translate(${marginLeft}, ${marginTop})`}
+      <g
+        transform={`translate(${marginLeft}, ${marginTop})`}
         className="highlight-container"
-        onMouseUp={(e) => this.stopDrawing()}
-        onMouseLeave={(e) => this.stopDrawing()}
+        onMouseUp={e => this.stopDrawing()}
+        onMouseLeave={e => this.stopDrawing()}
       >
-        <rect 
+        <rect
           className="mouse-target"
           fill="black"
           opacity="0"
@@ -122,19 +132,24 @@ class Highlight extends AbstractSeries {
           y={0}
           width={innerWidth}
           height={innerHeight}
+          onClick={e => {
+            if (singleClick) {
+              onClick(e);
+            }
+          }}
         />
-        <rect 
+        <rect
           className="highlight"
           pointerEvents="none"
           opacity={opacity}
           fill={color}
           x={left}
           y={top}
-          width={right-left}
+          width={right - left}
           height={bottom}
         />
       </g>
-    )
+    );
   }
 }
 

@@ -13,8 +13,8 @@ class PitchHeader extends Component {
                 <Row className="section inside_parallax">
                     <Col s={12} m={7} className="parrallax_left">
                         <div className="container pitch_container">
-                            <p className="parallax_header">Introducing your new <span> Personal Assistant</span> at work</p>
-                            <p className="parallax_text">This application provides an easy way to chart your data in all your devices.</p>
+                            <p className="parallax_header">Enable your team for success with a <span> Custom Rich Dashboard</span>.</p>
+                            <p className="parallax_text">Intersys can provide you an easy solution to customize your data presentation for all devices.</p>
                             <div className="pitch_buttons">
                                 <Button className="demo_button" node='a' target="_blank" waves='light' href='https://www.intersysconsulting.com'>Get In Touch</Button>
                                 <Button className="learn_button"  node='a' waves='light' href='/dashboards'>Live Demo</Button>
