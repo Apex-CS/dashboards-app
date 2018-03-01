@@ -1,13 +1,41 @@
 .chartBox {
-    height: 700px; 
-    top: auto;
-    margin-top: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
-                0 1px 5px 0 rgba(0,0,0,0.12), 
-                0 3px 1px -2px rgba(0,0,0,0.2);
-    padding: 1em;
+  height: 700px;
+  top: auto;
+  margin-top: 10px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  padding: 1em;
 }
 
+.chartBox h1 {
+  margin-left: -0.85rem;
+  margin-right: -0.85rem;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  background-color: #146cb5;
+  font-family: Dosis, sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 20px;
+  color: white;
+}
+
+LineSeries {
+  stroke-width: 8;
+}
+
+.pull-right {
+  float: right;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.mt--10 {
+  margin-top: -10px;
+}
 .pieChartBox {
     top: auto;
     margin-top: 10px;
@@ -41,6 +69,11 @@
     float: left;
     padding:0px 10px;
 }
+.chartBox .legends_money,
+.pieChartBox .legends_money {
+    float: right;
+    padding:0px 10px;
+}
 
 .pieChartHint {
     background-color: #FFF;
@@ -56,11 +89,13 @@
     color: #565a60;
 }
 
-.pieChartHint span {
+.pieChartHint span,
+.legends_money span {
     color: #146CB5;
     /*#72C168*/
 }
-.pieChartHint span.dlls {
+.pieChartHint span.dlls,
+.legends_money span.dlls {
     color: #72C168;
 }
 
@@ -70,9 +105,36 @@
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .rv-xy-plot__axis g {
     background-color: white;
+}
+
+.legends_money {
+    margin: 10px;
+}
+
+.legends_money h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: Dosis,sans-serif;
+    font-size: 20px; 
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px;
+    color: #08C1AF;
+    font-weight: bold;
+}
+
+.legends_money p{
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 0px 20px;
+    font-size: 14px;
+}
+.rv-discrete-color-legend-item__color {
+    height: 14px !important;
 }
