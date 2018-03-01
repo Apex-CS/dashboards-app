@@ -109,7 +109,7 @@ class App extends Component {
                   </Col>
                 }
                 { revenue && 
-                  <Col s={12} m={9}>
+                  <Col s={12} m={9} offset="m3">
                   <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
                   </Col>
                }
