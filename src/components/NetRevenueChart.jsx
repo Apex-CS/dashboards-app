@@ -120,7 +120,7 @@ export default class SimpleRadialChart extends Component {
             <h1>Net Revenue</h1>
             </Col>
             <div className="legends">
-                <DiscreteColorLegend width={180} items={[servers, storage, networking, services, finalConsumer, software]} />
+                <DiscreteColorLegend startTitle="Values" width={180} items={[servers, storage, networking, services, finalConsumer, software]} />
             </div>
             <RadialChart
                 className={'pieChart'}
@@ -142,6 +142,15 @@ export default class SimpleRadialChart extends Component {
                     </Hint>
                 }
             </RadialChart>
+            <div className="legends_money">
+                <h2>Gross Revenue and Percentage</h2>
+                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.servers.toFixed(2)} %</span></p>
+                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.storage.toFixed(2)} %</span></p>
+                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.networking.toFixed(2)} %</span></p>
+                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.services.toFixed(2)} %</span></p>
+                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer.toFixed(2)} %</span></p>
+                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.software.toFixed(2)} %</span></p>          
+            </div>
         </Row>  
     );
   }

@@ -4,7 +4,7 @@ const Colors = {
   i_orange: '#f88f3d',
   i_aqua: '#08C1AF',
   i_purple: '#7962c6',
-  i_gray: '#565a60'
+  i_gray: '#878787'
 };
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

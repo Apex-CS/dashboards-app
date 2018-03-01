@@ -41,6 +41,11 @@
     float: left;
     padding:0px 10px;
 }
+.chartBox .legends_money,
+.pieChartBox .legends_money {
+    float: right;
+    padding:0px 10px;
+}
 
 .pieChartHint {
     background-color: #FFF;
@@ -56,11 +61,13 @@
     color: #565a60;
 }
 
-.pieChartHint span {
+.pieChartHint span,
+.legends_money span {
     color: #146CB5;
     /*#72C168*/
 }
-.pieChartHint span.dlls {
+.pieChartHint span.dlls,
+.legends_money span.dlls {
     color: #72C168;
 }
 
@@ -75,4 +82,31 @@
 
 .rv-xy-plot__axis g {
     background-color: white;
+}
+
+.legends_money {
+    margin: 10px;
+}
+
+.legends_money h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: Dosis,sans-serif;
+    font-size: 20px; 
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px;
+    color: #08C1AF;
+    font-weight: bold;
+}
+
+.legends_money p{
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 0px 20px;
+    font-size: 14px;
+}
+.rv-discrete-color-legend-item__color {
+    height: 14px !important;
 }
