@@ -83,7 +83,7 @@
 
 .dashboardType button { 
     background-color: #146CB5;
-    margin: 1em;
+    margin: 1em 0;
 }
 
 .dashboardType button:hover { 

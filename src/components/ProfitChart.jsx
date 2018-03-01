@@ -64,7 +64,7 @@ class ProfitChart extends Component {
   render() {
     const { profit } = this.state;
     return (
-      <Row className="chartBox">
+      <Row className="chartBox specialChart">
         <Col s={12}>
           <h1>Profit Chart</h1>
         </Col>
@@ -72,6 +72,7 @@ class ProfitChart extends Component {
         <div className="legends">
           <DiscreteColorLegend width={180} items={[profit]} />
         </div>
+        <div>
             <FlexibleWidthXYPlot
               height={500}
               animation
@@ -93,6 +94,7 @@ class ProfitChart extends Component {
               <YAxis tickFormat={p => '$' + p} />
               <VerticalBarSeries animation key="profit" color={profit.color} data={profit.data} />
             </FlexibleWidthXYPlot>
+          </div>
       </Row>
     );
   }

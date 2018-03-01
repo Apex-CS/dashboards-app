@@ -25,7 +25,12 @@
 .top-menu a i {
     color: #585A61;
     font-size: 3rem;
-    line-height: 64px;
+    line-height: 70px;
+}
+
+nav .button-collapse {
+    margin:0;
+    
 }
 
 .navbar_logo {
