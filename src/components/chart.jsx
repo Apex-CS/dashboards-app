@@ -58,6 +58,7 @@ class Chart extends Component {
     crosshairPosition: 'right',
     crosshairX: 0
   };
+  offsetX= 0;
   xDomain = [];
   CHARTS = ['line', 'bar', 'area', 'gradient', 'dot'];
 
@@ -104,7 +105,8 @@ class Chart extends Component {
     });
     this.setState({ income: income, outcome: outcome });
   }
-  _onNearestX(values, { index }) {
+  _onNearestX(values,  {index, event, innerX}) {
+    this.offsetX = innerX;
     const { income, outcome } = this.state;
     const DATA = [income.data, outcome.data];
     this.setState({ crosshairValues: DATA.map(d => d[index]) });
@@ -238,13 +240,13 @@ class Chart extends Component {
     this.setState({
       tabData: data,
       crosshairPosition:
-        income.data.indexOf(dataPoint) > income.data.length / 2
+        income.data.indexOf(dataPoint) >= income.data.length / 2
           ? 'left'
           : 'right',
       crosshairX:
-        income.data.indexOf(dataPoint) > income.data.length / 2
-          ? e.nativeEvent.offsetX - 181 - percent
-          : e.nativeEvent.offsetX + percent + 25
+        income.data.indexOf(dataPoint) >= income.data.length / 2
+          ? this.offsetX - 181
+          : this.offsetX + 80
     });
 
     this.op.toggle(e);
