@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header.jsx';
 import HeaderGraphics from './components/Header_Graphics.jsx';
-import SideMenu from './components/sidenav.jsx';
+import CollapsibleMenu from './components/collapseNav.jsx';
 import PitchHeader from './components/Pitch.jsx';
 import Features from './components/Features.jsx';
 import Footer from './components/footer.jsx';
@@ -67,7 +67,7 @@ class App extends Component {
   render() {
     const {profit, revenue} = this.state;
     return (
-      <div>
+      <div className="mainContainer">
         <BrowserRouter>
           <div>
             <Route exact path="/" render={(props) => (
@@ -97,9 +97,11 @@ class App extends Component {
                   </Col>
                 </Row>
                 <Row>
-                  <Col s={12} m={3}>
-                    <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+                  <Col s={12}>
+                    <CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
                   </Col>
+                </Row>
+                <Row>
                   <Col s={12} m={9}>
                     <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                   </Col>

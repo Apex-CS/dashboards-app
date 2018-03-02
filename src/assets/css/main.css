@@ -2,3 +2,43 @@ html {
     font-family: Dosis,sans-serif;
     font-size: 1rem;
 }
+
+.mainContainer {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media only screen and (max-width:575px){
+    .mainContainer {
+        width: 540px;
+    }
+}
+
+@media only screen and (min-width:576px){
+    .mainContainer {
+        width: 540px;
+    }
+}
+
+@media only screen and (min-width:768px){
+    .mainContainer {
+        width: 720px;
+    }
+}
+@media only screen and (min-width:992px){
+    .mainContainer {
+        width: 960px;
+    }
+}
+@media only screen and (min-width:1200px){
+    .mainContainer {
+        width: 1140px;
+    }
+}
+@media only screen and (min-width:1600px){
+    .mainContainer {
+        width: 1500px;
+    }
+}

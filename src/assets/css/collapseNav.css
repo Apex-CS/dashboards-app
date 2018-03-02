@@ -3,18 +3,40 @@
     i_blue = '#146CB5';
 */
 
-.sideMenu {
-    height: 100%;
-    min-height: 700px;
+.collapseNav {
     top:auto;
     margin-top: 10px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
                 0 1px 5px 0 rgba(0,0,0,0.12), 
                 0 3px 1px -2px rgba(0,0,0,0.2);
-    padding: 1em;
+    border: none;
+    margin: 0;
+    position: absolute;
+    width: 486px;
+    z-index: 9999;
 }
 
-.sideMenu input[type="radio"] .label {
+.collapseNav .collapsible-header {
+    background-color: #146CB5;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFF;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+                0 1px 5px 0 rgba(0,0,0,0.12), 
+                0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.collapseNav .collapsible-header:hover{
+    background-color: #08C1AF;
+}
+
+.collapseNav .collapsible-body {
+    border: none;
+    background: #FFF;
+}
+
+.collapseNav input[type="radio"] .label {
     color: rgba(0,0,0,0.87);
 }
 
@@ -22,11 +44,11 @@
     background-color: #72C168;
     border: 2px solid #72C168;;
 }
-.sideMenu .selector {
+.collapseNav .selector {
     max-height: 150px;
 }
 
-.sideMenu h1 {
+.collapseNav h1 {
     margin-left: -0.85rem;
     margin-right: -0.85rem;
     margin-top: 0;
@@ -40,7 +62,7 @@
     color: white;
 }
 
-.sideMenu h2 {
+.collapseNav h2 {
     font-size: 1rem;
     text-transform: uppercase;
     text-align: left;
@@ -51,7 +73,7 @@
     transition: .2s ease-out;
 }
 
-.sideMenu .rangeValues {
+.collapseNav .rangeValues {
     background-color: #146CB5;
     color: white;
     font-size: .75rem;
