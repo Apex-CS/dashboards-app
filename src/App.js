@@ -8,7 +8,6 @@ import Footer from './components/footer.jsx';
 import Chart from './components/chart.jsx';
 import ProfitChart from './components/ProfitChart.jsx';
 import SimpleRadialChart from './components/NetRevenueChart.jsx';
-import Adaptive from './components/Adaptive';
 import { Row, Col } from 'react-materialize';
 import Help_Page from './components/help_page';
 import './assets/css/main.css';
@@ -42,7 +41,7 @@ class App extends Component {
     const {screenSize} = this.state;
     let size = this.screenSize;
     switch (true) {
-      case window.innerWidth <= 480:
+      case window.innerWidth <= 575:
         size = 'xxs';
         break;
       case window.innerWidth < 768:
@@ -54,11 +53,8 @@ class App extends Component {
       case window.innerWidth < 1200:
         size = 'm';
         break;
-      case window.innerWidth < 1600:
+      case window.innerWidth >=1200:
         size = 'l';
-        break;
-      case window.innerWidth >= 1600: 
-        size = 'xl';
         break;
     }
     if (size !== screenSize){
@@ -134,7 +130,7 @@ class App extends Component {
             <Route
               exact
               path="/dashboards"
-              render={props => <Adaptive screenSize={screenSize} />}
+              render={props => <div>{screenSize}</div> }
             />
             <Route
               exact
