@@ -1,13 +1,5 @@
-/*
-* @style     Styles from footer.jsx
-* @path      src/components/footer.jsx
-* @version   2.0
-* @author    Intersys Consulting, Inc  
-*/
-
 .footer {
-    position: relative;
-    height: 130px;
+    
     left: 0;
     bottom: 0%;
     width: 100%;
@@ -23,7 +15,8 @@
 }
 
 .mr-30 {
-    margin-right: 30px;
+    margin: 20px;
+    
 }
 
 .footer ul {
@@ -52,7 +45,7 @@
 }
  
 .copyright { 
-    padding: 12px; 
+    padding: 12px !important; 
     margin-top: 3px; 
     text-align: center; 
     color: #146CB5; 

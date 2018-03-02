@@ -4,13 +4,15 @@ import '../assets/css/footer.css';
 import ImgIntersysFast from '../assets/images/intersys-fast-50.png';
 import ImgIntersysInc from '../assets/images/intersys-inc-5000.png';
 
+import { Row, Col } from 'react-materialize';
+
 class Footer extends Component {
     PATH = 'https://www.intersysconsulting.com/';
 
     render() {
         return (
             <div>
-                <div className="footer">
+                <Col className="footer">
                     <div className="left">
                         <ul>
                             <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
@@ -26,11 +28,56 @@ class Footer extends Component {
                         <img className="mr-30" src={ImgIntersysFast} alt="Intersys" />
                         <img className="mr-30" src={ImgIntersysInc} alt="Intersys" />
                     </div>
-                </div>
-                <div className="copyright">
+                </Col>
+                <Col s={12} className="copyright">
                     &#169; 2018 Intersys Consulting, Inc. All Rights Reserved
-                </div>
+                </Col>
             </div>
+
+            // <Row>
+            //     <Col s={12} m={12} l={12}>
+            //         <div className="right">
+            //             <img className="mr-30" src={ImgIntersysFast} alt="Intersys" />
+            //             <img className="mr-30" src={ImgIntersysInc} alt="Intersys" />
+            //         </div>
+            //         <Footer copyrights="&#169; 2018 Intersys Consulting, Inc. All Rights Reserved" className="footer" className='example'>
+            //             <ul>
+            //                 <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "team-portal/"}>Team Portal</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "company/partners/"}>Partners</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "careers/"}>Careers at Intersys</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "resources/"}>Resources</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "services/"}>Services</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "company/"}>Company</a></li>
+            //             </ul>
+            //         </Footer>
+            //     </Col>
+            // </Row>
+
+            // <div 
+            // copyrights="&#169; 2018 Intersys Consulting, Inc. All Rights Reserved"
+               
+               
+            //     className='example'>
+            //         <Col m={8}>
+            //             <ul>
+            //                 <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "team-portal/"}>Team Portal</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "company/partners/"}>Partners</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "careers/"}>Careers at Intersys</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "resources/"}>Resources</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "services/"}>Services</a></li>
+            //                 <li><a target="_blank" href={this.PATH + "company/"}>Company</a></li>
+            //             </ul>
+            //         </Col>
+
+            //         <Col m={4}  >
+                        
+            //                 <img className="mr-30" src={ImgIntersysFast} alt="Intersys" />
+            //                 <img className="mr-30" src={ImgIntersysInc} alt="Intersys" />
+                     
+            //         </Col>
+            // </Footer>
         );
     }
 }

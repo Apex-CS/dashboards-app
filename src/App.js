@@ -103,17 +103,17 @@ class App extends Component {
                   <Col s={12} m={9}>
                     <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                   </Col>
-                </Row>
-                {profit && <Row>
-                  <Col s={12} m={9} offset="m3">
+                
+                {profit && <Col s={12} m={9} >
                     <ProfitChart rangeOfValues={this.state.rangeOfValues} />
                   </Col>
-                </Row>}
-                { revenue && <Row>
+                }
+                { revenue && 
                   <Col s={12} m={9} offset="m3">
                   <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
                   </Col>
-                </Row>}
+               }
+               </Row>
               </div>
             )}/>
             <Route exact path="/help" render={(props) => (
