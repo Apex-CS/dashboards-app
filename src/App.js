@@ -190,8 +190,33 @@ class App extends Component {
       ];
     }
     else {
+      const {profit, revenue} = this.state;
       return [
-        <p>I'm rendering {size} size</p>
+        <div>
+          <Row>
+            <Col s={12}>
+              <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row className="no_float_XS">
+            <Col l={4}>
+              <XS_CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col s={12}>
+              <XS_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col s={12} >
+                <XS_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col s={12} >
+                <XS_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>
       ];
     }
   }
