@@ -78,7 +78,7 @@ LineSeries {
 }
 .chartBox .legends_money,
 .pieChartBox .legends_money {
-    float: right;
+    float: left;
     padding:0px 10px;
 }
 
@@ -207,4 +207,9 @@ LineSeries {
 .overlay-panel-right:after {
   left: -21px;
   border-width: 9px 21px 9px 0;
+}
+
+/*for M-Size*/
+.legends_M {
+  padding-top: 60px !important;
 }

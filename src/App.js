@@ -32,6 +32,11 @@ import M_SideMenu from './components/Sidenav-M.jsx';
 import M_ProfitChart from './components/ProfitChart-M.jsx';
 import M_PieChart from './components/NetRevenueChart-M.jsx';
 
+/* XS-Size Components */
+import XS_Chart from './components/Chart-XS.jsx';
+import XS_ProfitChart from './components/ProfitChart-XS.jsx';
+import XS_PieChart from './components/NetRevenueChart-XS.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -90,24 +95,24 @@ class App extends Component {
         <div>
           <Row>
             <Col s={12}>
-              <L_HeaderCharts onDashboardTypeChange={this.onDashboardTypeChange}/>
+              <M_HeaderCharts onDashboardTypeChange={this.onDashboardTypeChange}/>
             </Col>
           </Row>
           <Row>
             <Col l={4}>
-              <L_SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+              <M_SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
             </Col>
             <Col l={8}>
-              <L_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+              <M_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
             </Col>
             {profit && 
               <Col l={8} offset="l4">
-                <L_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+                <M_ProfitChart rangeOfValues={this.state.rangeOfValues} />
               </Col>
             }
             { revenue && 
               <Col l={8} offset="l4">
-                <L_PieChart rangeOfValues={this.state.rangeOfValues} />
+                <M_PieChart rangeOfValues={this.state.rangeOfValues} />
               </Col>
             }
           </Row> 
@@ -120,8 +125,33 @@ class App extends Component {
       ];
     }
     else if(size === 'xs'){
+      const {profit, revenue} = this.state;
       return [
-        <p>I'm rendering {size} size</p>
+        <div>
+          <Row>
+            <Col s={12}>
+              <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col l={4}>
+              <CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col l={8}>
+              <XS_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col l={8} offset="l4">
+                <XS_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col l={8} offset="l4">
+                <XS_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>
       ];
     }
     else {

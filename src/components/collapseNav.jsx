@@ -221,8 +221,8 @@ export default class CollapsibleMenu extends Component {
                         </Col>
                         <Col s={12}>
                             {/*<Input name='income_outcome' type='checkbox' value='income_outcome' label='Incomes/Outcomes' onChange={e => this.chartsSelectionHandler(e,e.target.checked)}/>*/}
-                            <Input name='profit' type='checkbox' value='profit' label='Profit' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
-                            <Input name='revenue' type='checkbox' value='revenue' label='Net Revenue' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
+                            <Input name='profit' type='checkbox' value='profit' label='Profit' checked='true' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
+                            <Input name='revenue' type='checkbox' value='revenue' label='Net Revenue' checked='true' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
                         </Col>
                     </Row>
              

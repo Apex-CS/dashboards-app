@@ -15,7 +15,7 @@ import { DATA_MONTHS } from './charts/values';
 
 const { i_aqua } = Colors;
 
-export default class M_ProfitChart extends Component {
+export default class XS_ProfitChart extends Component {
   state = {
     inheritProps: {},
     profit: {

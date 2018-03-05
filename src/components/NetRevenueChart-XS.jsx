@@ -13,8 +13,7 @@ import { NETREVENUE } from './charts/values2';
 
 const { i_blue, i_green, i_orange, i_aqua, i_purple, i_gray} = Colors;
 const colors = [ i_blue, i_green, i_orange, i_aqua, i_purple, i_gray ];
-
-export default class M_PieChart extends Component {
+export default class XS_PieChart extends Component {
   state = {
     inheritProps: {},
     netRevenue: {
@@ -120,7 +119,7 @@ export default class M_PieChart extends Component {
             <Col s={12}>
             <h1>Net Revenue</h1>
             </Col>
-            <div className="legends legends_M">
+            <div className="legends">
                 <DiscreteColorLegend startTitle="Values" width={180} items={[servers, storage, networking, services, finalConsumer, software]} />
             </div>
             <RadialChart
@@ -132,8 +131,8 @@ export default class M_PieChart extends Component {
                 data={dataValues}
                 onValueMouseOver={v => this.setState({value: v})}
                 onSeriesMouseOut={v => this.setState({value: false})}
-                height={350}
-                width={350}>
+                height={400}
+                width={400}>
                 {
                     value && <Hint value={value}>
                     <div className="pieChartHint">

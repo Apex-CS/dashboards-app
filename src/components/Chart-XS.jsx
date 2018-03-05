@@ -34,7 +34,7 @@ import { DATA_MONTHS, DATA_DAYS } from './charts/values';
 
 const { i_blue, i_green } = Colors;
 
-export default class M_Chart extends Component {
+export default class XS_Chart extends Component {
   state = {
     lastDrawLocation: null,
     inheritProps: {},

@@ -49,3 +49,20 @@ nav .button-collapse {
     margin:1rem;
     padding-top: 5px;
 }
+
+/*for M-Size*/
+
+.navBar_M li a {
+    line-height: 45px;
+    padding: 10px !important;
+}
+
+.navBar_M li a i {
+    line-height: 45px;
+}
+    
+.navbar_logo_M {
+    height: 30px;
+    margin:1rem;
+    padding-top: 5px;
+}
