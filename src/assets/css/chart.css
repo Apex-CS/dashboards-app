@@ -10,6 +10,10 @@
     height: 630px;
 }
 
+.specialChart-L {
+  height: 530px;
+}
+
 .chartBox h1 {
   margin-left: -0.85rem;
   margin-right: -0.85rem;

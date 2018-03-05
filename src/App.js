@@ -18,6 +18,20 @@ import '../node_modules/react-vis/dist/style.css';
 import Help_Title from './components/help_title';
 import 'primereact/resources/primereact.min.css';
 
+/* L-Size Components */
+import L_HeaderCharts from './components/HeaderCharts-L.jsx';
+import L_Chart from './components/Chart-L.jsx';
+import L_SideMenu from './components/Sidenav-L.jsx';
+import L_ProfitChart from './components/ProfitChart-L.jsx';
+import L_PieChart from './components/NetRevenueChart-L.jsx';
+
+/* M-Size Components */
+import M_HeaderCharts from './components/HeaderCharts-M.jsx';
+import M_Chart from './components/Chart-M.jsx';
+import M_SideMenu from './components/Sidenav-M.jsx';
+import M_ProfitChart from './components/ProfitChart-M.jsx';
+import M_PieChart from './components/NetRevenueChart-M.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,8 +43,8 @@ class App extends Component {
         endMonth: 'January',
         endYear: 2018
       },
-      profit: false,
-      revenue: false,
+      profit: true,
+      revenue: true,
       screenSize: ''
     };
     this.onDashboardTypeChange = this.onDashboardTypeChange.bind(this);
@@ -38,44 +52,66 @@ class App extends Component {
     this.showChart = this.showChart.bind(this);
   }
 
-  renderScreen(size){
+  renderChartScreen(size){
 
     if(size === 'l'){
       const {profit, revenue} = this.state;
       return [
-        
         <div>
-          <p>I'm rendering {size} size</p>
-                <Row>
-                  <Col s={12}>
-                    <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col s={12} m={3}>
-                    <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
-                  </Col>
-                  <Col s={12} m={9}>
-                    <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
-                  </Col>
-                
-                {profit && <Col s={12} m={9} >
-                    <ProfitChart rangeOfValues={this.state.rangeOfValues} />
-                  </Col>
-                }
-                { revenue && 
-                  <Col s={12} m={9} offset="m3">
-                  <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
-                  </Col>
-               }
-               </Row>
-              </div>
-      
+          <Row>
+            <Col s={12}>
+              <L_HeaderCharts onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col l={4}>
+              <L_SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col l={8}>
+              <L_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col l={8} offset="l4">
+                <L_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col l={8} offset="l4">
+                <L_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>    
       ];
     }
     else if(size === 'm'){
+      const {profit, revenue} = this.state;
       return [
-        <p>I'm rendering {size} size</p>
+        <div>
+          <Row>
+            <Col s={12}>
+              <L_HeaderCharts onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col l={4}>
+              <L_SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col l={8}>
+              <L_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col l={8} offset="l4">
+                <L_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col l={8} offset="l4">
+                <L_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>
       ];
     }
     else if(size === 's'){
@@ -162,6 +198,14 @@ class App extends Component {
       <div className="mainContainer">
         <BrowserRouter>
           <div>
+
+             {/*<Route
+              exact
+              path="/"
+              render={props => ( 
+                this.renderMainScreen(screenSize)
+              )}
+            />*/}
             <Route
               exact
               path="/"
@@ -188,8 +232,8 @@ class App extends Component {
             <Route
               exact
               path="/dashboards"
-              render={props => ( 
-                this.renderScreen(screenSize)
+              render={props => (
+                this.renderChartScreen(screenSize)
               )}
             />
             <Route
