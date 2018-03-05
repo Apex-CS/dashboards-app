@@ -32,6 +32,13 @@ import M_SideMenu from './components/Sidenav-M.jsx';
 import M_ProfitChart from './components/ProfitChart-M.jsx';
 import M_PieChart from './components/NetRevenueChart-M.jsx';
 
+/* M-Size Components */
+import S_HeaderCharts from './components/HeaderCharts-S.jsx';
+import S_Chart from './components/Chart-S.jsx';
+import S_SideMenu from './components/Sidenav-S.jsx';
+import S_ProfitChart from './components/ProfitChart-S.jsx';
+import S_PieChart from './components/NetRevenueChart-S.jsx';
+
 /* XS-Size Components */
 
 import XS_CollapsibleMenu from './components/collapseNav-XS.jsx';
@@ -122,9 +129,35 @@ class App extends Component {
       ];
     }
     else if(size === 's'){
+      const {profit, revenue} = this.state;
       return [
-        <p>I'm rendering {size} size</p>
-      ];
+       
+        <div>
+          <Row>
+            <Col s={12}>
+              <S_HeaderCharts onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col s={3}>
+              <S_SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col s={9}>
+              <S_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col s={9}>
+                <S_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col s={9} offset="s3">
+                <S_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>
+      ]
     }
     else if(size === 'xs'){
       const {profit, revenue} = this.state;
@@ -157,8 +190,33 @@ class App extends Component {
       ];
     }
     else {
+      const {profit, revenue} = this.state;
       return [
-        <p>I'm rendering {size} size</p>
+        <div>
+          <Row>
+            <Col s={12}>
+              <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
+            </Col>
+          </Row>
+          <Row className="no_float_XS">
+            <Col l={4}>
+              <XS_CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+            </Col>
+            <Col s={12}>
+              <XS_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+            </Col>
+            {profit && 
+              <Col s={12} >
+                <XS_ProfitChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+            { revenue && 
+              <Col s={12} >
+                <XS_PieChart rangeOfValues={this.state.rangeOfValues} />
+              </Col>
+            }
+          </Row> 
+        </div>
       ];
     }
   }

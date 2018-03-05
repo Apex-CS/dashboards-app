@@ -250,3 +250,15 @@ LineSeries {
 .XS_chartBox {
   margin-top: 70px
 }
+/*for S-Size*/
+
+.legends_S {
+  padding-top: 40px !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.9px) {
+  .ui-datatable .ui-datatable-thead>tr>th, .ui-datatable-data>tr>td{
+    font-size: 12px !important;
+    padding: 0 0.5em !important;
+  }
+}
