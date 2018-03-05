@@ -33,6 +33,8 @@ import M_ProfitChart from './components/ProfitChart-M.jsx';
 import M_PieChart from './components/NetRevenueChart-M.jsx';
 
 /* XS-Size Components */
+
+import XS_CollapsibleMenu from './components/collapseNav-XS.jsx';
 import XS_Chart from './components/Chart-XS.jsx';
 import XS_ProfitChart from './components/ProfitChart-XS.jsx';
 import XS_PieChart from './components/NetRevenueChart-XS.jsx';
@@ -133,20 +135,20 @@ class App extends Component {
               <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
             </Col>
           </Row>
-          <Row>
+          <Row className="no_float_XS">
             <Col l={4}>
-              <CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+              <XS_CollapsibleMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
             </Col>
-            <Col l={8}>
+            <Col s={12}>
               <XS_Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
             </Col>
             {profit && 
-              <Col l={8} offset="l4">
+              <Col s={12} >
                 <XS_ProfitChart rangeOfValues={this.state.rangeOfValues} />
               </Col>
             }
             { revenue && 
-              <Col l={8} offset="l4">
+              <Col s={12} >
                 <XS_PieChart rangeOfValues={this.state.rangeOfValues} />
               </Col>
             }

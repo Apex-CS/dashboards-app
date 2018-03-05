@@ -263,7 +263,7 @@ export default class XS_Chart extends Component {
       crosshairPosition
     } = this.state;
     return (
-      <div className="chartBox">
+      <div className="chartBox XS_chartBox">
         <Row className={'clean-margin-bottom'}>
           <Col s={12}>
             <h1>{this.props.chartType} Chart</h1>
@@ -307,8 +307,8 @@ export default class XS_Chart extends Component {
           >
             <div>
               <XYPlot
-                height={400}
-                width={570}
+                height={300}
+                width={450}
                 animation
                 xDomain={
                   lastDrawLocation && [

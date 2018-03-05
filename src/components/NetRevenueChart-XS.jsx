@@ -119,8 +119,17 @@ export default class XS_PieChart extends Component {
             <Col s={12}>
             <h1>Net Revenue</h1>
             </Col>
-            <div className="legends">
+            <div className="legends legends_XS">
                 <DiscreteColorLegend startTitle="Values" width={180} items={[servers, storage, networking, services, finalConsumer, software]} />
+            </div>
+            <div className="legends_money legends_money_XS">
+                <h2>Gross Revenue and Percentage</h2>
+                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.servers.toFixed(2)} %</span></p>
+                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.storage.toFixed(2)} %</span></p>
+                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.networking.toFixed(2)} %</span></p>
+                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.services.toFixed(2)} %</span></p>
+                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer.toFixed(2)} %</span></p>
+                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.software.toFixed(2)} %</span></p>          
             </div>
             <RadialChart
                 className={'pieChart'}
@@ -131,8 +140,8 @@ export default class XS_PieChart extends Component {
                 data={dataValues}
                 onValueMouseOver={v => this.setState({value: v})}
                 onSeriesMouseOut={v => this.setState({value: false})}
-                height={400}
-                width={400}>
+                height={450}
+                width={450}>
                 {
                     value && <Hint value={value}>
                     <div className="pieChartHint">
@@ -142,15 +151,7 @@ export default class XS_PieChart extends Component {
                     </Hint>
                 }
             </RadialChart>
-            <div className="legends_money">
-                <h2>Gross Revenue and Percentage</h2>
-                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.servers.toFixed(2)} %</span></p>
-                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.storage.toFixed(2)} %</span></p>
-                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.networking.toFixed(2)} %</span></p>
-                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.services.toFixed(2)} %</span></p>
-                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer.toFixed(2)} %</span></p>
-                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.software.toFixed(2)} %</span></p>          
-            </div>
+            
         </Row>  
     );
   }

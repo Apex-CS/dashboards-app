@@ -14,6 +14,10 @@
   height: 530px;
 }
 
+.specialChart-XS {
+  height: 440px;
+}
+
 .chartBox h1 {
   margin-left: -0.85rem;
   margin-right: -0.85rem;
@@ -80,6 +84,34 @@ LineSeries {
 .pieChartBox .legends_money {
     float: left;
     padding:0px 10px;
+}
+.legends_XS {
+  width: 150px;
+  margin-top: 10px;
+}
+.legends_XS .rv-discrete-color-legend-item {
+  padding:0;
+}
+
+.legends_money_XS {
+    float: right !important;
+    text-align: center;
+    width: 250px;
+    margin:0 !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    padding:0 !important;
+}
+
+.legends_money_XS h2 {
+  font-size: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.legends_money_XS p {
+  margin: 0 !important;
+  padding: 0 15px !important;
 }
 
 .pieChartHint {
@@ -212,4 +244,9 @@ LineSeries {
 /*for M-Size*/
 .legends_M {
   padding-top: 60px !important;
+}
+
+/*for XS-Size*/
+.XS_chartBox {
+  margin-top: 70px
 }

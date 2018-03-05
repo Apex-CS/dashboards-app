@@ -64,7 +64,7 @@ export default class M_ProfitChart extends Component {
   render() {
     const { profit } = this.state;
     return (
-      <Row className="chartBox specialChart-L">
+      <Row className="chartBox specialChart-XS">
         <Col s={12}>
           <h1>Profit Chart</h1>
         </Col>
