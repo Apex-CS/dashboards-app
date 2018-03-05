@@ -228,13 +228,13 @@ class App extends Component {
       case window.innerWidth <= 575:
         size = 'xxs';
         break;
-      case window.innerWidth < 768:
+      case window.innerWidth <= 768:
         size = 'xs';
         break;
-      case window.innerWidth < 992:
+      case window.innerWidth <= 992:
         size = 's';
         break;
-      case window.innerWidth < 1200:
+      case window.innerWidth <= 1200:
         size = 'm';
         break;
       case window.innerWidth >=1200:
