@@ -49,7 +49,7 @@ for (maxValue; maxValue>=0; maxValue--) {
 
 */
 
-export default class SideMenu extends Component {
+export default class L_SideMenu extends Component {
         
     constructor(props) {
         super(props);

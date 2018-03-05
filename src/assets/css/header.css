@@ -4,8 +4,19 @@
     font-family: Dosis,sans-serif;
     clear: both;
 }
+
 .top-menu li { 
     height: 70px;
+}
+
+.top-menu li a {
+    text-transform: uppercase;
+    color: #3F3F3F;
+    font-size: 18px;
+    font-weight: bold;
+    height: 70px;
+    padding: 10px 20px;
+    line-height: 50px;
 }
 .top-menu li a {
     text-transform: uppercase;
@@ -35,6 +46,23 @@ nav .button-collapse {
 
 .navbar_logo {
     height: 35px;
+    margin:1rem;
+    padding-top: 5px;
+}
+
+/*for M-Size*/
+
+.navBar_M li a {
+    line-height: 45px;
+    padding: 10px !important;
+}
+
+.navBar_M li a i {
+    line-height: 45px;
+}
+    
+.navbar_logo_M {
+    height: 30px;
     margin:1rem;
     padding-top: 5px;
 }

@@ -6,10 +6,10 @@ import '../assets/css/header.css';
 class Header extends Component {
   render() {
     return(    
-    <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
-        <NavItem href='/dashboards'>Go To Dashboards</NavItem>
-        <NavItem href='/help'><Icon>help</Icon></NavItem>
-    </Navbar>
+      <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
+          <NavItem href='/dashboards'>Go To Dashboards</NavItem>
+          <NavItem href='/help'><Icon>help</Icon></NavItem>
+      </Navbar>
     );
   }
 }

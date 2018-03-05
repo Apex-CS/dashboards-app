@@ -11,7 +11,7 @@ import {
     CollapsibleItem
 } from 'react-materialize'
 import logo from '../assets/images/intersys-small.svg';
-import '../assets/css/sidenav.css';
+import '../assets/css/collapseNav.css';
 import { MONTHS } from '../assets/theme'
 
 //const currentMonth = new Date().getMonth();
@@ -49,7 +49,7 @@ for (maxValue; maxValue>=0; maxValue--) {
 
 */
 
-export default class SideMenu extends Component {
+export default class XS_CollapsibleMenu extends Component {
         
     constructor(props) {
         super(props);
@@ -184,8 +184,8 @@ export default class SideMenu extends Component {
         });
     
         return( 
-            <Row className="sideMenu">
-                <Col s={12} ><h1>Data Values</h1></Col>
+            <Collapsible className="collapseNav">
+                <CollapsibleItem header='Data Values' icon='keyboard_arrow_down'>
                     <Row>
                         <Col s={12}>
                             <h2>Range of Values</h2>
@@ -196,14 +196,14 @@ export default class SideMenu extends Component {
                         <Col s={12}>
                             <h6 s={12} l={6} className="rangeValues">Initial</h6>
                         </Col>
-                        <Input s={6} m={12} l={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
-                        <Input s={6} m={12} l={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{initialYearList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{initialYearList}</Input>
 
                         <Col s={12}>
-                            <h6 s={12} l={6} className="rangeValues">Final</h6>
+                            <h6 s={12}className="rangeValues">Final</h6>
                         </Col>
-                        <Input s={6} m={12} l={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endMonth}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
-                        <Input s={6} m={12} l={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{endYearList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endMonth}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
+                        <Input s={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{endYearList}</Input>
                         
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
@@ -221,11 +221,13 @@ export default class SideMenu extends Component {
                         </Col>
                         <Col s={12}>
                             {/*<Input name='income_outcome' type='checkbox' value='income_outcome' label='Incomes/Outcomes' onChange={e => this.chartsSelectionHandler(e,e.target.checked)}/>*/}
-                            <Input name='profit' type='checkbox' value='profit' checked='true' label='Profit' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
-                            <Input name='revenue' type='checkbox' value='revenue' checked='true' label='Net Revenue' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
+                            <Input name='profit' type='checkbox' value='profit' label='Profit' checked='true' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
+                            <Input name='revenue' type='checkbox' value='revenue' label='Net Revenue' checked='true' onChange={e => this.chartsSelectionHandler(e,e.target.value, e.target.checked)}/>
                         </Col>
                     </Row>
-            </Row>   
+             
+            </CollapsibleItem>
+            </Collapsible>
         );
     }
 }
