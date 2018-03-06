@@ -74,7 +74,7 @@ export default class S_ProfitChart extends Component {
         </div>
         <div>
             <XYPlot
-              height={350}
+              height={300}
               width={465}
               animation
             >

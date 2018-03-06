@@ -64,7 +64,7 @@ export default class M_ProfitChart extends Component {
   render() {
     const { profit } = this.state;
     return (
-      <Row className="chartBox specialChart-XS">
+      <Row className="chartBox specialChart-M">
         <Col s={12}>
           <h1>Profit Chart</h1>
         </Col>
@@ -74,7 +74,7 @@ export default class M_ProfitChart extends Component {
         </div>
         <div>
             <XYPlot
-              height={400}
+              height={290}
               width={570}
               animation
             >

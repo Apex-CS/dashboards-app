@@ -307,7 +307,7 @@ export default class XS_Chart extends Component {
           >
             <div>
               <XYPlot
-                height={300}
+                height={240}
                 width={450}
                 animation
                 xDomain={

@@ -54,6 +54,8 @@
     border-radius: 10px 0px 10px 0px;
     padding: 5px 10px;
     float: left;
+    margin-top: 2px;
+    
 }
 
 .select-wrapper ul{
@@ -70,6 +72,7 @@
     margin-bottom: 15px;
     margin-left: 5px;
     margin-right: 5px;
+    margin-top: 5px;
     background-color: #08C1AF;
 }
 
@@ -79,7 +82,7 @@
 
 .dashboardType button { 
     background-color: #146CB5;
-    margin: 1em 0;
+    margin: 0;
 }
 
 .dashboardType button:hover { 
@@ -98,7 +101,7 @@
 }
 
 .chartShow label{
-    margin-top: 10px
+    margin-top: 0;
 }
 
 .dropdownCharts {
@@ -109,5 +112,12 @@
     margin-left: 10px !important;
 }
 
+.noMarginRow {
+    margin-bottom: 0 !important;
+  }
+
 
 /*for L-Size*/
+.size_L {
+    height: 498px
+}

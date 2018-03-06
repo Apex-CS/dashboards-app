@@ -263,27 +263,11 @@ export default class M_Chart extends Component {
       crosshairPosition
     } = this.state;
     return (
-      <div className="chartBox">
+      <div className="chartBox size_M">
         <Row className={'clean-margin-bottom'}>
           <Col s={12}>
             <h1>{this.props.chartType} Chart</h1>
           </Col>
-        </Row>
-        <Row className={'clean-margin-bottom'}>
-          <div className="pull-right mr-1">
-            <Button
-              waves="light"
-              onClick={e => {
-                e.preventDefault();
-                this.setState({ lastDrawLocation: null });
-              }}
-            >
-              Reset Zoom
-            </Button>
-          </div>
-          <div className="legends">
-            <DiscreteColorLegend width={180} items={[income, outcome]} />
-          </div>
         </Row>
         <Row>
           <Hammer
@@ -307,7 +291,7 @@ export default class M_Chart extends Component {
           >
             <div>
               <XYPlot
-                height={400}
+                height={290}
                 width={570}
                 animation
                 xDomain={
@@ -401,6 +385,22 @@ export default class M_Chart extends Component {
               </XYPlot>
             </div>
           </Hammer>
+        </Row>
+        <Row className='noMarginRow'>
+          <div className="pull-right mr-1 marginTop">
+            <Button
+              waves="light"
+              onClick={e => {
+                e.preventDefault();
+                this.setState({ lastDrawLocation: null });
+              }}
+            >
+              Reset Zoom
+            </Button>
+          </div>
+          <div className="legends">
+            <DiscreteColorLegend width={180} items={[income, outcome]} />
+          </div>
         </Row>
       </div>
     );

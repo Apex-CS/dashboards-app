@@ -11,11 +11,15 @@
 }
 
 .specialChart-L {
-  height: 530px;
+  height: 430px;
+}
+
+.specialChart-M {
+  height: 400px;
 }
 
 .specialChart-XS {
-  height: 440px;
+  height: 380px;
 }
 
 .chartBox h1 {
@@ -255,6 +259,21 @@ LineSeries {
 .legends_S {
   padding-top: 40px !important;
 }
+
+.noMarginRow {
+  margin-bottom: 0 !important;
+}
+.marginTop {
+  margin-top: 10px !important;
+}
+
+.size_M {
+  padding-bottom: 23px;
+}
+.special_M {
+  padding:0 !important;
+}
+
 
 @media only screen and (min-width: 768px) and (max-width: 991.9px) {
   .ui-datatable .ui-datatable-thead>tr>th, .ui-datatable-data>tr>td{

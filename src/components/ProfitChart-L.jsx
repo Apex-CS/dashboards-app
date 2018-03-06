@@ -68,14 +68,13 @@ export default class L_ProfitChart extends Component {
         <Col s={12}>
           <h1>Profit Chart</h1>
         </Col>
-        
         <div className="legends">
           <DiscreteColorLegend width={180} items={[profit]} />
         </div>
         <div>
             <XYPlot
-              height={400}
-              width={680}
+              height={300}
+              width={690}
               animation
             >
               <VerticalGridLines />

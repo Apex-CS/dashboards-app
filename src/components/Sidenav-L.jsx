@@ -184,7 +184,7 @@ export default class L_SideMenu extends Component {
         });
     
         return( 
-            <Row className="sideMenu">
+            <Row className="sideMenu size_L">
                 <Col s={12} ><h1>Data Values</h1></Col>
                     <Row>
                         <Col s={12}>
@@ -193,17 +193,17 @@ export default class L_SideMenu extends Component {
                     </Row>
                     <Row className="buttonsRange">
                         
-                        <Col s={12}>
-                            <h6 s={12} l={6} className="rangeValues">Initial</h6>
+                        <Col s={2}>
+                            <h6 s={12} className="rangeValues">Initial</h6>
                         </Col>
-                        <Input s={6} m={12} l={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
-                        <Input s={6} m={12} l={6} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{initialYearList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.initMonth} onChange={ e => this.initMonth(e.target.value)}>{initialMonthList}</Input>
+                        <Input s={4} type='select' label="Year" value={this.props.rangeofValues.initYear} onChange={ e => this.initYear(e.target.value)}>{initialYearList}</Input>
 
-                        <Col s={12}>
-                            <h6 s={12} l={6} className="rangeValues">Final</h6>
+                        <Col s={2}>
+                            <h6 s={12} className="rangeValues">Final</h6>
                         </Col>
-                        <Input s={6} m={12} l={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endMonth}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
-                        <Input s={6} m={12} l={6} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{endYearList}</Input>
+                        <Input s={6} className="selector" type='select' label="Month" value={this.props.rangeofValues.endMonth}  onChange={ e => this.finalMonth(e.target.value)}>{endMonthList}</Input>
+                        <Input s={4} type='select' label="Year" value={this.props.rangeofValues.endYear} onChange={ e => this.finalYear(e.target.value)}>{endYearList}</Input>
                         
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,3)}>3m<Icon left>tune</Icon></Button>
                         <Button s={6} waves='light' onClick={e => this.rangeButtonsHandler(e,6)}>6m<Icon left>tune</Icon></Button>
@@ -215,7 +215,7 @@ export default class L_SideMenu extends Component {
                         </Col>
                         <Dropdown s={12} trigger={<div><Button className="dropdownCharts">Select Dashboard!<Icon right>keyboard_arrow_down</Icon></Button></div>}>{chartOptionList}</Dropdown>
                     </Row>
-                    <Row className="chartShow">
+                    <Row className="chartShow noMarginRow">
                         <Col s={12}>
                             <h2>Charts</h2>
                         </Col>

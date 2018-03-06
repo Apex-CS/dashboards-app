@@ -264,26 +264,10 @@ export default class L_Chart extends Component {
     } = this.state;
     return (
       <div className="chartBox">
-        <Row className={'clean-margin-bottom'}>
+        <Row>
           <Col s={12}>
             <h1>{this.props.chartType} Chart</h1>
           </Col>
-        </Row>
-        <Row className={'clean-margin-bottom'}>
-          <div className="pull-right mr-1">
-            <Button
-              waves="light"
-              onClick={e => {
-                e.preventDefault();
-                this.setState({ lastDrawLocation: null });
-              }}
-            >
-              Reset Zoom
-            </Button>
-          </div>
-          <div className="legends">
-            <DiscreteColorLegend width={180} items={[income, outcome]} />
-          </div>
         </Row>
         <Row>
           <Hammer
@@ -307,8 +291,8 @@ export default class L_Chart extends Component {
           >
             <div>
               <XYPlot
-                height={400}
-                width={680}
+                height={300}
+                width={690}
                 animation
                 xDomain={
                   lastDrawLocation && [
@@ -401,6 +385,22 @@ export default class L_Chart extends Component {
               </XYPlot>
             </div>
           </Hammer>
+        </Row>
+        <Row className='noMarginRow'>
+          <div className="pull-right mr-1 marginTop">
+            <Button
+              waves="light"
+              onClick={e => {
+                e.preventDefault();
+                this.setState({ lastDrawLocation: null });
+              }}
+            >
+              Reset Zoom
+            </Button>
+          </div>
+          <div className="legends">
+            <DiscreteColorLegend width={180} items={[income, outcome]} />
+          </div>
         </Row>
       </div>
     );
