@@ -46,6 +46,10 @@ import XS_Chart from './components/Chart-XS.jsx';
 import XS_ProfitChart from './components/ProfitChart-XS.jsx';
 import XS_PieChart from './components/NetRevenueChart-XS.jsx';
 
+import XS_Footer from './components/Footer-XS.jsx';
+import S_Footer from './components/Footer-S.jsx';
+import M_Footer from './components/Footer-M.jsx';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -221,6 +225,34 @@ class App extends Component {
     }
   }
 
+  renderFooter(size) {
+    if(size === 'xxs' || size === 'xs') {
+      return [
+        <Col s={12}>
+          <XS_Footer />
+        </Col>
+      ]
+    } else if(size === 's') {
+      return [
+        <Col s={12}>
+          <S_Footer />
+        </Col>
+      ]
+    } else if (size === 'm') {
+      return [
+        <Col s={12}>
+          <M_Footer />
+        </Col>
+      ]
+    } else {
+      return [
+        <Col s={12}>
+          <Footer />
+        </Col>
+      ]
+    }
+  }
+
   updateDimensions() {
     const {screenSize} = this.state;
     let size = this.screenSize;
@@ -352,9 +384,7 @@ class App extends Component {
               )}
             />
             <Row>
-              <Col s={12}>
-                <Footer />
-              </Col>
+              {this.renderFooter(screenSize)}
             </Row>
           </div>
         </BrowserRouter>

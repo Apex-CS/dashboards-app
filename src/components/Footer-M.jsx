@@ -6,14 +6,14 @@ import ImgIntersysInc from '../assets/images/intersys-inc-5000.png';
 
 import { Row, Col } from 'react-materialize';
 
-class Footer extends Component {
+class M_Footer extends Component {
     PATH = 'https://www.intersysconsulting.com/';
 
     render() {
         return (
             <div>
                 <Col className="footer">
-                    <div className="left">
+                    <div className="m-left">
                         <ul>
                             <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
                             <li><a target="_blank" href={this.PATH + "team-portal/"}>Team Portal</a></li>
@@ -24,7 +24,7 @@ class Footer extends Component {
                             <li><a target="_blank" href={this.PATH + "company/"}>Company</a></li>
                         </ul>
                     </div>
-                    <div className="right">
+                    <div className="right m-right">
                         <img className="mr-30" src={ImgIntersysFast} alt="Intersys" />
                         <img className="mr-30" src={ImgIntersysInc} alt="Intersys" />
                     </div>
@@ -37,4 +37,4 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+export default M_Footer;
