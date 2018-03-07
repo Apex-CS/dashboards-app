@@ -3,23 +3,20 @@ i_green: '#72C168',
 i_blue: '#146CB5'
 */
 
-.features {
-    background-color: #FFF;
+.stack_container {
+    background-color: #146CB5;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: -20px;
 }
 
-.features .row {
+.stack_container .row {
     margin-bottom:0;
 }
 
 .feature_thumbnail {
     padding: 2rem !important;
-    padding-top: 0 !important;
-    overflow: hidden;
 }
 
 .feature_thumbnail img {

@@ -20,6 +20,8 @@ import PitchHeader from './components/common/MainPitch.jsx';
 import ProfitChart from './components/common/ProfitChart.jsx';
 import SideMenu from './components/common/DataNavigator.jsx';
 import SimpleRadialChart from './components/common/NetRevenueChart.jsx';
+import TechStack from './components/common/TechStack.jsx';
+
 
 /* L-Size Components */
 import L_Chart from './components/size_L/Dashboards-L.jsx';
@@ -349,6 +351,11 @@ class App extends Component {
                     </Col>
                   </Row>
                   <Row>
+                    <Col s={12}>
+                      <TechStack />
+                    </Col>
+                  </Row>
+                  <Row>
                     {this.renderFooter(screenSize)}
                   </Row>
                 </div>
@@ -398,7 +405,7 @@ class App extends Component {
                       <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
                     </Col>
                   
-                  {profit && <Col s={12} m={9} >
+                  {profit && <Col s={12} m={9} offset="m3">
                       <ProfitChart rangeOfValues={this.state.rangeOfValues} />
                     </Col>
                   }
