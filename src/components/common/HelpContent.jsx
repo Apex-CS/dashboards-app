@@ -10,21 +10,19 @@ import chart_dot      from '../../assets/images/chart_dot.PNG'
 import '../../assets/css/help.css';
 
 class Help_Page extends Component {
-    /*constructor(props) {
-        super(props);
-        this.chartSelectorHandler = this.chartSelectorHandler.bind(this);
+    
+    checkingMode(){
+        if(window.location.pathname == '/help')
+            return '/dashboards'
+        else
+            return '/adaptive_mode/dashboards'     
     }
-
-    chartSelectorHandler(e,chartType) {
-        e.preventDefault();
-        this.props.onChartTypeChange(chartType);
-    }*/
 
     linkDashboard = {
         link: '/dashboards',
         text: 'View dashboard'
     };
-
+    
     render() {
     return(
         
@@ -32,7 +30,7 @@ class Help_Page extends Component {
         <Row>
             <Col s={12} m={6} l={4}>
                 <div className="cardIntersys">
-                    <a href={this.linkDashboard.link}><img src={chart_line} alt="Chart Line" /></a>
+                    <a href={this.checkingMode()}><img src={chart_line} alt="Chart Line" /></a>
                     <div className="container_help">
                         <h5>Chart Line</h5>
                         <p>A line chart or line graph is a type of chart which displays information as a series of data points 
@@ -44,7 +42,7 @@ class Help_Page extends Component {
             </Col>
             <Col s={12} m={6} l={4}>
                 <div className="cardIntersys">
-                    <a href={this.linkDashboard.link}><img src={chart_bar} alt="Chart Bar" /></a>
+                    <a href={this.checkingMode()}><img src={chart_bar} alt="Chart Bar" /></a>
                     <div className="container_help">
                         <h5>Chart Bar</h5>
                         <p>A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars 
@@ -55,7 +53,7 @@ class Help_Page extends Component {
             </Col>
             <Col s={12} m={6} l={4}>
                 <div className="cardIntersys">
-                    <a href={this.linkDashboard.link}><img src={chart_dot} alt="Chart Dot" /></a>
+                    <a href={this.checkingMode()}><img src={chart_dot} alt="Chart Dot" /></a>
                     <div className="container_help">
                         <h5>Chart Dot</h5>
                         <p>A dot chart or dot plot is a statistical chart consisting of data points plotted 
@@ -68,7 +66,7 @@ class Help_Page extends Component {
         <Row>
             <Col s={12} m={6} l={4}>
                 <div className="cardIntersys">
-                    <a href={this.linkDashboard.link}><img src={chart_gradient} alt="Chart Gradient" /></a>
+                    <a href={this.checkingMode()}><img src={chart_gradient} alt="Chart Gradient" /></a>
                     <div className="container_help">
                         <h5>Chart Gradient</h5>
                         <p> An gradient chart or area graph displays graphically quantitative data. 
@@ -79,7 +77,7 @@ class Help_Page extends Component {
             </Col>
             <Col s={12} m={6} l={4}>
                 <div className="cardIntersys">
-                    <a href={this.linkDashboard.link}><img src={chart_area} alt="Chart Area" /></a>
+                    <a href={this.checkingMode()}><img src={chart_area} alt="Chart Area" /></a>
                     <div className="container_help">
                         <h5>Chart Area</h5>
                         <p>An area chart or area graph displays graphically quantitative data. 

@@ -24,8 +24,8 @@ export default class HeaderGraphics extends Component {
             onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
             >{dashboardType} chart</NavItem>
         });
-
-    return(    
+        
+    return(
     <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
       {chartOptionList}
       <NavItem href='/help'><Icon>help</Icon></NavItem>    

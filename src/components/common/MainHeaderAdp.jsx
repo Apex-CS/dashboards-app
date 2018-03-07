@@ -4,12 +4,20 @@ import logo from '../../assets/images/intersys-logo.svg';
 import '../../assets/css/header.css';
 
 class HeaderAdp extends Component {
+
+  currentPath(){
+    if(window.location.pathname == '/adaptive_mode/help')
+      return '/help'
+    else
+      return '/'
+  }
+
   render() {
     return(    
-      <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
-          <NavItem href='/dashboards'>Go To Dashboards</NavItem>
-          <NavItem href='/'><Icon>view_compact</Icon></NavItem>
-          <NavItem href='/help'><Icon>help</Icon></NavItem>
+      <Navbar href="/adaptive_mode" brand={<img href="/adaptive_mode" className="navbar_logo" src={logo} />} right className='top-menu'>
+          <NavItem href='/adaptive_mode/dashboards'>Go To Dashboards</NavItem>
+          <NavItem href={this.currentPath()}><Icon>view_compact</Icon></NavItem>
+          <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>
       </Navbar>
     );
   }

@@ -462,7 +462,7 @@ class App extends Component {
                 <div className="mainContainer">
                   <Row>
                     <Col s={12}>
-                      <Header />
+                      <HeaderAdp />
                     </Col>
                   </Row>
                   <Row>

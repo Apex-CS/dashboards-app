@@ -26,9 +26,9 @@ export default class M_HeaderCharts extends Component {
         });
 
     return(    
-    <Navbar brand={<img href="/" className="navbar_logo_M" src={logo} />} right className='top-menu navBar_M'>
+    <Navbar href="/adaptive_mode" brand={<img href="/adaptive_mode" className="navbar_logo_M" src={logo} />} right className='top-menu navBar_M'>
       {chartOptionList}
-      <NavItem href='/help'><Icon>help</Icon></NavItem>    
+      <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>    
     </Navbar>
     );
   }
