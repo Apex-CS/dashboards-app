@@ -1,54 +1,63 @@
+/* Dependencies */
 import React, { Component } from 'react';
-import Header from './components/header.jsx';
-import HeaderGraphics from './components/Header_Graphics.jsx';
-import CollapsibleMenu from './components/collapseNav.jsx';
-import PitchHeader from './components/Pitch.jsx';
-import Features from './components/Features.jsx';
-import Footer from './components/footer.jsx';
-import Chart from './components/chart.jsx';
-import SideMenu from './components/sidenav.jsx';
-import ProfitChart from './components/ProfitChart.jsx';
-import SimpleRadialChart from './components/NetRevenueChart.jsx';
 import { Row, Col } from 'react-materialize';
-import Help_Page from './components/help_page';
-import './assets/css/main.css';
-import { BrowserRouter, Route } from 'react-router-dom';
-import 'font-awesome/css/font-awesome.css';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
+
 import '../node_modules/react-vis/dist/style.css';
-import Help_Title from './components/help_title';
 import 'primereact/resources/primereact.min.css';
 
+/* Common Components */
+import Chart from './components/common/Dashboards.jsx';
+import CollapsibleMenu from './components/common/DataNavigatorCollapsible.jsx';
+import Features from './components/common/Features.jsx';
+import Footer from './components/common/Footer.jsx';
+import Header from './components/common/MainHeader.jsx';
+import HeaderAdp from './components/common/MainHeaderAdp.jsx';
+import HeaderGraphics from './components/common/DashboardsHeader.jsx';
+import Help_Page from './components/common/HelpContent.jsx';
+import Help_Title from './components/common/HelpTitle.jsx';
+import PitchHeader from './components/common/MainPitch.jsx';
+import ProfitChart from './components/common/ProfitChart.jsx';
+import SideMenu from './components/common/DataNavigator.jsx';
+import SimpleRadialChart from './components/common/NetRevenueChart.jsx';
+
 /* L-Size Components */
-import L_HeaderCharts from './components/HeaderCharts-L.jsx';
-import L_Chart from './components/Chart-L.jsx';
-import L_SideMenu from './components/Sidenav-L.jsx';
-import L_ProfitChart from './components/ProfitChart-L.jsx';
-import L_PieChart from './components/NetRevenueChart-L.jsx';
+import L_Chart from './components/size_L/Dashboards-L.jsx';
+import L_HeaderCharts from './components/size_L/DashboardsHeader-L.jsx';
+import L_PieChart from './components/size_L/NetRevenueChart-L.jsx';
+import L_ProfitChart from './components/size_L/ProfitChart-L.jsx';
+import L_SideMenu from './components/size_L/DataNavigator-L.jsx';
 
 /* M-Size Components */
-import M_HeaderCharts from './components/HeaderCharts-M.jsx';
-import M_Chart from './components/Chart-M.jsx';
-import M_SideMenu from './components/Sidenav-M.jsx';
-import M_ProfitChart from './components/ProfitChart-M.jsx';
-import M_PieChart from './components/NetRevenueChart-M.jsx';
+import M_Chart from './components/size_M/Dashboards-M.jsx';
+import M_Footer from './components/size_M/Footer-M.jsx';
+import M_HeaderCharts from './components/size_M/DashboardsHeader-M.jsx';
+import M_PieChart from './components/size_M/NetRevenueChart-M.jsx';
+import M_ProfitChart from './components/size_M/ProfitChart-M.jsx';
+import M_SideMenu from './components/size_M/DataNavigator-M.jsx';
 
 /* M-Size Components */
-import S_HeaderCharts from './components/HeaderCharts-S.jsx';
-import S_Chart from './components/Chart-S.jsx';
-import S_SideMenu from './components/Sidenav-S.jsx';
-import S_ProfitChart from './components/ProfitChart-S.jsx';
-import S_PieChart from './components/NetRevenueChart-S.jsx';
+
+import S_Chart from './components/size_S/Dashboards-S.jsx';
+import S_Footer from './components/size_S/Footer-S.jsx';
+import S_HeaderCharts from './components/size_S/DashboardsHeader-S.jsx';
+import S_PieChart from './components/size_S/NetRevenueChart-S.jsx';
+import S_ProfitChart from './components/size_S/ProfitChart-S.jsx';
+import S_SideMenu from './components/size_S/DataNavigator-S.jsx';
 
 /* XS-Size Components */
+import XS_Chart from './components/size_XS/Dashboards-XS.jsx';
+import XS_CollapsibleMenu from './components/size_XS/DataNavigatorColl-XS.jsx';
+import XS_Footer from './components/size_XS/Footer-XS.jsx';
+import XS_PieChart from './components/size_XS/NetRevenueChart-XS.jsx';
+import XS_ProfitChart from './components/size_XS/ProfitChart-XS.jsx';
 
-import XS_CollapsibleMenu from './components/collapseNav-XS.jsx';
-import XS_Chart from './components/Chart-XS.jsx';
-import XS_ProfitChart from './components/ProfitChart-XS.jsx';
-import XS_PieChart from './components/NetRevenueChart-XS.jsx';
 
-import XS_Footer from './components/Footer-XS.jsx';
-import S_Footer from './components/Footer-S.jsx';
-import M_Footer from './components/Footer-M.jsx';
+
+/* Common Styles */
+import './assets/css/main.css';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -317,17 +326,8 @@ class App extends Component {
   render() {
     const { profit, revenue, screenSize } = this.state;
     return (
-      <div className="mainContainer">
         <BrowserRouter>
           <div>
-
-             {/*<Route
-              exact
-              path="/"
-              render={props => ( 
-                this.renderMainScreen(screenSize)
-              )}
-            />*/}
             <Route
               exact
               path="/"
@@ -348,6 +348,35 @@ class App extends Component {
                       <Features />
                     </Col>
                   </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path="/adaptive_mode"
+              render={props => (
+                <div className="mainContainer">
+                  <Row>
+                    <Col s={12}>
+                      <HeaderAdp />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <PitchHeader />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <Features />
+                    </Col>
+                  </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
                 </div>
               )}
             />
@@ -355,7 +384,47 @@ class App extends Component {
               exact
               path="/dashboards"
               render={props => (
-                this.renderChartScreen(screenSize)
+                <div>
+                  <Row>
+                    <Col s={12}>
+                      <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12} m={3}>
+                      <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+                    </Col>
+                    <Col s={12} m={9}>
+                      <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+                    </Col>
+                  
+                  {profit && <Col s={12} m={9} >
+                      <ProfitChart rangeOfValues={this.state.rangeOfValues} />
+                    </Col>
+                  }
+                  { revenue && 
+                    <Col s={12} m={9} offset="m3">
+                    <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
+                    </Col>
+                  }
+                  </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
+                </div>
+              )}
+            />            
+            <Route
+              exact
+              path="/adaptive_mode/dashboards"
+              render={props => (
+                <div className="mainContainer">
+                  {this.renderChartScreen(screenSize)}
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
+                </div>
+                
               )}
             />
             <Route
@@ -380,15 +449,42 @@ class App extends Component {
                       />
                     </Col>
                   </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
                 </div>
               )}
             />
-            <Row>
-              {this.renderFooter(screenSize)}
-            </Row>
+            <Route
+              exact
+              path="/adaptive_mode/help"
+              render={props => (
+                <div className="mainContainer">
+                  <Row>
+                    <Col s={12}>
+                      <Header />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <Help_Title />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <Help_Page
+                        onDashboardTypeChange={this.onDashboardTypeChange}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
+                </div>
+              )}
+            />
           </div>
         </BrowserRouter>
-      </div>
     );
   }
 }

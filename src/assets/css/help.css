@@ -1,0 +1,106 @@
+/*
+* @style     Styles from help_page.jsx
+* @path      src/components/help_page.jsx
+* @version   2.0
+* @author    Intersys Consulting, Inc  
+*/
+
+.containerHelp {
+    background-color: #589bd4;
+    padding: 25px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    /*border-top: 4px solid #72c168;
+    border-bottom: 4px solid #72c168;*/
+}
+
+.containerHelp img {
+    margin-top: 20px;
+    height: 13rem;
+    border-radius: 50%;
+}
+
+.containerHelp h3 {
+    color: white;
+    font-weight: bold;
+}
+
+.containerHelp p {
+    color: white;
+    font-size: 22px;
+}
+
+.containerHelp h3 span {
+    background: #72c168;
+    color: white;
+    border-top-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    padding: 0 10px 0 10px;
+}
+
+.containerHelp .bold {
+    font-weight: bold;
+    color: black;
+}
+
+.cardIntersys {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.cardIntersys .btn_help {
+    margin-bottom: 3%;
+    width: 92%;
+    margin-left: 4%;
+}
+
+.cardIntersys img {
+    width: 100%;
+    transition-duration: 0.6s;
+    cursor: pointer;
+    border: 1px solid #72C168;
+    transform: scale(0.9);
+}
+
+.cardIntersys img:hover {
+    transform: scale(1.0);
+}
+
+.container_help {
+    width: 100%;
+    padding: 5px 22px;
+}
+
+.container_help p {
+    text-align: justify;
+    background: #FAFAFA;
+    padding: 10px 20px;
+    border: 1px solid #e6e6e6;
+    min-width: 13rem;
+    height: 13rem;
+}
+
+.btnIntersys {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: white;
+    font-size: 17px;
+}
+
+.btnIntersys.btn_help {
+    background-color:#146CB5;
+    border-color: #3888cc;
+    transition-duration: 0.3s;
+}
+
+.btnIntersys.btn_help:hover {
+    background-color:#3888cc;
+}
