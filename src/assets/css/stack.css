@@ -4,29 +4,34 @@ i_blue: '#146CB5'
 */
 
 .stack_container {
-    background-color: #146CB5;
+    background-color: white;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 10px;
+}
+
+.stack_container h1 {
+    margin: 10px;
+    font-size: 1.2rem;
+    color: #494f55;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .stack_container .row {
     margin-bottom:0;
 }
 
-.feature_thumbnail {
-    padding: 2rem !important;
+.stack_thumbnail {
+    padding: 20px 10px !important;
+    line-height: 5px;
+    width: 200px;
+    float: left
 }
 
-.feature_thumbnail img {
-    width: 50%;
-}
-
-.feature_thumbnail h1{
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #146CB5;
-    margin-top: 0;
+.stack_thumbnail img {
+    height: 50px;
 }
