@@ -16,6 +16,7 @@ class Header extends Component {
       <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
           <NavItem href='/dashboards'>Go To Dashboards</NavItem>
           <NavItem href={this.currentPath()}><Icon>view_array</Icon></NavItem>
+          <NavItem href="/mobile_mode"><Icon>phone_iphone</Icon></NavItem>
           <NavItem href='/help'><Icon>help</Icon></NavItem>
       </Navbar>
     );

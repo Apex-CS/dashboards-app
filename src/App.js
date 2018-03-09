@@ -22,7 +22,6 @@ import SideMenu from './components/common/DataNavigator.jsx';
 import SimpleRadialChart from './components/common/NetRevenueChart.jsx';
 import TechStack from './components/common/TechStack.jsx';
 
-
 /* L-Size Components */
 import L_Chart from './components/size_L/Dashboards-L.jsx';
 import L_HeaderCharts from './components/size_L/DashboardsHeader-L.jsx';
@@ -54,12 +53,12 @@ import XS_Footer from './components/size_XS/Footer-XS.jsx';
 import XS_PieChart from './components/size_XS/NetRevenueChart-XS.jsx';
 import XS_ProfitChart from './components/size_XS/ProfitChart-XS.jsx';
 
-
-
 /* Common Styles */
 import './assets/css/main.css';
 
-
+/* Mobile View */
+import './assets/css/mobileView.css';
+import cellphoneBottomCover from './assets/images/mobile_version_cover_bottom.png'
 
 class App extends Component {
   constructor(props) {
@@ -467,6 +466,57 @@ class App extends Component {
               path="/adaptive_mode/help"
               render={props => (
                 <div className="mainContainer">
+                  <Row>
+                    <Col s={12}>
+                      <HeaderAdp />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <Help_Title />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col s={12}>
+                      <Help_Page
+                        onDashboardTypeChange={this.onDashboardTypeChange}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    {this.renderFooter(screenSize)}
+                  </Row>
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path="/mobile_mode"
+              render={props => (
+                  <div className="mobileContainer">
+                    <iframe src="/" width="100%" height="100%" />
+                    <img src={cellphoneBottomCover} className="mobileContainerCover" /> 
+                  </div>
+              )}
+            />
+            <Route
+              exact
+              path="/mobile_mode/dashboards"
+              render={props => (
+                <div className="mainContainer">
+                {this.renderChartScreen(screenSize)}
+                <Row>
+                  {this.renderFooter(screenSize)}
+                </Row>
+              </div>            
+              )}
+            />
+
+            <Route
+              exact
+              path="/mobile_mode/help"
+              render={props => (
+                <div className="mobileContainer">
                   <Row>
                     <Col s={12}>
                       <HeaderAdp />
