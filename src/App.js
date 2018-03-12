@@ -1,6 +1,6 @@
 /* Dependencies */
 import React, { Component } from 'react';
-import { Row, Col } from 'react-materialize';
+import { Row, Col, Button, Icon } from 'react-materialize';
 import { BrowserRouter, Route, Router } from 'react-router-dom';
 
 import '../node_modules/react-vis/dist/style.css';
@@ -336,7 +336,7 @@ class App extends Component {
                 <div>
                   <Row>
                     <Col s={12}>
-                      <Header />
+                      <Header screenSize={this.state.screenSize}/>
                     </Col>
                   </Row>
                   <Row>
@@ -493,50 +493,12 @@ class App extends Component {
               exact
               path="/mobile_mode"
               render={props => (
+                <div className="outMobileContainer">
+                  <Button node='a' href="/"><Icon left>arrow_back</Icon>Back To Full View</Button>
                   <div className="mobileContainer">
                     <iframe src="/" width="100%" height="100%" />
                     <img src={cellphoneBottomCover} className="mobileContainerCover" /> 
                   </div>
-              )}
-            />
-            <Route
-              exact
-              path="/mobile_mode/dashboards"
-              render={props => (
-                <div className="mainContainer">
-                {this.renderChartScreen(screenSize)}
-                <Row>
-                  {this.renderFooter(screenSize)}
-                </Row>
-              </div>            
-              )}
-            />
-
-            <Route
-              exact
-              path="/mobile_mode/help"
-              render={props => (
-                <div className="mobileContainer">
-                  <Row>
-                    <Col s={12}>
-                      <HeaderAdp />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Title />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Page
-                        onDashboardTypeChange={this.onDashboardTypeChange}
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
                 </div>
               )}
             />
