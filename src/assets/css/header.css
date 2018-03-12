@@ -50,6 +50,10 @@ nav .button-collapse {
     padding-top: 5px;
 }
 
+.top-menu .help_icon {
+    margin-left: 15px;
+}
+
 /*for M-Size*/
 
 .navBar_M li a {

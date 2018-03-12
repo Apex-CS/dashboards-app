@@ -12,6 +12,10 @@ i_blue: '#146CB5'
     margin-top: -20px;
 }
 
+.features .row {
+    margin-bottom:0;
+}
+
 .feature_thumbnail {
     padding: 2rem !important;
     padding-top: 0 !important;

@@ -7,11 +7,11 @@
 }
 
 .footer .left {
-    padding: 34px 17px;
+    padding: 46px 17px;
 }
 
 .footer .right {
-    margin-top: 15px;
+    margin-top: 6px;
 }
 
 .mr-30 {
@@ -51,4 +51,36 @@
     color: #146CB5; 
     font-size: 14px; 
     margin-bottom: -20px;
+}
+
+/* XXS, XS 
+   Styles for 
+*/
+.xs-display-li {
+    float: none !important;
+}
+.footer .xs-right {
+    margin-top: -35% !important;
+}
+
+/* S */
+.s-display-li {
+    float: left !important;
+}
+.s-right {
+    float: right;
+    margin-top: -13% !important;
+    margin-right: 5%;
+}
+.footer .s-left {
+    padding: 34px 30px;
+}
+
+/** M **/
+.footer .m-left {
+    padding: 34px 8%;
+}
+.footer .m-right {
+    margin-top: -3% !important;
+    margin-right: 10%;
 }

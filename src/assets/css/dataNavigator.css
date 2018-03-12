@@ -1,0 +1,123 @@
+.sideMenu {
+    height: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+                0 1px 5px 0 rgba(0,0,0,0.12), 
+                0 3px 1px -2px rgba(0,0,0,0.2);
+    padding: 1em;
+}
+
+.sideMenu .row {
+    margin-bottom: 0;
+}
+
+.sideMenu input[type="radio"] .label {
+    color: rgba(0,0,0,0.87);
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #72C168;
+    border: 2px solid #72C168;;
+}
+.sideMenu .selector {
+    max-height: 150px;
+}
+
+.sideMenu h1 {
+    margin-left: -0.85rem;
+    margin-right: -0.85rem;
+    margin-top: 0;
+    margin-bottom: .75rem;
+    background-color: #146CB5;
+    font-family: Dosis,sans-serif;
+    font-size: 20px; 
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.sideMenu h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: left;
+    color: #9e9e9e;
+    margin: .75rem 0;
+    cursor: text;
+    transition: .2s ease-out;
+}
+
+.sideMenu .rangeValues {
+    background-color: #146CB5;
+    color: white;
+    font-size: .75rem;
+    border-radius: 10px 0px 10px 0px;
+    padding: 5px 10px;
+    float: left;
+    margin-top: 2px;
+    
+}
+
+.select-wrapper ul{
+    max-height: 150px
+}
+
+.buttonsRange {
+    text-align: center;
+}
+.buttonsRange button,
+.buttonsRange button:focus {
+    text-transform: initial;
+    padding: 0px 10px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: #08C1AF;
+}
+
+.dashboardType {
+    text-align: center;
+}
+
+.dashboardType button { 
+    background-color: #146CB5;
+    margin: 0;
+}
+
+.dashboardType button:hover { 
+    background-color: #08C1AF;
+}
+.dashboardType button:focus { 
+    background-color: #146CB5;
+}
+
+.dashboardType li a:hover {
+    background-color: #EEEEEE;
+}
+
+.chartShow {
+    margin-bottom: 10px !important;
+}
+
+.chartShow label{
+    margin-top: 0;
+}
+
+.dropdownCharts {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdownCharts i {
+    margin-left: 10px !important;
+}
+
+.noMarginRow {
+    margin-bottom: 0 !important;
+  }
+
+
+/*for L-Size*/
+.size_L {
+    height: 498px
+}
