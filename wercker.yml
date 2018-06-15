@@ -1,0 +1,42 @@
+box: node
+
+production:
+
+  steps:
+
+    - npm-install
+
+    - script:
+        name: Install gh-pages globaly
+        code: |
+          echo "Install Global dependencies"
+          npm install -g gh-pages
+          npm install -g react-scripts
+          echo "Done"
+          
+    - script:
+        name: Build static page
+        code: react-scripts build     
+
+    - script:
+        name: Deploy to github pages
+        code: |
+          git config --global user.email "$GH_EMAIL"
+          gh-pages --repo https://$GH_TOKEN@$GH_REPO -d build
+         
+build:
+
+  steps:
+
+    - npm-install
+
+    - script:
+        name: Install gh-pages globaly
+        code: |
+          echo "Install Global dependencies"
+          npm install -g gh-pages
+          npm install -g react-scripts
+          echo "Done"
+    - script:
+        name: Build static page
+        code: react-scripts build
