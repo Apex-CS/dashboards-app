@@ -327,7 +327,7 @@ class App extends Component {
   render() {
     const { profit, revenue, screenSize } = this.state;
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/dashboards-app">
           <div>
             <Route
               exact
@@ -388,7 +388,7 @@ class App extends Component {
             />
             <Route
               exact
-              path="/dashboards"
+              path={process.env.PUBLIC_URL/ + 'dashboards'}
               render={props => (
                 <div>
                   <Row>
