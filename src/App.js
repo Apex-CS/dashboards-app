@@ -327,7 +327,7 @@ class App extends Component {
   render() {
     const { profit, revenue, screenSize } = this.state;
     return (
-        <BrowserRouter basename="/dashboards-app">
+        <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
           <div>
             <Route
               exact
@@ -502,10 +502,19 @@ class App extends Component {
                 </div>
               )}
             />
+            <Route component={NoMatch} />
           </div>
         </BrowserRouter>
     );
   }
 }
+
+const NoMatch = () => (
+  <div>
+    <h3>
+      <p>Error 404, Page Not Found </p>
+    </h3>
+  </div>
+);
 
 export default App;
