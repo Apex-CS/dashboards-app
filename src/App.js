@@ -389,7 +389,7 @@ class App extends Component {
               />
               <Route
                 exact
-                path={process.env.PUBLIC_URL/ + 'dashboards'}
+                path="/dashboards"
                 render={props => (
                   <div>
                     <Row>
