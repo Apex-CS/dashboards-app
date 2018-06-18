@@ -55,6 +55,10 @@ i_blue: '#146CB5'
     margin: 15px;
     background-color: #146CB5;
     padding: 0 20px;
+    color: #FFF;
+}
+.outMobileContainer > .btn > a{ 
+    color: #FFF;
 }
 
 .outMobileContainer > .btn:hover {

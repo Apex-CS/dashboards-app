@@ -47,6 +47,10 @@
     max-width: 530px;
 }
 
+.pitch_buttons a {
+    color: #FFF;
+}
+
 .mobile_landing {
     width: 70%;
     margin: 20px;
