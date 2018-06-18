@@ -1,7 +1,7 @@
 /* Dependencies */
 import React, { Component } from 'react';
 import { Row, Col, Button, Icon } from 'react-materialize';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import '../node_modules/react-vis/dist/style.css';
 import 'primereact/resources/primereact.min.css';
@@ -329,180 +329,182 @@ class App extends Component {
     return (
         <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
           <div>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <div>
-                  <Row>
-                    <Col s={12}>
-                      <Header screenSize={this.state.screenSize}/>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <PitchHeader />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Features />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <TechStack />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-              )}
-            />
-            <Route
-              exact
-              path="/adaptive_mode"
-              render={props => (
-                <div className="mainContainer">
-                  <Row>
-                    <Col s={12}>
-                      <HeaderAdp />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <PitchHeader />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Features />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-              )}
-            />
-            <Route
-              exact
-              path={process.env.PUBLIC_URL/ + 'dashboards'}
-              render={props => (
-                <div>
-                  <Row>
-                    <Col s={12}>
-                      <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12} m={3}>
-                      <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
-                    </Col>
-                    <Col s={12} m={9}>
-                      <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
-                    </Col>
-                  
-                  {profit && <Col s={12} m={9} offset="m3">
-                      <ProfitChart rangeOfValues={this.state.rangeOfValues} />
-                    </Col>
-                  }
-                  { revenue && 
-                    <Col s={12} m={9} offset="m3">
-                    <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
-                    </Col>
-                  }
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-              )}
-            />            
-            <Route
-              exact
-              path="/adaptive_mode/dashboards"
-              render={props => (
-                <div className="mainContainer">
-                  {this.renderChartScreen(screenSize)}
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-                
-              )}
-            />
-            <Route
-              exact
-              path="/help"
-              render={props => (
-                <div>
-                  <Row>
-                    <Col s={12}>
-                      <Header />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Title />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Page
-                        onDashboardTypeChange={this.onDashboardTypeChange}
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-              )}
-            />
-            <Route
-              exact
-              path="/adaptive_mode/help"
-              render={props => (
-                <div className="mainContainer">
-                  <Row>
-                    <Col s={12}>
-                      <HeaderAdp />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Title />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col s={12}>
-                      <Help_Page
-                        onDashboardTypeChange={this.onDashboardTypeChange}
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {this.renderFooter(screenSize)}
-                  </Row>
-                </div>
-              )}
-            />
-            <Route
-              exact
-              path="/mobile_mode"
-              render={props => (
-                <div className="outMobileContainer">
-                  <Button node='a' href="/"><Icon left>arrow_back</Icon>Back To Full View</Button>
-                  <div className="mobileContainer">
-                    <iframe src="/" width="100%" height="100%" />
-                    <img src={cellphoneBottomCover} className="mobileContainerCover" /> 
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <div>
+                    <Row>
+                      <Col s={12}>
+                        <Header screenSize={this.state.screenSize}/>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <PitchHeader />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Features />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <TechStack />
+                      </Col>
+                    </Row>
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
                   </div>
-                </div>
-              )}
-            />
-            <Route component={NoMatch} />
+                )}
+              />
+              <Route
+                exact
+                path="/adaptive_mode"
+                render={props => (
+                  <div className="mainContainer">
+                    <Row>
+                      <Col s={12}>
+                        <HeaderAdp />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <PitchHeader />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Features />
+                      </Col>
+                    </Row>
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
+                  </div>
+                )}
+              />
+              <Route
+                exact
+                path={process.env.PUBLIC_URL/ + 'dashboards'}
+                render={props => (
+                  <div>
+                    <Row>
+                      <Col s={12}>
+                        <HeaderGraphics onDashboardTypeChange={this.onDashboardTypeChange}/>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12} m={3}>
+                        <SideMenu onDashboardTypeChange={this.onDashboardTypeChange} rangeofValues={this.state.rangeOfValues} onValueChange={this.onValueChange} showChart={this.showChart}/>
+                      </Col>
+                      <Col s={12} m={9}>
+                        <Chart chartType={this.state.typeOfChart} rangeOfValues={this.state.rangeOfValues} />
+                      </Col>
+                    
+                    {profit && <Col s={12} m={9} offset="m3">
+                        <ProfitChart rangeOfValues={this.state.rangeOfValues} />
+                      </Col>
+                    }
+                    { revenue && 
+                      <Col s={12} m={9} offset="m3">
+                      <SimpleRadialChart rangeOfValues={this.state.rangeOfValues} />
+                      </Col>
+                    }
+                    </Row>
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
+                  </div>
+                )}
+              />            
+              <Route
+                exact
+                path="/adaptive_mode/dashboards"
+                render={props => (
+                  <div className="mainContainer">
+                    {this.renderChartScreen(screenSize)}
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
+                  </div>
+                  
+                )}
+              />
+              <Route
+                exact
+                path="/help"
+                render={props => (
+                  <div>
+                    <Row>
+                      <Col s={12}>
+                        <Header />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Help_Title />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Help_Page
+                          onDashboardTypeChange={this.onDashboardTypeChange}
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
+                  </div>
+                )}
+              />
+              <Route
+                exact
+                path="/adaptive_mode/help"
+                render={props => (
+                  <div className="mainContainer">
+                    <Row>
+                      <Col s={12}>
+                        <HeaderAdp />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Help_Title />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col s={12}>
+                        <Help_Page
+                          onDashboardTypeChange={this.onDashboardTypeChange}
+                        />
+                      </Col>
+                    </Row>
+                    <Row>
+                      {this.renderFooter(screenSize)}
+                    </Row>
+                  </div>
+                )}
+              />
+              <Route
+                exact
+                path="/mobile_mode"
+                render={props => (
+                  <div className="outMobileContainer">
+                    <Button node='a' href="/"><Icon left>arrow_back</Icon>Back To Full View</Button>
+                    <div className="mobileContainer">
+                      <iframe src="/" width="100%" height="100%" />
+                      <img src={cellphoneBottomCover} className="mobileContainerCover" /> 
+                    </div>
+                  </div>
+                )}
+              />
+              <Route component={NoMatch} />
+            </Switch>  
           </div>
         </BrowserRouter>
     );
