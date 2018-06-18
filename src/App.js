@@ -1,7 +1,7 @@
 /* Dependencies */
 import React, { Component } from 'react';
 import { Row, Col, Button, Icon } from 'react-materialize';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import '../node_modules/react-vis/dist/style.css';
 import 'primereact/resources/primereact.min.css';
@@ -495,7 +495,7 @@ class App extends Component {
                 path="/mobile_mode"
                 render={props => (
                   <div className="outMobileContainer">
-                    <Button node='a' href="/"><Icon left>arrow_back</Icon>Back To Full View</Button>
+                    <Button><Link to="/"><Icon left>arrow_back</Icon>Back To Full View</Link></Button>
                     <div className="mobileContainer">
                       <iframe src="/" width="100%" height="100%" />
                       <img src={cellphoneBottomCover} className="mobileContainerCover" /> 

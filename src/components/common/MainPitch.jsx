@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Parallax, Row, Button, Col} from 'react-materialize'
+import { Row, Button, Col} from 'react-materialize';
+import { Link } from 'react-router-dom';
 import '../../assets/css/pitch.css';
 import mobile from '../../assets/images/mobile.png';
 
@@ -8,12 +9,12 @@ class PitchHeader extends Component {
     checkingMode(){
         if(window.location.pathname == '/'){
             return[ 
-                <Button className="learn_button"  node='a' waves='light' href='/dashboards'>Live Demo</Button>
+                <Button className="learn_button" waves='light'><Link to="/dashboards">Live Demo</Link></Button>
             ]
         }
         else {
             return[
-                <Button className="learn_button"  node='a' waves='light' href='/adaptive_mode/dashboards'>Live Demo</Button> 
+                <Button className="learn_button"  node='a' waves='light'><Link to="/adaptive_mode/dashboards">Live Demo</Link></Button> 
             ]    
         }    
     }
