@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Icon } from 'react-materialize';
-import NavItem from 'NaItem.jsx';
+import NavItem from 'NavItem.jsx';
 import { Link } from 'react-router';
 import logo from '../../assets/images/intersys-logo.svg';
 import '../../assets/css/header.css';
