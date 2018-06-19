@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Icon } from 'react-materialize'
+import { Navbar, Icon } from 'react-materialize';
+import NavItem from './NavItem';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/intersys-logo.svg';
 import '../../assets/css/header.css';
 
@@ -26,7 +28,7 @@ export default class HeaderGraphics extends Component {
         });
         
     return(
-    <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
+    <Navbar brand={<Link to="/"><img href="/" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
       {chartOptionList}
       <NavItem href='/help'><Icon>help</Icon></NavItem>    
     </Navbar>

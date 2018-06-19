@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Icon } from 'react-materialize'
+import { Navbar, Icon } from 'react-materialize';
+import NavItem from '../common/NavItem';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/intersys-logo.svg';
 import '../../assets/css/header.css';
 
@@ -26,7 +28,7 @@ export default class M_HeaderCharts extends Component {
         });
 
     return(    
-    <Navbar href="/adaptive_mode" brand={<img href="/adaptive_mode" className="navbar_logo_M" src={logo} />} right className='top-menu navBar_M'>
+    <Navbar href="/adaptive_mode" brand={<Link to="/"><img href="/adaptive_mode" className="navbar_logo_M" src={logo} /></Link>} right className='top-menu navBar_M'>
       {chartOptionList}
       <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>    
     </Navbar>
