@@ -1,16 +1,23 @@
-## Available Scripts
+# Dashboards  Demo Ready Application
 
-In the project directory, you can run:
+[![wercker status](https://app.wercker.com/status/20f1a937546085b8e27346ca8cccb95e/s/master "wercker status")](https://app.wercker.com/project/byKey/20f1a937546085b8e27346ca8cccb95e)
 
-### `npm start`
+## Run it with node
 
-Runs the app in the development mode.<br>
+To run the application with node, we need to install all the modules with the command:
+
+```
+npm install
+```
+And then run the command to start the application:
+
+```
+ npm start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
+*Note: This application only has front-end
