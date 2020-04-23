@@ -7,7 +7,7 @@ import ImgIntersysInc from '../../assets/images/intersys-inc-5000.png';
 import { Row, Col } from 'react-materialize';
 
 class M_Footer extends Component {
-    PATH = 'https://www.intersysconsulting.com/';
+    PATH = 'https://www.apexsystems.com/';
 
     render() {
         return (
@@ -15,13 +15,12 @@ class M_Footer extends Component {
                 <Col className="footer">
                     <div className="m-left">
                         <ul>
-                            <li><a target="_blank" href={this.PATH + "company/privacy-policy-terms-use/"} >Privacy Policy & Terms of Use</a></li>
-                            <li><a target="_blank" href={this.PATH + "team-portal/"}>Team Portal</a></li>
-                            <li><a target="_blank" href={this.PATH + "company/partners/"}>Partners</a></li>
-                            <li><a target="_blank" href={this.PATH + "careers/"}>Careers at Intersys</a></li>
-                            <li><a target="_blank" href={this.PATH + "resources/"}>Resources</a></li>
-                            <li><a target="_blank" href={this.PATH + "services/"}>Services</a></li>
-                            <li><a target="_blank" href={this.PATH + "company/"}>Company</a></li>
+                            <li><a target="_blank" href={this.PATH + "Pages/PrivacyPolicy.aspx"} >Privacy Policy & Terms of Use</a></li>
+                            <li><a target="_blank" href="https://www.apexsystems.com/Consulting/Pages/ServiceLanding.aspx">Solutions</a></li>
+                            <li><a target="_blank" href={this.PATH + "blogs/Pages/Apex-Blog.aspx"}>Blog</a></li>
+                            <li><a target="_blank" href="https://itcareers.apexsystems.com/">Careers at Apex</a></li>
+                            <li><a target="_blank" href={this.PATH + "/Pages/ApexNews.aspx"}>News</a></li>
+                            <li><a target="_blank" href={this.PATH + "/Pages/Locations.aspx"}>Contact Us</a></li>
                         </ul>
                     </div>
                     <div className="right m-right">
