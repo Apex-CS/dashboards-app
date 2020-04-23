@@ -23,7 +23,7 @@ class Features extends Component {
                     <Col className="feature_thumbnail" s={12} m={4}>
                        <img src={digital}/>
                        <h1>Scalability & Control</h1>
-                       <p>This application has been built in components with cutting edge techology in order to provide scalability and total control of the application by the owners.</p>
+                       <p>This application has been built in components with cutting edge technology in order to provide scalability and total control of the application by the owners.</p>
                     </Col>
                 </Row>
             </div>

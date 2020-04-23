@@ -13,9 +13,9 @@ class Help_Page extends Component {
     
     checkingMode(){
         if(window.location.pathname == '/help')
-            return '/dashboards'
+            return `${process.env.REACT_APP_PUBLIC_URL}/dashboards`
         else
-            return '/adaptive_mode/dashboards'     
+            return `${process.env.REACT_APP_PUBLIC_URL}/adaptive_mode/dashboards`
     }
 
     linkDashboard = {
