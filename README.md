@@ -1,6 +1,6 @@
 # Dashboards  Demo Ready Application
 
-[![wercker status](https://app.wercker.com/status/20f1a937546085b8e27346ca8cccb95e/s/master "wercker status")](https://app.wercker.com/project/byKey/20f1a937546085b8e27346ca8cccb95e)
+![dashboards app | Web deploy](https://github.com/Apex-CS/dashboards-app/workflows/dashboards%20app%20%7C%20Web%20deploy/badge.svg)
 
 ## Run it with node
 

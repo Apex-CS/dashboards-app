@@ -1,0 +1,41 @@
+name: 'dashboards app | Web deploy'
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: 'Build & Deploy'
+    runs-on: ubuntu-latest
+    env:
+      EMAIL: cmedinilla@apexsystems.com
+      NAME: Christian Medinilla
+      CI: false
+      REPO: github.com/Apex-CS/dashboards-app
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm install
+      
+      - name: Install gh-pages globaly
+        run: |
+          echo "Install Global dependencies"
+          npm install -g gh-pages
+          npm install -g react-scripts
+          echo "Done"
+          
+      - name: Create react Build
+        run: |
+          react-scripts build
+    
+      - name: Deploy to github pages
+        run: |
+          git config --global user.email "${{ env.EMAIL }}"
+          git config --global user.name "${{ env.NAME }}"
+          gh-pages --repo https://${{ secrets.GH_TOKEN }}@${{ env.REPO }} -d build
+
