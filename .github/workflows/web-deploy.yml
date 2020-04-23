@@ -14,6 +14,7 @@ jobs:
       NAME: Christian Medinilla
       CI: false
       REPO: github.com/Apex-CS/dashboards-app
+      REACT_APP_PUBLIC_URL: /dashboards-app
 
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +23,7 @@ jobs:
           node-version: '10.x'
       - run: npm install
       
-      - name: Install gh-pages globaly
+      - name: Install gh-pages globally
         run: |
           echo "Install Global dependencies"
           npm install -g gh-pages
