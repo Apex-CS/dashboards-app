@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 102.13 73.96"
+   version="1.1"
+   id="svg3749"
+   sodipodi:docname="intersys-small-bwo.svg"
+   width="102.13"
+   height="73.959999"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     id="namedview3751"
+     showgrid="false"
+     inkscape:zoom="3.2466488"
+     inkscape:cx="77.840839"
+     inkscape:cy="63.94119"
+     inkscape:window-x="-8"
+     inkscape:window-y="305"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3749" />
+  <metadata
+     id="metadata3753">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>intersys-logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3737">
+    <style
+       id="style3735">.a{fill:#585a61}.b{fill:#589bd4}.c{fill:#146cb5}.d{fill:#72c168}</style>
+  </defs>
+  <title
+     id="title3739">intersys-logo</title>
+  <path
+     style="fill:#969696;opacity:0.101"
+     inkscape:connector-curvature="0"
+     id="path3743"
+     d="M 65.16,9.9999991 H 39.75 l 23.69,23.6899999 3.29,3.29 h 25.4 v -0.01 z"
+     class="b" />
+  <path
+     style="fill:#646464;opacity:0.101"
+     inkscape:connector-curvature="0"
+     id="path3745"
+     d="m 66.73,36.979999 -3.29,3.29 -23.69,23.69 h 25.4 l 26.98,-26.98 z"
+     class="c" />
+  <path
+     style="fill:#949494;opacity:0.101"
+     inkscape:connector-curvature="0"
+     id="path3747"
+     d="m 10,36.974999 24.096,-24.098 24.098,24.098 -24.098,24.098 z"
+     class="d" />
+</svg>
