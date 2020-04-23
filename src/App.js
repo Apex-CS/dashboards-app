@@ -69,7 +69,7 @@ class App extends Component {
         initMonth: 'February',
         initYear: 2017,
         endMonth: 'January',
-        endYear: 2018
+        endYear: 2020
       },
       profit: true,
       revenue: true,
