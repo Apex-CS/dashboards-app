@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://intersysconsulting.github.io/dashboards-app/",
+  "homepage": "https://apex-cs.github.io/dashboards-app/",
   "dependencies": {
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
