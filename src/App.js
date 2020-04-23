@@ -497,7 +497,7 @@ class App extends Component {
                   <div className="outMobileContainer">
                     <Button><Link to="/"><Icon left>arrow_back</Icon>Back To Full View</Link></Button>
                     <div className="mobileContainer">
-                      <iframe src="/" width="100%" height="100%" />
+                      <iframe src="https://apex-cs.github.io/dashboards-app" width="100%" height="100%" />
                       <img src={cellphoneBottomCover} className="mobileContainerCover" /> 
                     </div>
                   </div>
