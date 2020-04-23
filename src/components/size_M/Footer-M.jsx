@@ -30,7 +30,7 @@ class M_Footer extends Component {
                     </div>
                 </Col>
                 <Col s={12} className="copyright">
-                    &#169; 2018 Intersys Consulting, Inc. All Rights Reserved
+                    &#169; 2020 Apex Systems All Rights Reserved
                 </Col>
             </div>
         );
