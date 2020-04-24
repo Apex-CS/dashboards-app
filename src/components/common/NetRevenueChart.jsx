@@ -81,7 +81,13 @@ export default class SimpleRadialChart extends Component {
             finalConsumer: total.finalConsumer + value.finalConsumer,
             software: total.software + value.software,
         };
-
+    }, {
+        servers: 0,
+        storage: 0,
+        networking: 0,
+        services: 0,
+        finalConsumer: 0,
+        software: 0,
     });
 
     netRevenue.totalRevenue = range2.reduce(
