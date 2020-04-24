@@ -44,7 +44,8 @@ i_blue: '#146CB5'
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url(../images/intersys-small-bwo.svg);
+    background: url(../images/apex-small.svg);
+    background-size: 102px 74px;
     background-repeat: repeat;
 }
 
