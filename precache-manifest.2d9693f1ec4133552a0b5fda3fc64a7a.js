@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "deda4d3fd3555676f6df845235df108d",
+    "revision": "42e83e70f94ecce0e5a8abed7437e073",
     "url": "/dashboards-app/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/css/2.3e1c4aa0.chunk.css"
   },
   {
-    "revision": "34b897de2b050385b8e6",
+    "revision": "5569ccbc8f99705437a7",
     "url": "/dashboards-app/static/css/main.f132af6d.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/js/2.b2debe93.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "34b897de2b050385b8e6",
-    "url": "/dashboards-app/static/js/main.504bf148.chunk.js"
+    "revision": "5569ccbc8f99705437a7",
+    "url": "/dashboards-app/static/js/main.6ab1a4c4.chunk.js"
   },
   {
     "revision": "df7dbd93e5755ed81a1a",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "baa75982bd7590dcb20a04029cc85dc1",
     "url": "/dashboards-app/static/media/MDC-3.baa75982.png"
+  },
+  {
+    "revision": "4839c50e2803b1d09f151aa6285728fa",
+    "url": "/dashboards-app/static/media/apex-logo.4839c50e.jpg"
   },
   {
     "revision": "61173a845bcdaa3b5c3a65747c248c81",
@@ -78,10 +82,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "664a8c00ef526bf33edf55808601d461",
     "url": "/dashboards-app/static/media/html5.664a8c00.png"
-  },
-  {
-    "revision": "651d54955fa8a5e32ddaeb5a6fa7fe76",
-    "url": "/dashboards-app/static/media/intersys-logo.651d5495.svg"
   },
   {
     "revision": "df182772199b2e805d26d837db680a4e",
