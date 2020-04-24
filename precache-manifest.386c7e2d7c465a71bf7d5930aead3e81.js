@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "42e83e70f94ecce0e5a8abed7437e073",
+    "revision": "065967e69a43e91c9baf547baf85fe6a",
     "url": "/dashboards-app/index.html"
   },
   {
-    "revision": "82a4a078451211accffc",
+    "revision": "66a2e9c2dff2ff39760e",
     "url": "/dashboards-app/static/css/2.3e1c4aa0.chunk.css"
   },
   {
-    "revision": "5569ccbc8f99705437a7",
-    "url": "/dashboards-app/static/css/main.f132af6d.chunk.css"
+    "revision": "23ff7d713e83834f9197",
+    "url": "/dashboards-app/static/css/main.7f5f1304.chunk.css"
   },
   {
-    "revision": "82a4a078451211accffc",
-    "url": "/dashboards-app/static/js/2.b2debe93.chunk.js"
+    "revision": "66a2e9c2dff2ff39760e",
+    "url": "/dashboards-app/static/js/2.756de284.chunk.js"
   },
   {
     "revision": "a7f6c7dda6509295abea8e6a86c1ec8c",
-    "url": "/dashboards-app/static/js/2.b2debe93.chunk.js.LICENSE.txt"
+    "url": "/dashboards-app/static/js/2.756de284.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5569ccbc8f99705437a7",
-    "url": "/dashboards-app/static/js/main.6ab1a4c4.chunk.js"
+    "revision": "23ff7d713e83834f9197",
+    "url": "/dashboards-app/static/js/main.81e47db1.chunk.js"
   },
   {
-    "revision": "df7dbd93e5755ed81a1a",
-    "url": "/dashboards-app/static/js/runtime-main.bed8e2f3.js"
+    "revision": "6219dda3156a0f2275d9",
+    "url": "/dashboards-app/static/js/runtime-main.ce8bf0db.js"
   },
   {
     "revision": "baa75982bd7590dcb20a04029cc85dc1",
@@ -34,6 +34,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4839c50e2803b1d09f151aa6285728fa",
     "url": "/dashboards-app/static/media/apex-logo.4839c50e.jpg"
+  },
+  {
+    "revision": "73a7496585edd35c36b9f01c0f8e6396",
+    "url": "/dashboards-app/static/media/apex-small.73a74965.svg"
   },
   {
     "revision": "61173a845bcdaa3b5c3a65747c248c81",
@@ -82,10 +86,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "664a8c00ef526bf33edf55808601d461",
     "url": "/dashboards-app/static/media/html5.664a8c00.png"
-  },
-  {
-    "revision": "df182772199b2e805d26d837db680a4e",
-    "url": "/dashboards-app/static/media/intersys-small-bwo.df182772.svg"
   },
   {
     "revision": "0d69b06706bb5ef8c9dd3377bcd95ad6",
