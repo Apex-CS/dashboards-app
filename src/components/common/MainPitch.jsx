@@ -7,7 +7,7 @@ import mobile from '../../assets/images/mobile.png';
 class PitchHeader extends Component {
     
     checkingMode(){
-        if(window.location.pathname == '/'){
+        if(window.location.pathname === '/'){
             return[ 
                 <Button className="learn_button" waves='light'><Link to="/dashboards">Live Demo</Link></Button>
             ]

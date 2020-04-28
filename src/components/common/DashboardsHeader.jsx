@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Navbar, Icon } from 'react-materialize';
+import { Navbar } from 'react-materialize';
 import NavItem from './NavItem';
+import NavItemIcon from './NavItemIcon';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/apex-logo.jpg';
 import '../../assets/css/header.css';
@@ -30,7 +31,7 @@ export default class HeaderGraphics extends Component {
     return(
     <Navbar brand={<Link to="/"><img href="/" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
       {chartOptionList}
-      <NavItem href='/help'><Icon>help</Icon></NavItem>    
+      <NavItemIcon tooltipText="Help" icon="help" hrefPath="/help"/>
     </Navbar>
     );
   }

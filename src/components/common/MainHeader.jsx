@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Navbar, Icon } from 'react-materialize';
+import { Navbar } from 'react-materialize';
 import NavItem from './NavItem';
+import NavItemIcon from './NavItemIcon';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/apex-logo.jpg';
 import '../../assets/css/header.css';
@@ -26,7 +27,7 @@ class Header extends Component {
         <div>   
           <Navbar brand={<img href="/" className="navbar_logo" src={logo} />} right className='top-menu'>
               <NavItem href='/dashboards'>Go To Dashboards</NavItem>
-              <NavItem href='/help'>Help<Icon>help</Icon></NavItem>
+              <NavItemIcon tooltipText="Help" hrefPath="/help" icon="help"/>
           </Navbar>
         </div>
       ]
@@ -35,9 +36,9 @@ class Header extends Component {
         <div>   
           <Navbar brand={<Link to="/"><img href="/" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
               <NavItem href='/dashboards'>Go To Dashboards</NavItem>
-              <NavItem href={this.currentPath()}><Icon>view_array</Icon></NavItem>
-              <NavItem href="/mobile_mode"><Icon>phone_iphone</Icon></NavItem>
-              <NavItem href='/help'><Icon>help</Icon></NavItem>
+              <NavItemIcon tooltipText="Adaptative mode" hrefPath={this.currentPath()} icon="view_array"/>
+              <NavItemIcon tooltipText="Mobile mode" hrefPath="/mobile_mode" icon="phone_iphone"/>
+              <NavItemIcon tooltipText="Help" hrefPath="/help" icon="help"/>
           </Navbar>
         </div>
       ];
