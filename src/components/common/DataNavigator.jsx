@@ -100,6 +100,9 @@ export default class SideMenu extends Component {
     }
     finalYear(finalYear) {
         this.props.onValueChange(parseInt(finalYear),"endYear");
+        if (this.props.rangeofValues.endYear === 2020) {
+            this.finalMonth(months[months.indexOf("January")]);
+        }
     }
 
     render() {
