@@ -28,7 +28,7 @@ class PitchHeader extends Component {
                             <p className="parallax_header">Enable your team for success with a <span> Custom Rich Dashboard</span></p>
                             <p className="parallax_text">Apex can provide you an easy solution to customize your data presentation for all devices.</p>
                             <div className="pitch_buttons">
-                                <Button className="demo_button" node='a' target="_blank" waves='light' href='https://www.apexsystems.com/'>Get In Touch</Button>
+                                <Button className="demo_button" node='a' target="_blank" waves='light' href='https://www.apexsystems.com/Pages/Locations.aspx'>Get In Touch</Button>
                                 {this.checkingMode()}
                             </div>
                         </div>
