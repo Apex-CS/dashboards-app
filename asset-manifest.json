@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/dashboards-app/static/css/main.2d83eb99.chunk.css",
-    "main.js": "/dashboards-app/static/js/main.04871516.chunk.js",
-    "main.js.map": "/dashboards-app/static/js/main.04871516.chunk.js.map",
+    "main.css": "/dashboards-app/static/css/main.235fd7fc.chunk.css",
+    "main.js": "/dashboards-app/static/js/main.a3a3db2b.chunk.js",
+    "main.js.map": "/dashboards-app/static/js/main.a3a3db2b.chunk.js.map",
     "runtime-main.js": "/dashboards-app/static/js/runtime-main.b8b66b47.js",
     "runtime-main.js.map": "/dashboards-app/static/js/runtime-main.b8b66b47.js.map",
     "static/css/2.3f937d63.chunk.css": "/dashboards-app/static/css/2.3f937d63.chunk.css",
     "static/js/2.72d679cb.chunk.js": "/dashboards-app/static/js/2.72d679cb.chunk.js",
     "static/js/2.72d679cb.chunk.js.map": "/dashboards-app/static/js/2.72d679cb.chunk.js.map",
     "index.html": "/dashboards-app/index.html",
-    "precache-manifest.998596343be809b9f9d8f64cd49dcd09.js": "/dashboards-app/precache-manifest.998596343be809b9f9d8f64cd49dcd09.js",
+    "precache-manifest.b130670957c3a4518a3026fad1464b63.js": "/dashboards-app/precache-manifest.b130670957c3a4518a3026fad1464b63.js",
     "service-worker.js": "/dashboards-app/service-worker.js",
     "static/css/2.3f937d63.chunk.css.map": "/dashboards-app/static/css/2.3f937d63.chunk.css.map",
-    "static/css/main.2d83eb99.chunk.css.map": "/dashboards-app/static/css/main.2d83eb99.chunk.css.map",
+    "static/css/main.235fd7fc.chunk.css.map": "/dashboards-app/static/css/main.235fd7fc.chunk.css.map",
     "static/js/2.72d679cb.chunk.js.LICENSE.txt": "/dashboards-app/static/js/2.72d679cb.chunk.js.LICENSE.txt",
     "static/media/pitch.css": "/dashboards-app/static/media/MDC-3.baa75982.png",
     "static/media/apex-logo.jpg": "/dashboards-app/static/media/apex-logo.4839c50e.jpg",
@@ -22,10 +22,10 @@
     "static/media/chart_dot.PNG": "/dashboards-app/static/media/chart_dot.b23245a5.PNG",
     "static/media/chart_gradient.PNG": "/dashboards-app/static/media/chart_gradient.776e917e.PNG",
     "static/media/chart_line.PNG": "/dashboards-app/static/media/chart_line.16d8e7fd.PNG",
-    "static/media/cloud-icon.svg": "/dashboards-app/static/media/cloud-icon.d6f67d3a.svg",
+    "static/media/cloud-icon-apx.svg": "/dashboards-app/static/media/cloud-icon-apx.f9d24813.svg",
     "static/media/primereact.min.css": "/dashboards-app/static/media/line.567f5738.gif",
     "static/media/css3.svg": "/dashboards-app/static/media/css3.be86d1b5.svg",
-    "static/media/digital-icon.svg": "/dashboards-app/static/media/digital-icon.1836f150.svg",
+    "static/media/digital-icon-apx.svg": "/dashboards-app/static/media/digital-icon-apx.8f4e383c.svg",
     "static/media/github.png": "/dashboards-app/static/media/github.3cd5679f.png",
     "static/media/hammerJS.jpg": "/dashboards-app/static/media/hammerJS.b342da0d.jpg",
     "static/media/html5.png": "/dashboards-app/static/media/html5.664a8c00.png",
@@ -38,14 +38,14 @@
     "static/media/react.png": "/dashboards-app/static/media/react.4ade5cac.png",
     "static/media/react_D3.png": "/dashboards-app/static/media/react_D3.caef9c91.png",
     "static/media/react_vis.JPG": "/dashboards-app/static/media/react_vis.100694b2.JPG",
-    "static/media/search-icon.svg": "/dashboards-app/static/media/search-icon.2c35bbe2.svg",
-    "static/media/sourcing-icon.svg": "/dashboards-app/static/media/sourcing-icon.e8d95525.svg"
+    "static/media/search-icon-apx.svg": "/dashboards-app/static/media/search-icon-apx.00ae0431.svg",
+    "static/media/sourcing-icon-apx.svg": "/dashboards-app/static/media/sourcing-icon-apx.f662cbb9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b8b66b47.js",
     "static/css/2.3f937d63.chunk.css",
     "static/js/2.72d679cb.chunk.js",
-    "static/css/main.2d83eb99.chunk.css",
-    "static/js/main.04871516.chunk.js"
+    "static/css/main.235fd7fc.chunk.css",
+    "static/js/main.a3a3db2b.chunk.js"
   ]
 }

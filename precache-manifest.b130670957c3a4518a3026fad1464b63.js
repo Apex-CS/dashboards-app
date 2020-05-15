@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d6e0db666d9037b9e087d55dc2eed35f",
+    "revision": "c5b244ea7937be86a4f280f294f87e2f",
     "url": "/dashboards-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/css/2.3f937d63.chunk.css"
   },
   {
-    "revision": "f0123738bd66ace408e5",
-    "url": "/dashboards-app/static/css/main.2d83eb99.chunk.css"
+    "revision": "0b8b2b66e718eb33451a",
+    "url": "/dashboards-app/static/css/main.235fd7fc.chunk.css"
   },
   {
     "revision": "00d7e396284115739269",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/js/2.72d679cb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f0123738bd66ace408e5",
-    "url": "/dashboards-app/static/js/main.04871516.chunk.js"
+    "revision": "0b8b2b66e718eb33451a",
+    "url": "/dashboards-app/static/js/main.a3a3db2b.chunk.js"
   },
   {
     "revision": "2e895e9ade3a00ab587a",
@@ -60,8 +60,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/media/chart_line.16d8e7fd.PNG"
   },
   {
-    "revision": "d6f67d3a0781ee37d6a40b7e2a49570d",
-    "url": "/dashboards-app/static/media/cloud-icon.d6f67d3a.svg"
+    "revision": "f9d24813fbea43815ce597e97d1f950b",
+    "url": "/dashboards-app/static/media/cloud-icon-apx.f9d24813.svg"
   },
   {
     "revision": "c7a33805ffda0d32bd2a9904c8b02750",
@@ -72,8 +72,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/media/css3.be86d1b5.svg"
   },
   {
-    "revision": "1836f15029e319972c6a75d8d832659a",
-    "url": "/dashboards-app/static/media/digital-icon.1836f150.svg"
+    "revision": "8f4e383ce18b65ae4822141ce816c597",
+    "url": "/dashboards-app/static/media/digital-icon-apx.8f4e383c.svg"
   },
   {
     "revision": "3cd5679f54dc60811383649f9f6ea37d",
@@ -132,11 +132,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/media/react_vis.100694b2.JPG"
   },
   {
-    "revision": "2c35bbe27986baf873cd5408b3e4ea06",
-    "url": "/dashboards-app/static/media/search-icon.2c35bbe2.svg"
+    "revision": "00ae0431e960429d473ac06ef4c6d3f9",
+    "url": "/dashboards-app/static/media/search-icon-apx.00ae0431.svg"
   },
   {
-    "revision": "e8d95525da936ad5c8651236c8255242",
-    "url": "/dashboards-app/static/media/sourcing-icon.e8d95525.svg"
+    "revision": "f662cbb93bb15f7cdf9cb75ba98a4cdf",
+    "url": "/dashboards-app/static/media/sourcing-icon-apx.f662cbb9.svg"
   }
 ]);
