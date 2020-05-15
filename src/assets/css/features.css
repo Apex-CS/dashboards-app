@@ -1,6 +1,6 @@
 /*
-i_green: '#72C168',
-i_blue: '#146CB5'
+i_green: '#ee9f2d',
+i_blue: '#168bcd'
 */
 
 .features {
@@ -30,6 +30,6 @@ i_blue: '#146CB5'
     font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
-    color: #146CB5;
+    color: #168bcd;
     margin-top: 0;
 }

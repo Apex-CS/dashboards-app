@@ -1,8 +1,8 @@
 const Colors = {
-  i_green: '#72C168',
-  i_blue: '#146CB5',
-  i_orange: '#f88f3d',
-  i_aqua: '#08C1AF',
+  i_green: '#ee9f2d',
+  i_blue: '#168bcd',
+  i_orange: '#37b3a2',
+  i_aqua: '#44546a',
   i_purple: '#7962c6',
   i_gray: '#878787'
 };

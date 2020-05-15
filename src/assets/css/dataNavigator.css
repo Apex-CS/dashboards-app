@@ -16,8 +16,8 @@
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-    background-color: #72C168;
-    border: 2px solid #72C168;;
+    background-color: #ee9f2d;
+    border: 2px solid #ee9f2d;;
 }
 .sideMenu .selector {
     max-height: 150px;
@@ -28,7 +28,7 @@
     margin-right: -0.85rem;
     margin-top: 0;
     margin-bottom: .75rem;
-    background-color: #146CB5;
+    background-color: #168bcd;
     font-family: Dosis,sans-serif;
     font-size: 20px; 
     text-transform: uppercase;
@@ -48,7 +48,7 @@
 }
 
 .sideMenu .rangeValues {
-    background-color: #146CB5;
+    background-color: #168bcd;
     color: white;
     font-size: .75rem;
     border-radius: 10px 0px 10px 0px;
@@ -73,7 +73,7 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
-    background-color: #08C1AF;
+    background-color: #ee9f2d;
 }
 
 .dashboardType {
@@ -81,15 +81,15 @@
 }
 
 .dashboardType button { 
-    background-color: #146CB5;
+    background-color: #168bcd;
     margin: 0;
 }
 
 .dashboardType button:hover { 
-    background-color: #08C1AF;
+    background-color: #ee9f2d;
 }
 .dashboardType button:focus { 
-    background-color: #146CB5;
+    background-color: #168bcd;
 }
 
 .dashboardType li a:hover {

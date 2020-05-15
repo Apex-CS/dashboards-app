@@ -49,7 +49,7 @@
   <defs
      id="defs3737">
     <style
-       id="style3735">.a{fill:#585a61}.b{fill:#589bd4}.c{fill:#146cb5}.d{fill:#72c168}</style>
+       id="style3735">.a{fill:#585a61}.b{fill:#589bd4}.c{fill:#168bcd}.d{fill:#ee9f2d}</style>
   </defs>
   <title
      id="title3739">intersys-logo</title>
@@ -64,11 +64,11 @@
      d="m 56.73,26.98 -3.29,3.29 -23.69,23.69 h 25.4 L 82.13,26.98 Z"
      id="path3745"
      inkscape:connector-curvature="0"
-     style="fill:#146cb5" />
+     style="fill:#168bcd" />
   <path
      class="d"
      d="M 0,26.975 24.096,2.877 48.194,26.975 24.096,51.073 Z"
      id="path3747"
      inkscape:connector-curvature="0"
-     style="fill:#72c168" />
+     style="fill:#ee9f2d" />
 </svg>

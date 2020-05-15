@@ -1,6 +1,6 @@
 /*
-i_green: '#72C168',
-i_blue: '#146CB5'
+i_green: '#ee9f2d',
+i_blue: '#168bcd'
 */
 
 .mobileContainer {
@@ -54,7 +54,7 @@ i_blue: '#146CB5'
     top: 0;
     right: 0;
     margin: 15px;
-    background-color: #146CB5;
+    background-color: #168bcd;
     padding: 0 20px;
     color: #FFF;
 }
@@ -63,5 +63,5 @@ i_blue: '#146CB5'
 }
 
 .outMobileContainer > .btn:hover {
-    background-color: #72C168;
+    background-color: #ee9f2d;
 }

@@ -10,8 +10,8 @@
     padding: 25px;
     padding-left: 5rem;
     padding-right: 5rem;
-    /*border-top: 4px solid #72c168;
-    border-bottom: 4px solid #72c168;*/
+    /*border-top: 4px solid #ee9f2d;
+    border-bottom: 4px solid #ee9f2d;*/
 }
 
 .containerHelp img {
@@ -31,7 +31,7 @@
 }
 
 .containerHelp h3 span {
-    background: #72c168;
+    background: #ee9f2d;
     color: white;
     border-top-left-radius: 17px;
     border-bottom-right-radius: 17px;
@@ -59,7 +59,7 @@
     width: 100%;
     transition-duration: 0.6s;
     cursor: pointer;
-    border: 1px solid #72C168;
+    border: 1px solid #ee9f2d;
     transform: scale(0.9);
 }
 
@@ -96,7 +96,7 @@
 }
 
 .btnIntersys.btn_help {
-    background-color:#146CB5;
+    background-color:#168bcd;
     border-color: #3888cc;
     transition-duration: 0.3s;
 }
