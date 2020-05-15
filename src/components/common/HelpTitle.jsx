@@ -1,11 +1,8 @@
 import React       from 'react';
-import {Component} from 'react';
-import {Row, Col, Icon}  from 'react-materialize'
+import { Component } from 'react';
+import { Row, Col }  from 'react-materialize';
+import searchIcon from '../../assets/images/search-icon-apx.svg';
 import '../../assets/css/help.css';
-
-// Images
-import search from '../../assets/images/search.png';
-import searchIcon from '../../assets/images/search-icon.svg';
 
 export default class Help_Title extends Component {
     render() {
@@ -20,7 +17,7 @@ export default class Help_Title extends Component {
                 </Col>
                 <Col m={6}  l={4}>
                     <div className="right">
-                        <img src={search} />
+                        <img src={searchIcon} />
                     </div>
                 </Col>
                 

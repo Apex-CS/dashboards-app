@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Row, Button, Col} from 'react-materialize'
-import adaptable from '../../assets/images/cloud-icon.svg';
-import flexible from '../../assets/images/sourcing-icon.svg';
-import digital from '../../assets/images/digital-icon.svg';
+import adaptable from '../../assets/images/cloud-icon-apx.svg';
+import flexible from '../../assets/images/sourcing-icon-apx.svg';
+import digital from '../../assets/images/digital-icon-apx.svg';
 import '../../assets/css/features.css';
 
 class Features extends Component {
