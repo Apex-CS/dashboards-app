@@ -93,7 +93,12 @@ export default class M_SideMenu extends Component {
     }
 
     initYear(initialYear) {
-        this.props.onValueChange(parseInt(initialYear),"initYear");
+        const { rangeofValues, onValueChange } = this.props;
+        
+        (initialYear > rangeofValues.endYear) ?
+            window.Materialize.toast("Please Select a valid range, Initial year cannot be higher than final", 3000)
+        : onValueChange(parseInt(initialYear),"initYear");
+        
     }
     finalMonth(finalMonth) {
         this.props.onValueChange(finalMonth,"endMonth");
