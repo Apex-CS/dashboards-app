@@ -1,6 +1,6 @@
 /*
-    i_green = '#72C168';
-    i_blue = '#146CB5';
+    i_green = '#ee9f2d';
+    i_blue = '#168bcd';
 */
 
 .collapseNav {
@@ -17,7 +17,7 @@
 }
 
 .collapseNav .collapsible-header {
-    background-color: #146CB5;
+    background-color: #168bcd;
     font-size: 20px;
     text-transform: uppercase;
     text-align: center;
@@ -28,7 +28,7 @@
                 0 3px 1px -2px rgba(0,0,0,0.2);
 }
 .collapseNav .collapsible-header:hover{
-    background-color: #08C1AF;
+    background-color: #ee9f2d;
 }
 
 .collapseNav .collapsible-body {
@@ -41,8 +41,8 @@
 }
 
 [type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
-    background-color: #72C168;
-    border: 2px solid #72C168;;
+    background-color: #ee9f2d;
+    border: 2px solid #ee9f2d;;
 }
 .collapseNav .selector {
     max-height: 150px;
@@ -53,7 +53,7 @@
     margin-right: -0.85rem;
     margin-top: 0;
     margin-bottom: .75rem;
-    background-color: #146CB5;
+    background-color: #168bcd;
     font-family: Dosis,sans-serif;
     font-size: 20px; 
     text-transform: uppercase;
@@ -74,7 +74,7 @@
 }
 
 .collapseNav .rangeValues {
-    background-color: #146CB5;
+    background-color: #168bcd;
     color: white;
     font-size: .75rem;
     border-radius: 10px 0px 10px 0px;
@@ -96,7 +96,7 @@
     margin-bottom: 15px;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #08C1AF;
+    background-color: #ee9f2d;
 }
 
 .dashboardType {
@@ -104,15 +104,15 @@
 }
 
 .dashboardType button { 
-    background-color: #146CB5;
+    background-color: #168bcd;
     margin: 1em 0;
 }
 
 .dashboardType button:hover { 
-    background-color: #08C1AF;
+    background-color: #ee9f2d;
 }
 .dashboardType button:focus { 
-    background-color: #146CB5;
+    background-color: #168bcd;
 }
 
 .dashboardType li a:hover {

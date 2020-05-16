@@ -27,7 +27,7 @@
   margin-right: -0.85rem;
   margin-top: 0;
   margin-bottom: 0.75rem;
-  background-color: #146cb5;
+  background-color: #168bcd;
   font-family: Dosis, sans-serif;
   font-size: 20px;
   text-transform: uppercase;
@@ -70,7 +70,7 @@ LineSeries {
     margin-right: -0.85rem;
     margin-top: 0;
     margin-bottom: .75rem;
-    background-color: #146CB5;
+    background-color: #168bcd;
     font-family: Dosis,sans-serif;
     font-size: 20px; 
     text-transform: uppercase;
@@ -134,12 +134,12 @@ LineSeries {
 
 .pieChartHint span,
 .legends_money span {
-    color: #146CB5;
-    /*#72C168*/
+    color: #168bcd;
+    /*#ee9f2d*/
 }
 .pieChartHint span.dlls,
 .legends_money span.dlls {
-    color: #72C168;
+    color: #ee9f2d;
 }
 
 .chartBox .resetButton {
@@ -167,7 +167,7 @@ LineSeries {
     text-transform: uppercase;
     text-align: center;
     padding: 10px 20px;
-    color: #08C1AF;
+    color: #ee9f2d;
     font-weight: bold;
 }
 

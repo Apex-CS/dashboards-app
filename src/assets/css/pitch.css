@@ -1,6 +1,6 @@
 /*
-    i_green: '#72C168',
-    i_blue: '#146CB5'
+    i_green: '#ee9f2d',
+    i_blue: '#168bcd'
 */
 /*
 .parallax-container img {
@@ -21,7 +21,7 @@
 }
 
 .parallax_header span {
-    color: #f88f3d;
+    color: #ee9f2d;
 } 
 
 .parallax_text {
@@ -63,11 +63,11 @@
 }
 
 .demo_button {
-    background-color: #72C168;
+    background-color: #ee9f2d;
     margin: 10px;
 }
 
 .learn_button {
-    background-color: #146CB5;
+    background-color: #168bcd;
     margin: 10px;
 }
