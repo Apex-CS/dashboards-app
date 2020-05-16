@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5b244ea7937be86a4f280f294f87e2f",
+    "revision": "03184d69a731be76655d6963c1134b4b",
     "url": "/dashboards-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/css/2.3f937d63.chunk.css"
   },
   {
-    "revision": "0b8b2b66e718eb33451a",
-    "url": "/dashboards-app/static/css/main.235fd7fc.chunk.css"
+    "revision": "7181b2d5e86da0b242ae",
+    "url": "/dashboards-app/static/css/main.1f746c5f.chunk.css"
   },
   {
     "revision": "00d7e396284115739269",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/js/2.72d679cb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0b8b2b66e718eb33451a",
-    "url": "/dashboards-app/static/js/main.a3a3db2b.chunk.js"
+    "revision": "7181b2d5e86da0b242ae",
+    "url": "/dashboards-app/static/js/main.87dc88da.chunk.js"
   },
   {
     "revision": "2e895e9ade3a00ab587a",
@@ -88,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dashboards-app/static/media/html5.664a8c00.png"
   },
   {
-    "revision": "0d69b06706bb5ef8c9dd3377bcd95ad6",
-    "url": "/dashboards-app/static/media/intersys-small.0d69b067.svg"
+    "revision": "0b441cbc47f85d32ad6e5ce8ad7d229e",
+    "url": "/dashboards-app/static/media/intersys-small.0b441cbc.svg"
   },
   {
     "revision": "afb47678875386aa6e81b65aa0640563",

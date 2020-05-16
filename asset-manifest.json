@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/dashboards-app/static/css/main.235fd7fc.chunk.css",
-    "main.js": "/dashboards-app/static/js/main.a3a3db2b.chunk.js",
-    "main.js.map": "/dashboards-app/static/js/main.a3a3db2b.chunk.js.map",
+    "main.css": "/dashboards-app/static/css/main.1f746c5f.chunk.css",
+    "main.js": "/dashboards-app/static/js/main.87dc88da.chunk.js",
+    "main.js.map": "/dashboards-app/static/js/main.87dc88da.chunk.js.map",
     "runtime-main.js": "/dashboards-app/static/js/runtime-main.b8b66b47.js",
     "runtime-main.js.map": "/dashboards-app/static/js/runtime-main.b8b66b47.js.map",
     "static/css/2.3f937d63.chunk.css": "/dashboards-app/static/css/2.3f937d63.chunk.css",
     "static/js/2.72d679cb.chunk.js": "/dashboards-app/static/js/2.72d679cb.chunk.js",
     "static/js/2.72d679cb.chunk.js.map": "/dashboards-app/static/js/2.72d679cb.chunk.js.map",
     "index.html": "/dashboards-app/index.html",
-    "precache-manifest.b130670957c3a4518a3026fad1464b63.js": "/dashboards-app/precache-manifest.b130670957c3a4518a3026fad1464b63.js",
+    "precache-manifest.e9dd474f6bf7b21f765f5cdff2ae1d36.js": "/dashboards-app/precache-manifest.e9dd474f6bf7b21f765f5cdff2ae1d36.js",
     "service-worker.js": "/dashboards-app/service-worker.js",
     "static/css/2.3f937d63.chunk.css.map": "/dashboards-app/static/css/2.3f937d63.chunk.css.map",
-    "static/css/main.235fd7fc.chunk.css.map": "/dashboards-app/static/css/main.235fd7fc.chunk.css.map",
+    "static/css/main.1f746c5f.chunk.css.map": "/dashboards-app/static/css/main.1f746c5f.chunk.css.map",
     "static/js/2.72d679cb.chunk.js.LICENSE.txt": "/dashboards-app/static/js/2.72d679cb.chunk.js.LICENSE.txt",
     "static/media/pitch.css": "/dashboards-app/static/media/MDC-3.baa75982.png",
     "static/media/apex-logo.jpg": "/dashboards-app/static/media/apex-logo.4839c50e.jpg",
@@ -29,7 +29,7 @@
     "static/media/github.png": "/dashboards-app/static/media/github.3cd5679f.png",
     "static/media/hammerJS.jpg": "/dashboards-app/static/media/hammerJS.b342da0d.jpg",
     "static/media/html5.png": "/dashboards-app/static/media/html5.664a8c00.png",
-    "static/media/intersys-small.svg": "/dashboards-app/static/media/intersys-small.0d69b067.svg",
+    "static/media/intersys-small.svg": "/dashboards-app/static/media/intersys-small.0b441cbc.svg",
     "static/media/js.png": "/dashboards-app/static/media/js.afb47678.png",
     "static/media/materialize.png": "/dashboards-app/static/media/materialize.ef208258.png",
     "static/media/mobile.png": "/dashboards-app/static/media/mobile.8f14ac5a.png",
@@ -45,7 +45,7 @@
     "static/js/runtime-main.b8b66b47.js",
     "static/css/2.3f937d63.chunk.css",
     "static/js/2.72d679cb.chunk.js",
-    "static/css/main.235fd7fc.chunk.css",
-    "static/js/main.a3a3db2b.chunk.js"
+    "static/css/main.1f746c5f.chunk.css",
+    "static/js/main.87dc88da.chunk.js"
   ]
 }
