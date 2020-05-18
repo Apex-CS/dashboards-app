@@ -31,9 +31,11 @@ class Header extends Component {
         </div>
       ]
     }else {
+      const pathtoHome = (!window.location.href.includes("apex-cs.github.io")) ? "/dashboards-app/" : "/";
+      
       return [
         <div>   
-          <Navbar brand={<Link to="/"><img href="/" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
+          <Navbar brand={<Link to={pathtoHome}><img href={pathtoHome} className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
               <NavItem href='/dashboards'>Go To Dashboards</NavItem>
               <NavItem href={this.currentPath()}><Icon>view_array</Icon></NavItem>
               <NavItem href="/mobile_mode"><Icon>phone_iphone</Icon></NavItem>

@@ -15,9 +15,11 @@ class HeaderAdp extends Component {
   }
 
   render() {
+    const pathtoHome = (!window.location.href.includes("apex-cs.github.io")) ? "/dashboards-app/adaptive_mode" : "/adaptive_mode";
+
     return(    
 
-      <Navbar brand={<Link to="/adaptive_mode"><img href="/adaptive_mode" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
+      <Navbar brand={<Link to={pathtoHome}><img href={pathtoHome} className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
           <NavItem href='/adaptive_mode/dashboards'>Go To Dashboards</NavItem>
           <NavItem href={this.currentPath()}><Icon>view_compact</Icon></NavItem>
           <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>
