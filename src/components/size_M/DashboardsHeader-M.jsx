@@ -19,19 +19,20 @@ export default class M_HeaderCharts extends Component {
   render() {
 
     const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
-        const chartOptionList = chart_types.map(dashboardType => {
-            return <NavItem 
-            value={dashboardType}
-            key={dashboardType}
-            onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
-            >{dashboardType} chart</NavItem>
-        });
+    const chartOptionList = chart_types.map(dashboardType => {
+        return <NavItem 
+        value={dashboardType}
+        key={dashboardType}
+        onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
+        >{dashboardType} chart</NavItem>
+    });
+    const pathtoHome = (!window.location.href.includes("apex-cs.github.io")) ? "/dashboards-app/adaptive_mode" : "/adaptive_mode";
 
     return(    
-    <Navbar href="/adaptive_mode" brand={<Link to="/adaptive_mode"><img href="/adaptive_mode" className="navbar_logo_M" src={logo} /></Link>} right className='top-menu navBar_M'>
-      {chartOptionList}
-      <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>    
-    </Navbar>
+      <Navbar href={pathtoHome} brand={<Link to={pathtoHome}><img href='/adaptive_mode' className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
+        {chartOptionList}
+        <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>    
+      </Navbar>
     );
   }
 }

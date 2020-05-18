@@ -19,16 +19,17 @@ export default class HeaderGraphics extends Component {
   render() {
 
     const chart_types = ['line', 'bar', 'area','gradient', 'dot'];
-        const chartOptionList = chart_types.map(dashboardType => {
-            return <NavItem 
-            value={dashboardType}
-            key={dashboardType}
-            onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
-            >{dashboardType} chart</NavItem>
-        });
+    const chartOptionList = chart_types.map(dashboardType => {
+        return <NavItem 
+        value={dashboardType}
+        key={dashboardType}
+        onClick={ e => this.dashboardSelectorHandler(e,dashboardType) }
+        >{dashboardType} chart</NavItem>
+    });
+    const pathtoHome = (!window.location.href.includes("apex-cs.github.io")) ? "/dashboards-app" : "/";
         
     return(
-    <Navbar brand={<Link to="/"><img href="/" className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
+    <Navbar brand={<Link to={pathtoHome}><img href={pathtoHome} className="navbar_logo" src={logo} /></Link>} right className='top-menu'>
       {chartOptionList}
       <NavItem href='/help'><Icon>help</Icon></NavItem>    
     </Navbar>
