@@ -27,7 +27,7 @@ export default class S_HeaderCharts extends Component {
         });
 
     return(    
-    <Navbar href="/adaptive_mode" brand={<Link to="/"><img href="/adaptive_mode" className="navbar_logo_M" src={logo} /></Link>} right className='top-menu navBar_M'>
+    <Navbar href="/adaptive_mode" brand={<Link to="/adaptive_mode"><img href="/adaptive_mode" className="navbar_logo_M" src={logo} /></Link>} right className='top-menu navBar_M'>
       {chartOptionList}
       <NavItem href='/adaptive_mode/help'><Icon>help</Icon></NavItem>    
     </Navbar>
