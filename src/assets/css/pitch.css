@@ -71,3 +71,10 @@
     background-color: #168bcd;
     margin: 10px;
 }
+
+.demo_button:hover,
+.demo_button:focus,
+.learn_button:hover,
+.learn_button:focus {
+    background-color: #44546a;
+}
