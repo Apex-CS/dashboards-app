@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, Icon } from 'react-materialize';
 import NavItem from './NavItem';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/apex-logo.jpg';
+import logo from '../../assets/images/apex-logo.svg';
 import '../../assets/css/header.css';
 
 class HeaderAdp extends Component {
