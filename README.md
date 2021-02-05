@@ -1,4 +1,4 @@
-# Dashboards  Demo Ready Application
+# Dashboards Demo Ready Application
 
 ![dashboards app | Web deploy](https://github.com/Apex-CS/dashboards-app/workflows/dashboards%20app%20%7C%20Web%20deploy/badge.svg)
 
