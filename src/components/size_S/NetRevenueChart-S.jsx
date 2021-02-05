@@ -11,12 +11,7 @@ import { Colors } from '../../assets/theme';
 
 const { i_blue, i_green, i_orange, i_aqua, i_purple, i_gray} = Colors;
 const colors = [ i_blue, i_green, i_orange, i_aqua, i_purple, i_gray ];
-const myHeaders = new Headers();
-const myInit = { method: 'GET',
-               headers: myHeaders,
-               mode: 'cors',
-               cache: 'default' };
-const myRequest = new Request('https://dashboards-app-back-end.azurewebsites.net/data', myInit);
+
 export default class SimpleRadialChart extends Component {
   state = {
     inheritProps: {},
@@ -62,7 +57,13 @@ export default class SimpleRadialChart extends Component {
   }
 
   async getDataSet() {
-    const response = await fetch(myRequest);
+    const headers = new Headers();
+    const options = { method: 'GET',
+                      headers: headers,
+                      mode: 'cors',
+                      cache: 'default' };
+    const request = new Request('https://dashboards-app-back-end.azurewebsites.net/data', options);
+    const response = await fetch(request);
     const data = await response.json();
 
     return data.data;
@@ -101,14 +102,6 @@ export default class SimpleRadialChart extends Component {
             services,
             finalConsumer,
             software,
-            fixed: {
-              // servers: (total.servers + value.servers).toFixed(2),
-              // storage: (total.storage + value.storage).toFixed(2),
-              // networking: total.networking + value.networking,
-              // services: total.services + value.services,
-              // finalConsumer: total.finalConsumer + value.finalConsumer,
-              // software: total.software + value.software,
-            }
         };
     }, {
         servers: 0,
@@ -186,12 +179,12 @@ export default class SimpleRadialChart extends Component {
             </RadialChart>
             <div className="legends_money">
                 <h2>Gross Revenue and Percentage</h2>
-                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.servers} %</span></p>
-                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.storage} %</span></p>
-                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.networking} %</span></p>
-                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.services} %</span></p>
-                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer} %</span></p>
-                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.software} %</span></p>          
+                <p>Servers - <span className="dlls">{this.financial(this.state.netRevenue.data.servers*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.servers)} %</span></p>
+                <p>Storage - <span className="dlls">{this.financial(this.state.netRevenue.data.storage*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.storage)} %</span></p>
+                <p>Networking - <span className="dlls">{this.financial(this.state.netRevenue.data.networking*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.networking)} %</span></p>
+                <p>Services - <span className="dlls">{this.financial(this.state.netRevenue.data.services*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.services)} %</span></p>
+                <p>Final Consumer - <span className="dlls">{this.financial(this.state.netRevenue.data.finalConsumer*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.finalConsumer)} %</span></p>
+                <p>Software - <span className="dlls">{this.financial(this.state.netRevenue.data.software*percentualUnitDlls)}k USD </span> / <span>{this.financial(this.state.netRevenue.data.software)} %</span></p>          
             </div>
         </Row>  
     );
