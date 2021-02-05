@@ -11,7 +11,6 @@ import {
   DiscreteColorLegend,
 } from 'react-vis';
 import { Colors, MONTHS } from '../../assets/theme';
-import { DATA_MONTHS } from '../charts/values';
 
 const { i_aqua } = Colors;
 
@@ -34,7 +33,22 @@ class ProfitChart extends Component {
     this.buildDataset(newProps.rangeOfValues);
   }
 
-  buildDataset(newData) {
+  async getDataSet() {
+    const headers = new Headers();
+    const options = { method: 'GET',
+                      headers: headers,
+                      mode: 'cors',
+                      cache: 'default' };
+    const request = new Request('https://dashboards-app-back-end.azurewebsites.net/data', options);
+    const response = await fetch(request);
+    const data = await response.json();
+
+    return data.data;
+  }
+
+  async buildDataset(newData) {
+    const dataSet = await this.getDataSet();
+    const DATA_MONTHS = dataSet.dataMonths;
     const { profit } = this.state;
     const initial = DATA_MONTHS.findIndex(
       element =>

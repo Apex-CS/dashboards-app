@@ -121,9 +121,7 @@ export default class SimpleRadialChart extends Component {
     for (var key in netRevenue.data) {
         netRevenue.data[key] = netRevenue.data[key] / range.length;
     }
-    
-    console.log(netRevenue);
-
+  
     this.setState({ netRevenue: netRevenue });
   }
 
