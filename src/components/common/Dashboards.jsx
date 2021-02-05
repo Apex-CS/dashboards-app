@@ -30,7 +30,6 @@ import {
 import { Colors, MONTHS } from '../../assets/theme';
 import Highlight from '../charts/Highlight';
 import Hammer from 'react-hammerjs';
-import { DATA_MONTHS, DATA_DAYS } from '../charts/values';
 
 const { i_blue, i_green } = Colors;
 
@@ -76,7 +75,22 @@ class Chart extends Component {
     }
   }
 
-  buildDataset(newData) {
+  async getDataSet() {
+    const headers = new Headers();
+    const options = { method: 'GET',
+                      headers: headers,
+                      mode: 'cors',
+                      cache: 'default' };
+    const request = new Request('https://dashboards-app-back-end.azurewebsites.net/data', options);
+    const response = await fetch(request);
+    const data = await response.json();
+
+    return data.data;
+  }
+
+  async buildDataset(newData) {
+    const dataSet = await this.getDataSet();
+    const DATA_MONTHS = dataSet.dataMonths;
     const { income, outcome } = this.state;
     const initial = DATA_MONTHS.findIndex(
       element =>
@@ -227,7 +241,9 @@ class Chart extends Component {
     }
   }
 
-  showTab(e) {
+  async showTab(e) {
+    const dataSet = await this.getDataSet();
+    const DATA_DAYS = dataSet.dataDays;
     const { income, crosshairPosition, baseVal } = this.state;
     const percent = e.target.width.baseVal.value / income.data.length;
     const point = this.state.crosshairValues[0];
