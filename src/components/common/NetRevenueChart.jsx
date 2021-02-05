@@ -8,11 +8,15 @@ import {
   FlexibleWidthXYPlot
 } from 'react-vis';
 import { Colors } from '../../assets/theme';
-import { DATA_MONTHS } from '../charts/values';
-import { NETREVENUE } from '../charts/values2';
 
 const { i_blue, i_green, i_orange, i_aqua, i_purple, i_gray} = Colors;
 const colors = [ i_blue, i_green, i_orange, i_aqua, i_purple, i_gray ];
+const myHeaders = new Headers();
+const myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+const myRequest = new Request('https://dashboards-app-back-end.azurewebsites.net/data', myInit);
 export default class SimpleRadialChart extends Component {
   state = {
     inheritProps: {},
@@ -57,7 +61,17 @@ export default class SimpleRadialChart extends Component {
     this.buildDataset(newProps.rangeOfValues);
   }
 
-  buildDataset(newData) {
+  async getDataSet() {
+    const response = await fetch(myRequest);
+    const data = await response.json();
+
+    return data.data;
+  }
+
+  async buildDataset(newData) {
+    const dataSet = await this.getDataSet();
+    const DATA_MONTHS = dataSet.dataMonths;
+    const NETREVENUE = dataSet.dataRevenue;
     const { netRevenue } = this.state;
     const initial = NETREVENUE.findIndex(
       element =>
@@ -72,14 +86,29 @@ export default class SimpleRadialChart extends Component {
     const range2 = DATA_MONTHS.slice(initial, end + 1);
     
     netRevenue.data = range.reduce((total,value) => {
+
+        const servers = total.servers + value.servers;
+        const storage = total.storage + value.storage;
+        const networking = total.networking + value.networking;
+        const services = total.services + value.services;
+        const finalConsumer = total.finalConsumer + value.finalConsumer;
+        const software = this.financial(total.software + value.software);
         
         return {
-            servers: total.servers + value.servers,
-            storage: total.storage + value.storage,
-            networking: total.networking + value.networking,
-            services: total.services + value.services,
-            finalConsumer: total.finalConsumer + value.finalConsumer,
-            software: total.software + value.software,
+            servers,
+            storage,
+            networking,
+            services,
+            finalConsumer,
+            software,
+            fixed: {
+              // servers: (total.servers + value.servers).toFixed(2),
+              // storage: (total.storage + value.storage).toFixed(2),
+              // networking: total.networking + value.networking,
+              // services: total.services + value.services,
+              // finalConsumer: total.finalConsumer + value.finalConsumer,
+              // software: total.software + value.software,
+            }
         };
     }, {
         servers: 0,
@@ -88,6 +117,7 @@ export default class SimpleRadialChart extends Component {
         services: 0,
         finalConsumer: 0,
         software: 0,
+        fixed: {},
     });
 
     netRevenue.totalRevenue = range2.reduce(
@@ -99,11 +129,17 @@ export default class SimpleRadialChart extends Component {
         netRevenue.data[key] = netRevenue.data[key] / range.length;
     }
     
+    console.log(netRevenue);
+
     this.setState({ netRevenue: netRevenue });
   }
-  
+
   assignProps(props) {
     this.setState({ inheritProps: props });
+  }
+
+  financial(x) {
+    return Number.parseFloat(x).toFixed(2);
   }
 
   render() { 
@@ -142,20 +178,20 @@ export default class SimpleRadialChart extends Component {
                 {
                     value && <Hint value={value}>
                     <div className="pieChartHint">
-                        <p>Revenue Percentage: <span>{value.theta.toFixed(2)} %</span></p>
-                        <p>Gross Revenue: <span className="dlls">$ {(percentualUnitDlls * value.theta).toFixed(2)}k USD</span></p>
+                        <p>Revenue Percentage: <span>{value.theta} %</span></p>
+                        <p>Gross Revenue: <span className="dlls">$ {(percentualUnitDlls * value.theta)}k USD</span></p>
                     </div>
                     </Hint>
                 }
             </RadialChart>
             <div className="legends_money">
                 <h2>Gross Revenue and Percentage</h2>
-                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.servers.toFixed(2)} %</span></p>
-                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.storage.toFixed(2)} %</span></p>
-                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.networking.toFixed(2)} %</span></p>
-                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.services.toFixed(2)} %</span></p>
-                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer.toFixed(2)} %</span></p>
-                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls).toFixed(2)}k USD </span> / <span>{this.state.netRevenue.data.software.toFixed(2)} %</span></p>          
+                <p>Servers - <span className="dlls">{(this.state.netRevenue.data.servers*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.servers} %</span></p>
+                <p>Storage - <span className="dlls">{(this.state.netRevenue.data.storage*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.storage} %</span></p>
+                <p>Networking - <span className="dlls">{(this.state.netRevenue.data.networking*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.networking} %</span></p>
+                <p>Services - <span className="dlls">{(this.state.netRevenue.data.services*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.services} %</span></p>
+                <p>Final Consumer - <span className="dlls">{(this.state.netRevenue.data.finalConsumer*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.finalConsumer} %</span></p>
+                <p>Software - <span className="dlls">{(this.state.netRevenue.data.software*percentualUnitDlls)}k USD </span> / <span>{this.state.netRevenue.data.software} %</span></p>          
             </div>
         </Row>  
     );
